@@ -272,7 +272,7 @@ body {
 .hero-image {
     height: 400px;
     padding: 10px;
-    border-radius: 50px;
+    border-radius: 5px;
     border: 3px solid var(--highlight);
     border-top-width: 10px;
     border-bottom-width: 10px;
@@ -281,7 +281,7 @@ body {
     margin-left: -5%;
     position: relative;
     z-index: 1;
-    background: url('photo goes here') -50px;
+    background: url('https://images.squarespace-cdn.com/content/v1/5f04d44f0e8efa42ad3ea358/1602269155417-TQPI6Q2LVPFFHHFZHYAD/berniejovankaforwebsite.png?format=1000w');
     background-size: cover;
     width: 110%;
     box-shadow: 0 5px 5px #00000033;
@@ -291,7 +291,7 @@ body {
     padding-top: 20px;
     padding-bottom: 20px;
     grid-column: 1 / span 3;
-    background: var(--highlight);
+    background: var(--secondary);
     z-index: 1;
     /*width: 100vw;*/
     /*position: relative;*/
