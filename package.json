@@ -1,0 +1,15 @@
+{
+    "name": "j4s",
+    "version": "0.0.0",
+    "private": true,
+    "description": "...a new project...",
+    "scripts": {
+        "help": "modulocli help",
+        "start": "modulocli srcserve",
+        "build": "modulocli ssg -f"
+    },
+    "devDependencies": {
+        "express": "^4.18.2",
+        "mdu.js": "^0.0.33"
+    }
+}
