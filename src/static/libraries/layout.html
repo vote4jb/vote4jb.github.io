@@ -12,6 +12,7 @@
 
     <Script>
         function prepareCallback() {
+            element.removeAttribute('title'); // get rid of annoying title attr
             // For now, store the navigation array and generate year in JS
             return {
                 currentYear: (new Date()).getFullYear(),
@@ -45,7 +46,7 @@
         let image = null;
         let originalWidth = null;
         let originalParentWidth = null;
-        const THRESH = 100;
+        const THRESH = 100; // should make proportional to screen height
         const logoSize = 5;
         const logoMax = '45vw';
         script.exports.logoSize = logoSize;
@@ -64,11 +65,11 @@
         function handleScroll(scrollPos) {
             // Do something with the throttled scroll position
             if (scrollPos > THRESH) {
-                image.setAttribute('style', `width: ${ originalParentWidth }; max-width: 100%`);
+                image.setAttribute('style', `width: ${ originalParentWidth }; max-width: 100%;  transition: 0.3s !important`);
                 /*image.setAttribute('style', '');*/
             } else {
                 const diff = originalWidth - originalParentWidth;
-                image.setAttribute('style', `width: ${ originalWidth }px; max-width: ${ logoMax }; margin-right: -${diff}px`);
+                image.setAttribute('style', `width: ${ originalWidth }px; max-width: ${ logoMax }; margin-right: -${diff}px;   transition: 0.3s !important`);
             }
         }
 

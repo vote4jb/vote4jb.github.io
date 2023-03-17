@@ -101,7 +101,7 @@ body {
 
 .Page-nav img {
     min-height: 60px;
-    transition: 0.2s;
+    /*transition: 0.2s;*/
     width: 90%;
 }
 
@@ -118,7 +118,28 @@ body {
     margin-top: 18px; /* Baseline align with logo */
 }
 
-.Page-nav div a {
+.Page-nav div a,
+.Page-nav div button {
+    color: var(--primary);
+    text-decoration: none;
+    border: 3px solid var(--primary);
+    border-bottom-width: 4px;
+    border-top-width: 2px;
+    padding: 8px;
+    display: inline-block;
+    border-radius: 3px;
+    background: #ffffff00;
+    transition: background 0.2s, color 0.2s;
+    box-shadow: 0 0 10px #ffffff00;
+    transition: box-shadow 0.2s;
+}
+
+.Page-nav div a:hover,
+.Page-nav div button:hover {
+    box-shadow: 0 0 10px var(--primary);
+}
+
+.Page-nav div input {
     color: var(--primary);
     text-decoration: none;
     border: 1px solid var(--primary);
@@ -126,12 +147,53 @@ body {
     display: inline-block;
     border-radius: 3px;
     background: #ffffff00;
+    width: 50%;
     transition: background 0.2s, color 0.2s;
 }
 
-.Page-nav div a:hover {
-    background: var(--white);
-    color: var(--secondary);
+.Page-nav div input::placeholder {
+    color: var(--althighlight2);
+    font-weight: bold;
+}
+
+.Page-nav .right-involvement-nav a:hover {
+}
+.right-involvement-nav {
+    /*width: 180px;*/
+    position: relative;
+    min-height: 60px;
+    /*transition: 0.2s;*/
+    width: 120%;
+    min-width: 100px;
+    z-index: -1;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 80px 1fr;
+    padding-left: 20%;
+}
+
+.right-topbutton-holder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.right-dropdown-holder {
+    background: var(--highlight);
+    color: var(--white);
+    border: 2px solid var(--primary);
+    border-radius: 10px;
+    padding: 5px;
+    padding-bottom: 0;
+    box-shadow: 0 5px 5px #00000033;
+    overflow: hidden;
+    text-align: right;
+    padding-right: 30%;
+}
+
+.right-dropdown-holder > a {
+    margin-bottom: 10px;
 }
 
 .right-links {
@@ -281,7 +343,8 @@ body {
     margin-left: -5%;
     position: relative;
     z-index: 1;
-    background: url('https://images.squarespace-cdn.com/content/v1/5f04d44f0e8efa42ad3ea358/1602269155417-TQPI6Q2LVPFFHHFZHYAD/berniejovankaforwebsite.png?format=1000w');
+    background: url('https://images.squarespace-cdn.com/content/v1/5f04d44f0e8efa42ad3ea358/1602269155417-TQPI6Q2LVPFFHHFZHYAD/berniejovankaforwebsite.png?format=1000w')
+                0 -70px;
     background-size: cover;
     width: 110%;
     box-shadow: 0 5px 5px #00000033;
@@ -441,6 +504,7 @@ body {
     z-index: 1;
 }
 
+/*
 input:not([type=submit]) {
     font-size: 1.5rem;
     border: 2px solid var(--darkgray);
@@ -460,6 +524,7 @@ button {
     box-shadow: 3px 3px 0 var(--primary);
     color: var(--primary);
 }
+*/
 
 h1 {
     clear: both;
@@ -467,6 +532,33 @@ h1 {
 
 .Page-container .hero-image-right {
     margin-top: 20vh; /* Ensure image on right gets proportional spacing above */
+}
+
+a.join-the-cause-nav-button {
+    display: none;
+    color: var(--primary)  !important;
+    border-color: var(--secondary) !important;
+    font-weight: 800;
+    background-color: var(--secondary)  !important;
+    transition: background-color 0.1s, color 0.1s;
+}
+
+.join-the-cause-nav-button:hover {
+    background-color: var(--secondary);
+    color: var(--white);
+}
+
+.join-the-cause-title-button > a {
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+.join-the-cause-title-button {
+    display: block;
+}
+
+.Page-nav .right-involvement-nav {
+    font-size: 1.0rem;
 }
 
 @media (max-width: 1440px) {
@@ -478,6 +570,12 @@ h1 {
         margin-right: 10px;
         width: 210px;
         margin-top: -8px; /* move up */
+    }
+    .join-the-cause-nav-button {
+        display: inline-block;
+    }
+    .join-the-cause-title-button {
+        display: none;
     }
 
     .Page-navLink {
@@ -491,7 +589,46 @@ h1 {
         text-align: right;
         margin-top: 4px;
     }
+    .Page-nav .right-involvement-nav {
+        min-width: 200px;
+    }
+}
 
+@media (max-width: 1440px) {
+    .Page-container .hero-image-right {
+        margin-top: 10px;
+    }
+    .Page-nav img { /* Move 10px left */
+        margin-left: -10px;
+        margin-right: 10px;
+        width: 210px;
+        margin-top: -8px; /* move up */
+    }
+    .join-the-cause-nav-button {
+        display: visible;
+    }
+
+    .Page-navLink {
+        font-size: 1.7rem;
+        min-width: 170px;
+        margin-left: 0;
+        margin-top: 1px;
+    }
+
+    .right-links {
+        text-align: right;
+        margin-top: 4px;
+    }
+    .Page-nav .right-involvement-nav {
+        font-size: 0.5rem;
+        min-width: 200px;
+    }
+    .Page-nav .right-involvement-nav p {
+        font-size: 0.3rem;
+    }
+    .Page-nav .right-involvement-nav input {
+        width: 100%;
+    }
 }
 
 @media (max-width: 992px) {
