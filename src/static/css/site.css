@@ -162,6 +162,7 @@ body {
     /*width: 180px;*/
     position: relative;
     min-height: 60px;
+    max-height: auto;
     /*transition: 0.2s;*/
     width: 120%;
     min-width: 100px;
@@ -331,6 +332,25 @@ body {
     grid-gap: 10px;
 }
 
+.hero-background-splash {
+    opacity: 0.5;
+}
+.hero-background-splash,
+.hero-background-overlay {
+    position: absolute;
+    width: 100%;
+    z-index: 0;
+    top: -100px;
+    display: block;
+}
+
+.hero-background-overlay {
+    background: linear-gradient(to bottom, #ffffff77, #ffffff99, #ffffff11);
+    z-index: 1;
+    width: 100vw;
+    height: 200vh;
+}
+
 .hero-image {
     height: 400px;
     padding: 10px;
@@ -430,7 +450,11 @@ body {
     margin-left: auto;
     z-index: 1;
     /*border: 1px solid white;*/
-    box-shadow: 20px 20px 0 var(--highlight);
+    /*box-shadow: 20px 20px 0 var(--highlight);*/
+    /*border: 1px solid var(--highlight);*/
+    border: 10px solid #ffffffaa;
+    border-radius: 20px;
+    box-shadow: 0 5px 5px #00000033;
 }
 
 .Page-container .hero-text-top,
@@ -620,11 +644,15 @@ a.join-the-cause-nav-button {
         margin-top: 4px;
     }
     .Page-nav .right-involvement-nav {
-        font-size: 0.5rem;
+        font-size: 0.9rem;
         min-width: 200px;
     }
     .Page-nav .right-involvement-nav p {
-        font-size: 0.3rem;
+        font-size: 0.8rem;
+    }
+    .Page-nav .right-involvement-nav a {
+        font-size: 0.6rem;
+        text-transform: uppercase;
     }
     .Page-nav .right-involvement-nav input {
         width: 100%;
