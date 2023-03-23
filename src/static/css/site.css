@@ -470,16 +470,19 @@ body {
 }
 
 .Page-container .hero-image-right {
-    width: 600px;
+    width: 400px;
     margin-right: 0;
     margin-left: auto;
     z-index: 1;
+    margin-bottom: -100px;
     /*border: 1px solid white;*/
     /*box-shadow: 20px 20px 0 var(--highlight);*/
     /*border: 1px solid var(--highlight);*/
+    /*
     border: 10px solid #ffffffaa;
     border-radius: 20px;
     box-shadow: 0 5px 5px #00000033;
+    */
 }
 
 .Page-container .hero-text-top,
