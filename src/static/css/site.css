@@ -331,11 +331,15 @@ body {
     grid-column: 1;
     display: flex;
     flex-wrap: wrap;
-    align-items: baseline;
-    align-content: center;
+    justify-content: center;
+    align-items: center;
 }
 
 .image-gallery img {
+    box-shadow: 0 5px 5px inset #00000033;
+    border: 1px solid black;
+    border-radius: 3px;
+    margin: 2px;
     /*
     margin: 20px;
     width: 100%;
@@ -343,7 +347,7 @@ body {
     border-radius: 20px;
     box-shadow: 0 5px 5px #00000033;
     */
-    width: 20vw;
+    width: 19.5vw;
 }
 
 .hero-inset-grid {
@@ -696,6 +700,11 @@ a.join-the-cause-nav-button {
 
     .layout-container {
         grid-template-columns: 5px 1fr 5px;
+    }
+
+
+    .image-gallery img {
+        width: 19.5vw;
     }
 
     .Page-navHBMenu {
