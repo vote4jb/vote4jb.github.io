@@ -12,7 +12,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
 
 
 </head>
@@ -48,9 +48,17 @@
             </li>
         {% endfor %}
     </ul>
+    {% if props.navselected != "index.html" %}
+    <div style="grid-column: 3">
+        <a href="/contact/" class="join-the-cause-nav-button">Join the cause!</a>
+    </div>
+    {% endif %}
+
+    {% comment %}
     <div class="right-involvement-nav" style="grid-column: 3">
         <div class="right-topbutton-holder">
-            <a href="/index.html#c" class="join-the-cause-nav-button">Join the cause! ▾</a>
+            {#<a href="/index.html#c" class="join-the-cause-nav-button">Join the cause! ▾</a>#}
+            <a href="/contact/" class="join-the-cause-nav-button">Join the cause!</a>
         </div>
         {% if props.navselected == "index.html" %}
         <div class="right-dropdown-holder">
@@ -77,6 +85,7 @@
         </div>
     </div>
         {% endif %}
+    {% endcomment %}
     <!--<div class="right-links" style="grid-column: 3"></div>-->
 </nav>
 
@@ -86,7 +95,7 @@
 
 <a name="c"></a> <!-- c = content -->
 {% if props.toptitle %}
-    <div class="Page-container layout-container" style="background: var(--lightgray)">
+    <div class="Page-container layout-container page-top">
         <h1 class="hero-text-top layout-container">
             <div>{{ props.toptitle }}</div>
         </h1>
@@ -96,6 +105,18 @@
             </h1>
         {% endif %}
     </div>
+{% endif %}
+
+{% if props.navselected == "index.html" %}
+<div style="position: absolute; right: 20px; top: 350px; z-index: 10; height: 100%; max-height: 100%">
+    <div style="position: sticky; top: 2px">
+        <a class="hero-cta" href="/contact/">
+            Join the cause
+            <!--<span style="font-weight: 200" alt="Right arrow">&#x29d0;</span>-->
+            <span style="font-weight: 200" alt="Right arrow">&#x25B9;</span>
+        </a>
+    </div>
+</div>
 {% endif %}
 
 <slot class="Page-container layout-container">

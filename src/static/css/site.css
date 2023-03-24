@@ -12,7 +12,7 @@
   --highlight2: #FFFFAAAA;
   --althighlight2: #FFE35590;
   --highlight50: #FFD30050;
-  --althighlight50: #D9A40050;
+  --althighlight50: #edcd1f50;
     /* Set up font stack */
   --font: "Oswald";
 }
@@ -21,7 +21,6 @@ html {
     line-height: 1.15;
     -webkit-text-size-adjust: 100%;
     font-family: 'Oswald', sans-serif;
-    font-weight: 300;
     font-size: 1.3rem;
 }
 
@@ -35,6 +34,30 @@ html a {
 
 body {
     margin: 0;
+    position: relative;
+    overflow-x: hidden;
+    background: var(--black);
+}
+
+p {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.9rem;
+}
+
+.hero-image-caption {
+    font-family: 'Oswald', sans-serif;
+    font-size: 2rem;
+    width: 85%;
+    font-weight: bold;
+    margin-top: 300px;
+    margin-left: 5%;
+    line-height: 2.6rem;
+}
+
+.hero-image-caption > span {
+    background: #00000099;
+    padding: 0;
+    color: white;
 }
 
 .layout-container {
@@ -103,6 +126,7 @@ body {
     min-height: 60px;
     /*transition: 0.2s;*/
     width: 90%;
+    margin-bottom: -180%;
 }
 
 .Page-nav li {
@@ -259,6 +283,107 @@ body {
     /*border-color: var(--highlight);*/
 }
 
+.hero-right-container {
+    position: absolute;
+    z-index: 3;
+    right: 0;
+    height: 430px;
+    min-width: 33vw;
+    text-align: center;
+}
+
+.hero-quote {
+    background: white;
+    height: 230px;
+    width: 500px;
+    text-align: left;
+    font-family: 'Playfair Display', serif;
+    border-radius: 1px 0 0 2px;
+    padding: 10px;
+    box-shadow:
+        0     5px 5px                #00000033,
+        0     5px  5px         inset #00000011,
+        0     100px 3000px -200px          inset var(--highlight2),
+        0    -100px 70px 10px inset #00000022;
+}
+.hero-quote h1 {
+    font-style: italic;
+    font-weight: 400;
+    padding: 0;
+    margin: 0;
+}
+
+.hero-cta {
+    color: var(--primary);
+    border-color: var(--secondary);
+    font-weight: 800;
+    background-color: var(--secondary);
+    text-decoration: none;
+    transition: background-color 0.1s, color 0.1s;
+    display: inline-block;
+    font-size: 2rem;
+    padding: 10px;
+    border-radius: 10px;
+    border: 3px solid var(--primary);
+    border-top-width: 2px;
+    border-bottom-width: 4px;
+}
+
+.hero-cta:hover {
+    background-color: var(--secondary);
+    color: var(--white);
+    animation: 1.5s infinite alternate GlowingButton;
+    text-shadow: 0 0 10px white;
+}
+
+
+@keyframes GlowingButton {
+/*    from {
+        box-shadow:
+            5px  5px 10px #ffffff00,
+            5px -5px 10px #ffffff00,
+            -5px  5px 10px #ffffff00,
+            -5px -5px 10px #ffffff00;
+    }
+    1% {
+        box-shadow:
+            5px  5px 10px var(--highlight50),
+            5px -5px 10px var(--highlight),
+            -5px  5px 10px var(--lightgray),
+            -5px -5px 10px var(--highlight2);
+    }*/
+    from {
+        box-shadow:
+            -5px  -5px 1px 10px var(--highlight2),
+            -5px -25px 1px 100px var(--althighlight50),
+            -25px  -5px 1px 100px var(--higlight2),
+            -25px -25px 1px 10px var(--highlight50);
+    }
+    50% {
+        box-shadow:
+            -5px  -5px 1px 10px var(--highlight2),
+            -5px -25px 1px 100px var(--althighlight50),
+            -25px  -5px 1px 100px var(--higlight2),
+            -25px -25px 1px 10px var(--highlight50);
+    }
+    to {
+        box-shadow:
+            5px  5px 10px var(--highlight50),
+            5px -5px 10px var(--highlight50),
+            -5px  5px 10px var(--highlight50),
+            -5px -5px 10px var(--highlight50);
+    }
+}
+
+
+.page-top {
+    box-shadow:
+        0     5px 5px                #00000033,
+        0     5px  5px         inset #00000011,
+        0     100px 3000px -200px          inset var(--highlight2),
+        0    -100px 70px 10px inset #00000022;
+}
+
 .Page-footer {
     padding-top: 100px;
     background: linear-gradient(to bottom, #404040, #333, #222, #111);
@@ -358,7 +483,7 @@ body {
 }
 
 .hero-background-splash {
-    opacity: 0.5;
+    opacity: 0.8;
 }
 .hero-background-splash,
 .hero-background-overlay {
@@ -370,7 +495,32 @@ body {
 }
 
 .hero-background-overlay {
-    background: linear-gradient(to bottom, #ffffff77, #ffffff99, #ffffff11);
+    /*
+    background: linear-gradient(to bottom right,
+        #ffffff99,
+        #ffffffaa,
+        #ffffffcc,
+        #ffffffee,
+        #ffffffaa,
+        #ffffff22,
+        #ffffff66,
+        #ffffffcc,
+        #ffffffaa,
+        #ffffff55,
+        #ffffff11,
+        #ffffff11
+    );
+    */
+    background: linear-gradient(to bottom right,
+        #ffffff99,
+        #ffffffcc,
+        #ffffffee,
+        #ffffff55,
+        #ffffff99,
+        #ffffff55,
+        #ffffffee
+    );
+
     z-index: 1;
     width: 100vw;
     height: calc(100vh + 200px);
@@ -419,7 +569,11 @@ body {
 .hero-letter {
     background: WhiteSmoke;
     padding: 20px;
-    box-shadow: 0 5px 5px #00000066;
+    box-shadow:
+        0     5px 5px                #00000066,
+        0     5px  5px         inset #00000011,
+        0     100px 3000px -200px          inset var(--highlight2),
+        0    -100px 70px 10px inset #00000022;
 }
 
 .hero-letter img {
@@ -489,7 +643,7 @@ body {
 .Page-container .hero-text-bottom {
     padding-top: 65px;
     margin: 0;
-    border-bottom: 6px solid var(--secondary);
+    border-bottom: 6px solid var(--primary);
     text-align: right;
     font-size: 4rem; 
     width: 100vw;
