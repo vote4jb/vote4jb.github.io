@@ -483,7 +483,7 @@ p {
 }
 
 .hero-background-splash {
-    opacity: 0.8;
+    opacity: 0.5;
 }
 .hero-background-splash,
 .hero-background-overlay {
@@ -495,6 +495,7 @@ p {
 }
 
 .hero-background-overlay {
+    background: linear-gradient(to bottom, #ffffff77, #ffffff99, #ffffff11);
     /*
     background: linear-gradient(to bottom right,
         #ffffff99,
@@ -510,7 +511,6 @@ p {
         #ffffff11,
         #ffffff11
     );
-    */
     background: linear-gradient(to bottom right,
         #ffffff99,
         #ffffffcc,
@@ -520,6 +520,7 @@ p {
         #ffffff55,
         #ffffffee
     );
+    */
 
     z-index: 1;
     width: 100vw;
