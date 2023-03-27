@@ -22,17 +22,21 @@
             return {
                 currentYear: (new Date()).getFullYear(),
                 navigation: [
-                    {
+                    /*{
                         title: "Leadership",
                         file: "index.html",
+                    },*/
+                    {
+                        title: "About",
+                        file: "about/",
                     },
                     {
                         title: "Endorsements",
                         file: "endorsements/",
                     },
                     {
-                        title: "About",
-                        file: "about/",
+                        title: "Contact",
+                        file: "contact/",
                     },
                     /*
                     {
@@ -53,7 +57,8 @@
 
 <Component name="NavBar">
     <Props
-        navselected
+        selected
+        navigation
     ></Props>
 
     <Template

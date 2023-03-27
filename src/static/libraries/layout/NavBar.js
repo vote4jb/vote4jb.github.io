@@ -3,30 +3,7 @@ function prepareCallback() {
     // For now, store the navigation array and generate year in JS
     return {
         currentYear: (new Date()).getFullYear(),
-        navigation: [
-            {
-                title: "Leadership",
-                file: "index.html",
-            },
-            {
-                title: "Endorsements",
-                file: "endorsements/",
-            },
-            {
-                title: "About",
-                file: "about/",
-            },
-            /*
-            {
-                title: "News",
-                file: "news/",
-            },
-            {
-                title: "Contact",
-                file: "contact/",
-            },
-            */
-        ],
+        navigation: props.navigation,
     };
 }
 
@@ -39,26 +16,30 @@ const logoMax = '45vw';
 script.exports.logoSize = logoSize;
 script.exports.logoMax = logoMax;
 
+/*
 function _getDimensions() {
     originalWidth = image.offsetWidth;
     originalParentWidth = image.offsetWidth / logoSize;
 }
+*/
 
 function imageMount({ el }) {
+    //return; // XXX
     image = el;
-    _getDimensions();
+    //_getDimensions();
 }
+
 
 function handleScroll(scrollPos) {
     // Do something with the throttled scroll position
     if (scrollPos > THRESH) {
-        image.setAttribute('style', `width: ${ originalParentWidth }; max-width: 100%;  transition: 0.3s !important`);
-        /*image.setAttribute('style', '');*/
+        image.classList.add('nav-logo--forcibly-normal');
     } else {
-        const diff = originalWidth - originalParentWidth;
-        image.setAttribute('style', `width: ${ originalWidth }px; max-width: ${ logoMax }; margin-right: -${diff}px;   transition: 0.3s !important`);
+        image.classList.remove('nav-logo--forcibly-normal');
     }
 }
+
+
 
 let lastKnownScrollPosition = 0;
 let ticking = false;
@@ -74,8 +55,11 @@ document.addEventListener("scroll", (event) => {
         ticking = true;
     }
 });
+
+/*
 let timeout;
 window.onresize = function() { // redo dimensions when resize
     clearTimeout(timeout);
     timeout = setTimeout(_getDimensions, 100);
 };
+*/

@@ -2,20 +2,34 @@
 
 <a name="nav"></a>
 <nav class="Page-nav layout-container">
-    <a href="/" style="grid-column: 1">
-        {#src="/static/images/logo1_transparent.png" alt="Delivering Results! Together. Jovanka Beckles for State Senate"#}
-        {% if props.selected == "index.html" %}
+    <div style="grid-column: 1;" class="logo-wrapper">
+        <a href="/" style="border: none">
             <img
                 [script.image]
-                style="width: {{ script.exports.logoSize }}00%; max-width: {{ script.exports.logoMax }}; transition: 0.3s !important;"
+                class="
+                    nav-logo
+                    {% if props.selected == "index.html" %}
+                        nav-logo--hero
+                    {% endif %}
+                "
                 src="/static/images/logo1_transparent_filled_shadow_alt.png" alt="Delivering Results! Together. Jovanka Beckles for State Senate"
             />
-        {% else %}
-            <img
-                src="/static/images/logo1_transparent_filled_shadow_alt.png" alt="Delivering Results! Together. Jovanka Beckles for State Senate"
-            />
-        {% endif %}
-    </a>
+            {% comment %}
+            {#src="/static/images/logo1_transparent.png" alt="Delivering Results! Together. Jovanka Beckles for State Senate"#}
+            {% if props.selected == "index.html" %}
+                <img
+                    [script.image]
+                    style="width: {{ script.exports.logoSize }}00%; max-width: {{ script.exports.logoMax }}; transition: 0.3s !important;"
+                    src="/static/images/logo1_transparent_filled_shadow_alt.png" alt="Delivering Results! Together. Jovanka Beckles for State Senate"
+                />
+            {% else %}
+                <img
+                    src="/static/images/logo1_transparent_filled_shadow_alt.png" alt="Delivering Results! Together. Jovanka Beckles for State Senate"
+                />
+            {% endif %}
+            {% endcomment %}
+        </a>
+    </div>
     <ul>
         {% for page in script.navigation %}
             <li>
@@ -25,21 +39,22 @@
                         Page-navLink
                         {% if page.file == props.selected %}Page-navLink--selected{% endif %}
                     ">
-                    {{ page.title|upper }}
+                    {{ page.title }}
                 </a>
             </li>
         {% endfor %}
     </ul>
-    {% if props.selected != "index.html" %}
+
     <div style="grid-column: 3">
-        <a href="/contact/" class="join-the-cause-nav-button">Join the cause!</a>
+        <a href="/contact/?volunteer=y" class="join-the-cause-nav-button">Volunteer</a>
+        <a href="/contact/?donate=y" class="join-the-cause-nav-button">Pledge</a>
     </div>
-    {% endif %}
 
 {% comment %}
+    {% if props.selected != "index.html" %}
+    {% endif %}
     <div class="right-involvement-nav" style="grid-column: 3">
         <div class="right-topbutton-holder">
-            {#<a href="/index.html#c" class="join-the-cause-nav-button">Join the cause! ▾</a>#}
             <a href="/contact/" class="join-the-cause-nav-button">Join the cause!</a>
         </div>
         {% if props.selected == "index.html" %}
@@ -76,4 +91,21 @@
 </div>
 
 <a name="c"></a> <!-- c = content -->
+
+
+{% comment %}
+{% if props.selected == "index.html" %}
+<div style="position: absolute; right: 20px; top: 350px; z-index: 10; height: 100%; max-height: 100%">
+    <div style="position: sticky; top: 2px">
+        <a class="hero-cta" href="/contact/">
+            Volunteer
+            <!--<span style="font-weight: 200" alt="Right arrow">&#x29d0;</span>-->
+            <span style="font-weight: 200" alt="Right arrow">&#x25B9;</span>
+        </a>
+        <a href="/contact/?volunteer=y" class="join-the-cause-nav-button">Volunteer</a>
+        <a href="/contact/?donate=y" class="join-the-cause-nav-button">Pledge</a>
+    </div>
+</div>
+{% endif %}
+{% endcomment %}
 
