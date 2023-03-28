@@ -1,7 +1,7 @@
 
 <div class="form-container">
     <h2>{{ state.title }}</h2>
-    <form name="{{ script.form_name }}" method="POST" netlify>
+    <form name="contact" method="POST" netlify>
         {% for field in script.fields %}
             {% if field.name in "volunteer,pledge" %}
                 <div class="field-pair">
