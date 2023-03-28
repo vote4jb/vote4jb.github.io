@@ -1,11 +1,16 @@
 <!DOCTYPE HTML><html><head>
 
 
-<link rel="stylesheet" href="/_modulo/modulo-build-x1qtupsr.css" /></head><body><x-page navselected="contact/" toptitle="Contact" bottomtitle="Get involved" modulo-original-html="
+<link rel="stylesheet" href="/_modulo/modulo-build-x1vsckm9.css" /></head><body><x-page navselected="contact/" toptitle="Contact" modulo-original-html="
 
+
+<x-contactform></x-contactform>
+
+
+<h1>Other contact methods</h1>
 
 <p>If you’re interested in keeping tabs on our work or hearing about upcoming
-events, email ___ or follow us on twitter ___</p>
+events, email jovanka4senate@gmail.com or follow us on Twitter.</p>
 
 <p>We’re a grass-roots, volunteer-oriented organization, which means
 we need volunteers. This means we need you, a volunteer, to join! In
@@ -18,7 +23,7 @@ and make memes.</li>
 
 <p>With that being said, you don’t need any particular skills or even more than a
 few hours to be a huge help to our movement. Power flows from the people, so
-get involved! We strive to actively mentor. Email us at pta@eastbaydsa.org if
+get involved! We strive to actively mentor. Email us at jovanka4senate@gmail.com if
 you are interested.</p>
 
 
@@ -42,42 +47,58 @@ you are interested.</p>
 
 
 
+<x-navbar selected="contact/" navigation:="[{&quot;title&quot;:&quot;About&quot;,&quot;file&quot;:&quot;about/&quot;},{&quot;title&quot;:&quot;Endorsements&quot;,&quot;file&quot;:&quot;endorsements/&quot;},{&quot;title&quot;:&quot;Contact&quot;,&quot;file&quot;:&quot;contact/&quot;}]" modulo-original-html="">
+
 <a name="nav"></a>
 <nav class="Page-nav layout-container">
-    <a href="/" style="grid-column: 1">
-        
-        
-            <img src="/static/images/logo1_transparent_filled_shadow_alt.png" alt="Delivering Results! Together. Jovanka Beckles for State Senate">
-        
-    </a>
+    <div style="grid-column: 1;" class="logo-wrapper">
+        <a href="/" style="border: none">
+            <img [script.image]="" class="
+                    nav-logo
+                    
+                " src="/static/images/logo1_transparent_filled_shadow_alt.png" alt="Delivering Results! Together. Jovanka Beckles for State Senate">
+            
+        </a>
+    </div>
     <ul>
         
             <li>
-                <a href="/index.html#c" title="About the Campaign" class="
+                <a href="/about/#c" title="About" class="
                         Page-navLink
                         
                     ">
-                    ABOUT THE CAMPAIGN
+                    About
                 </a>
             </li>
         
             <li>
-                <a href="/about/#c" title="A History of Activism" class="
+                <a href="/endorsements/#c" title="Endorsements" class="
                         Page-navLink
                         
                     ">
-                    A HISTORY OF ACTIVISM
+                    Endorsements
+                </a>
+            </li>
+        
+            <li>
+                <a href="#c" title="Contact" class="
+                        Page-navLink
+                        Page-navLink--selected
+                    ">
+                    Contact
                 </a>
             </li>
         
     </ul>
-    <div class="right-involvement-nav" style="grid-column: 3">
-        <div class="right-topbutton-holder">
-            <a href="/index.html#c" class="join-the-cause-nav-button">Join the cause! ▾</a>
-        </div>
-        
+
+    <div style="grid-column: 3; width: 250px">
+        <a href="/contact/?volunteer=y" class="right-cta">Volunteer</a>
+        <a href="/contact/?pledge=y" class="right-cta">Pledge</a>
+    </div>
+
+
     <!--<div class="right-links" style="grid-column: 3"></div>-->
-</div></nav>
+</nav>
 
 <div class="Page-navHBMenu">
     <a href="#nav" class="btn-hbmenu">☰</a>
@@ -85,14 +106,16 @@ you are interested.</p>
 
 <a name="c"></a> <!-- c = content -->
 
-    <div class="Page-container layout-container" style="background: var(--lightgray)">
+
+
+
+</x-navbar>
+
+
+    <div class="Page-container layout-container page-top">
         <h1 class="hero-text-top layout-container">
             <div>Contact</div>
         </h1>
-        
-            <h1 class="hero-text-bottom layout-container">
-                <div>Get involved</div>
-            </h1>
         
     </div>
 
@@ -100,8 +123,142 @@ you are interested.</p>
 <slot class="Page-container layout-container">
 
 
+<x-contactform modulo-original-html="">
+<div class="form-container">
+    <h2></h2>
+    <form name="contact" method="POST" netlify="">
+        
+            
+                <div class="field-pair ">
+                    <label for="firstname_17">
+                        First Name
+                    </label>
+                    <input [state.bind]="" name="firstname" type="text" id="firstname_17">
+                </div>
+            
+        
+            
+                <div class="field-pair ">
+                    <label for="lastname_17">
+                        Last Name
+                    </label>
+                    <input [state.bind]="" name="lastname" type="text" id="lastname_17">
+                </div>
+            
+        
+            
+                <div class="field-pair ">
+                    <label for="email_17">
+                        Email
+                    </label>
+                    <input [state.bind]="" name="email" type="text" id="email_17">
+                </div>
+            
+        
+            
+                <div class="field-pair field-pair--half">
+                    <label for="zip_17">
+                        Zip Code
+                    </label>
+                    <input [state.bind]="" name="zip" type="text" id="zip_17">
+                </div>
+            
+        
+            
+                <div class="field-pair field-pair--half">
+                    <label for="phone_17">
+                        Phone
+                    </label>
+                    <input [state.bind]="" name="phone" type="text" id="phone_17">
+                </div>
+            
+        
+            
+                <div class="field-pair">
+                    
+                        <input [state.bind]="" type="checkbox" name="volunteer" id="volunteer_17">
+                    
+                    <div>
+                        <label for="volunteer_17">
+                            
+                            Yes, I want to volunteer
+                            
+                        </label>
+                        
+                    </div>
+                </div>
+            
+        
+            
+                <div class="field-pair">
+                    
+                        <input [state.bind]="" type="checkbox" name="pledge" id="pledge_17">
+                    
+                    <div>
+                        <label for="pledge_17">
+                            
+                            Yes, I want to pledge a donation 
+                            
+                        </label>
+                        
+                            <ul class="submenu ">
+                                
+                                    <li>
+                                        <input [state.bind]="" type="radio" name="pledge_value" value="2" id="pledge_17_2">
+                                        <label for="pledge_17_2">
+                                            PLEDGE $2
+                                        </label>
+                                    </li>
+                                
+                                    <li>
+                                        <input [state.bind]="" type="radio" name="pledge_value" value="9" id="pledge_17_9">
+                                        <label for="pledge_17_9">
+                                            PLEDGE $9
+                                        </label>
+                                    </li>
+                                
+                                    <li>
+                                        <input [state.bind]="" type="radio" name="pledge_value" value="27" id="pledge_17_27">
+                                        <label for="pledge_17_27">
+                                            PLEDGE $27
+                                        </label>
+                                    </li>
+                                
+                                    <li>
+                                        <input [state.bind]="" type="radio" name="pledge_value" value="50" id="pledge_17_50">
+                                        <label for="pledge_17_50">
+                                            PLEDGE $50
+                                        </label>
+                                    </li>
+                                
+                                    <li>
+                                        <input [state.bind]="" type="radio" name="pledge_value" value="200" id="pledge_17_200">
+                                        <label for="pledge_17_200">
+                                            PLEDGE $200
+                                        </label>
+                                    </li>
+                                
+                            </ul>
+                        
+                    </div>
+                </div>
+            
+        
+
+        <div style="text-align: center">
+            <button>Submit</button>
+        </div>
+    </form>
+
+</div>
+
+</x-contactform>
+
+
+<h1>Other contact methods</h1>
+
 <p>If you’re interested in keeping tabs on our work or hearing about upcoming
-events, email ___ or follow us on twitter ___</p>
+events, email jovanka4senate@gmail.com or follow us on Twitter.</p>
 
 <p>We’re a grass-roots, volunteer-oriented organization, which means
 we need volunteers. This means we need you, a volunteer, to join! In
@@ -114,7 +271,7 @@ and make memes.</li>
 
 <p>With that being said, you don’t need any particular skills or even more than a
 few hours to be a huge help to our movement. Power flows from the people, so
-get involved! We strive to actively mentor. Email us at pta@eastbaydsa.org if
+get involved! We strive to actively mentor. Email us at jovanka4senate@gmail.com if
 you are interested.</p>
 
 
@@ -122,60 +279,69 @@ you are interested.</p>
 
 <footer class="Page-footer layout-container">
     <div class="u--layout">
-        <ul>
-            <h3>Contact</h3>
-            <li><a href="mailto:jovanka4senate@gmail.com">jovanka4senate@gmail.com</a></li>
-            <li><tt>1234 Street Address</tt></li>
-            <li><tt>City, CA 00000</tt></li>
-        </ul>
+    <ul>
+        <h3>Contact</h3>
+        <li><a href="mailto:jovanka4senate@gmail.com">jovanka4senate@gmail.com</a></li>
+        <li><tt>1234 Street Address</tt></li>
+        <li><tt>City, CA 00000</tt></li>
+    </ul>
 
-        <ul>
-            <h3>Links</h3>
-            
-                <li>
-                    <a href="/index.html"> About the Campaign</a>
-                </li>
-            
-                <li>
-                    <a href="/about/"> A History of Activism</a>
-                </li>
-            
-        </ul>
-
-        <!--
-        <ul>
-            <h3>&nbsp;</h3>
-            <li> <a href="#">Get Involved</a> </li>
-            <li> <a href="#">Donate</a> </li>
-        </ul>
-        -->
-
-        <ul>
-            <h3>Social Media</h3>
-            <li class="inline-links">
-                <a target="_blank" href="#"><i class="fab fa-facebook fa-2x"></i></a>
-                &nbsp;
-                <a target="_blank" href="#"><i class="fab fa-instagram fa-2x"></i></a>
-                &nbsp;
-                <a target="_blank" href="#"><i class="fab fa-meetup fa-2x"></i></a>
-            </li>
-            <li class="inline-links">
-                <a target="_blank" href="#"><i class="fab fa-linkedin fa-2x"></i></a>
-                &nbsp;
-                <a target="_blank" href="#"><i class="fab fa-twitter-square fa-2x"></i></a>
-                &nbsp;
-                <a target="_blank" href="#"><i class="fab fa-github fa-2x"></i></a>
-            </li>
-        </ul>
-
-
-    </div>
-    <p style="text-align: center">
-        © 2023 Jovanka 4 Senate
+    <ul>
+        <h3>Links</h3>
         
-    </p>
+            <li>
+                <a href="/about/"> About</a>
+            </li>
+        
+            <li>
+                <a href="/endorsements/"> Endorsements</a>
+            </li>
+        
+            <li>
+                <a href="/contact/"> Contact</a>
+            </li>
+        
+    </ul>
+
+    <ul>
+        <h3>&nbsp;</h3>
+        <li> <a href="/">Home</a> </li>
+        <li> <a href="/contact/?volunteer=y">Volunteer</a> </li>
+        <li> <a href="/contact/?pledge=y">Pledge</a> </li>
+    </ul>
+
+    <!--
+    <ul>
+        <h3>Social Media</h3>
+        <li class="inline-links">
+            <a target="_blank" href="#"><i class="fab fa-facebook fa-2x"></i></a>
+            &nbsp;
+            <a target="_blank" href="#"><i class="fab fa-instagram fa-2x"></i></a>
+            &nbsp;
+            <a target="_blank" href="#"><i class="fab fa-meetup fa-2x"></i></a>
+        </li>
+        <li class="inline-links">
+            <a target="_blank" href="#"><i class="fab fa-linkedin fa-2x"></i></a>
+            &nbsp;
+            <a target="_blank" href="#"><i class="fab fa-twitter-square fa-2x"></i></a>
+            &nbsp;
+            <a target="_blank" href="#"><i class="fab fa-github fa-2x"></i></a>
+        </li>
+    </ul>
+    -->
+
+
+</div>
+<p style="text-align: center">
+    © 2023 Jovanka 4 Senate
+    
+</p>
+
+
 </footer>
 
 </x-page>
-<script src="/_modulo/modulo-build-xxjr4h3m.js"></script><script>window.moduloBuild && modulo.start(window.moduloBuild);
-modulo.assets.require("library_Page");</script></body></html>
+<script src="/_modulo/modulo-build-xxtttsot.js"></script><script>window.moduloBuild && modulo.start(window.moduloBuild);
+modulo.assets.require("library_Page");
+modulo.assets.require("library_NavBar");
+modulo.assets.require("library1_ContactForm");</script></body></html>
