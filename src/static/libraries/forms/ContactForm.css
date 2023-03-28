@@ -1,0 +1,133 @@
+.form-container {
+    background: white;
+    text-align: left;
+    font-family: 'Oswald', sans-serif;
+    border-radius: 1px 0 0 2px;
+    padding: 0;
+    padding-bottom: 20px;
+    box-shadow:
+        0     5px 5px                #00000033,
+        0     5px  5px         inset #00000011;
+    border-top: 3px solid var(--highlight);
+    box-shadow:
+        0     5px 5px                #00000033,
+        0     5px  5px         inset #00000011,
+        0     100px 3000px -200px          inset var(--highlight2),
+        0    -100px 70px 10px inset #00000022;
+}
+
+h2 {
+    background: var(--highlight);
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    color: white;
+    margin: 0;
+    padding-left: 10px;
+    font-size: 2rem;
+}
+
+.field-pair {
+    box-sizing: border-box;
+    /*border: 1px solid #00000022;*/
+    border-bottom: 1px solid #00000022;
+    margin-top: 10px;
+    margin-left: 10px;
+    padding: 2px;
+    padding-bottom: 8px;
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    justify-items: start;
+    align-items: baseline;
+    font-family: 'Oswald', sans-serif;
+}
+.field-pair.field-pair--half {
+    width: 48%;
+    display: inline-block;
+}
+
+
+.submenu label,
+button {
+    color: white;
+    margin-right: 10px;
+    text-decoration: none;
+    border: 3px solid var(--highlight);
+    background: var(--highlight);
+    border-bottom-width: 4px;
+    border-top-width: 2px;
+    padding: 8px;
+    display: inline-block;
+    border-radius: 3px;
+    transition: background 0.2s, color 0.2s;
+    box-shadow: 0 0 10px #ffffff00;
+    transition: box-shadow 0.2s;
+    font-family: 'Oswald', sans-serif;
+}
+.submenu  input {
+    display: none;
+}
+.submenu  li {
+    list-style: none;
+    margin-top: 2px;
+    margin: 0;
+    padding: 0;
+}
+
+.submenu  input:checked + label {
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+.submenu  input + label::before {
+  content: ' ';
+  width: 20px;
+  display: inline-block;
+}
+.submenu  input:checked + label::before {
+  content: ' ☑';
+}
+
+.field-pair > :first-child {
+    justify-self: end;
+    margin-right: 10px;
+}
+
+label {
+    font-weight: 600;
+}
+
+input[type=text] {
+    border: 1px solid #00000022;
+    /*border-radius: 30px;*/
+    padding: 3px;
+    background: white;
+    width: 100%;
+    font-size: 1.1rem;
+    font-family: 'Playfair Display', serif;
+}
+
+
+.submenu {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    height: 1px;
+    overflow: none;
+    border: 1px solid #00000022;
+    max-width: 600px;
+    transition: height 0.2s;
+    overflow: hidden;
+}
+.submenu--visible {
+    height: 150px;
+}
+
+
+button {
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    padding: 10px 10% 10px 10%;
+    font-weight: 800;
+    margin: 16px;
+}

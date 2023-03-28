@@ -1,0 +1,27 @@
+
+<Component name="ContactForm">
+    <Template
+        -src="/static/libraries/forms/ContactForm.html"
+    ></Template>
+
+    <State
+        -store="contact"
+        title=""
+        firstname=""
+        lastname=""
+        email=""
+        zip=""
+        phone=""
+        pledge:=false
+        pledge_value:=0
+        volunteer:=false
+    ></State>
+
+    <Script
+        -src="/static/libraries/forms/ContactForm.js"
+    ></Script>
+
+    <Style
+        -src="/static/libraries/forms/ContactForm.css"
+    ></Style>
+</Component>

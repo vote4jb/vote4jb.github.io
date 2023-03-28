@@ -89,26 +89,20 @@
     }
 }
 
-
-.Page-nav div a,
-.Page-nav div button {
-    color: var(--primary);
+.right-cta {
+    color: white;
+    margin-top: 10px;
     text-decoration: none;
-    border: 3px solid var(--primary);
+    border: 3px solid var(--highlight);
+    background: var(--highlight);
     border-bottom-width: 4px;
     border-top-width: 2px;
     padding: 8px;
     display: inline-block;
     border-radius: 3px;
-    background: #ffffff00;
     transition: background 0.2s, color 0.2s;
     box-shadow: 0 0 10px #ffffff00;
     transition: box-shadow 0.2s;
-}
-
-.Page-nav div a:hover,
-.Page-nav div button:hover {
-    box-shadow: 0 0 10px var(--primary);
 }
 
 .Page-nav div input {
@@ -358,4 +352,5 @@
     margin-bottom: -180%;
 }
 */
+
 
