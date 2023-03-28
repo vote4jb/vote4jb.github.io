@@ -25,7 +25,6 @@
     transition: width 0.1s;
 }
 
-@media (max-width: 576px) { .nav-logo { width: 100%; } } /* Phone */
 
 
 /* Nav logo hero dimensions */
@@ -34,11 +33,11 @@
 }
 @media (max-width: 1440px) { .nav-logo--hero { width: 450px; } }
 @media (max-width: 992px) {  .nav-logo--hero { width: 270px;  } }
-@media (max-width: 576px) {  .nav-logo--hero { width: 100%;  } } /* sm phone */
+@media (max-width: 576px) {  .nav-logo--hero { width: 200px;  } } /* sm phone */
 
 
 .nav-logo--forcibly-normal { width: 150px; }
-@media (max-width: 576px) { .nav-logo--forcibly-normal { width: 100%; } } /* Phone */
+@media (max-width: 576px) { .nav-logo--forcibly-normal { width: 200px; } } /* Phone */
 
 
 /* Ul dimensions */
@@ -83,7 +82,7 @@
     }
     .Page-nav {
         position: relative;
-        margin-bottom: 100vh;
+        /*margin-bottom: 100vh;*/
         height: auto;
         z-index: 6;
     }

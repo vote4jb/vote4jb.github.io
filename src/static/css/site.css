@@ -36,7 +36,8 @@ body {
     margin: 0;
     position: relative;
     overflow-x: hidden;
-    background: var(--black);
+    /*background: var(--black);*/
+    background: white;
 }
 
 p {
@@ -687,14 +688,16 @@ a.join-the-cause-nav-button {
         display: grid;
         grid-template-columns: 1fr 1fr;
     }
+
+
+    img.hero-background-splash,
+    img.hero-background-overlay {
+        top: 210px;
+    }
 }
 
 
 @media (max-width: 576px) {
-    .Page-container .hero-image-right {
-        height: 200px;
-        z-index: 0;
-    }
     .layout-container {
         display: block; /* Ensure all layouts go to static at this point */
     }
@@ -703,6 +706,13 @@ a.join-the-cause-nav-button {
     }
     .small-well-card-wrapper {
         display: block;
+    }
+
+    .Page-container .hero-image-right {
+        z-index: 1;
+        position: absolute;
+        top: 200px;
+        transform: scale(0.5);
     }
 }
 
