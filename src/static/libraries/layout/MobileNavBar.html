@@ -1,0 +1,53 @@
+{% if props.selected == "index.html" %}
+    <div class="top-splash">
+        <a href="#">
+            <img class="background-splash" src="/static/images/seiu_jovanka_1.jpg">
+
+            <img class="right-cutout" src="/static/images/hero/portrait_cut_out_cropped_2.png">
+
+            <img
+                class="left-logo"
+                src="/static/images/logo1_transparent_filled_shadow_alt.png"
+                alt="Delivering Results Together! Jovanka Beckles for State Senate"
+            />
+        </a>
+    </div>
+{% else %}
+    <div class="menu-holder"  @click:=script.toggle>
+        <a>☰</a>
+    </div>
+
+    <nav class="right-logo-holder">
+        <a href="/">
+            <img
+                src="/static/images/logo1_transparent_filled_shadow_alt.png"
+                class="right-logo"
+                alt="Delivering Results Together! Jovanka Beckles for State Senate"
+            />
+        </a>
+    </nav>
+{% endif %}
+
+<nav class="sliding-nav {% if props.selected == "index.html" %}sliding-nav--index{% endif %} {% if state.hide %}sliding-nav--hide{% endif %} ">
+    <ul class="main">
+        {% for page in script.navigation %}
+            <li>
+                <a
+                    href="{% if page.file == props.selected %}#c{% else %}/{{ page.file }}{% endif %}"
+                    title="{{ page.title }}"
+                    class="mnav {% if page.file == props.selected %}mnav--selected{% endif %}">
+                    {{ page.title }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+
+    <ul class="volunteer" style="grid-template-columns: repeat({{ script.volunteerNav|length }}, 1fr)">
+        {% for page in script.volunteerNav %}
+            <li>
+                <a href="{{ page.href }}">{{ page.title }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+</nav>
+

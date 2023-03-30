@@ -1,4 +1,4 @@
-<Component name="Page">
+<Component name="Page" mode="vanish-into-document">
     <Props
         title
         toptitle
@@ -65,6 +65,10 @@
         -src="/static/libraries/layout/NavBar.html"
     ></Template>
 
+    <State
+        hide:=false
+    ></State>
+
     <Script
         -src="/static/libraries/layout/NavBar.js"
     ></Script>
@@ -73,3 +77,28 @@
         -src="/static/libraries/layout/NavBar.css"
     ></Style>
 </Component>
+
+
+<Component name="MobileNavBar">
+    <Props
+        selected
+        navigation
+    ></Props>
+
+    <Template
+        -src="/static/libraries/layout/MobileNavBar.html"
+    ></Template>
+
+    <State
+        hide:=null
+    ></State>
+
+    <Script
+        -src="/static/libraries/layout/NavBar.js"
+    ></Script>
+
+    <Style
+        -src="/static/libraries/layout/MobileNavBar.css"
+    ></Style>
+</Component>
+

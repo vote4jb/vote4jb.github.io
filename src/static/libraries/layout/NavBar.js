@@ -1,10 +1,34 @@
+const volunteerNav = [
+        {
+            href: '/contact/?volunteer=y',
+            title: 'Volunteer',
+        },
+        {
+            href: '/contact/?pledge=y',
+            title: 'Pledge',
+        },
+];
+
 function prepareCallback() {
+    if (/mobile/i.test(element.tagName)) {
+        if (props.selected !== "index.html" && state.hide === null) {
+            state.hide = true;
+        }
+        if (props.selected === "index.html" && state.hide === null) {
+            state.hide = false;
+        }
+    }
     element.removeAttribute('title'); // get rid of annoying title attr
     // For now, store the navigation array and generate year in JS
     return {
         currentYear: (new Date()).getFullYear(),
         navigation: props.navigation,
+        volunteerNav,
     };
+}
+
+function toggle() {
+    state.hide = !state.hide;
 }
 
 let image = null;

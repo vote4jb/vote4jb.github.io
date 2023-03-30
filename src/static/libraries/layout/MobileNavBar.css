@@ -1,0 +1,202 @@
+:host {
+}
+
+img {
+    max-width: 100%;
+}
+
+img.logo {
+    width: 60vw;
+}
+
+ul {
+    display: block;
+    position: relative;
+    z-index: 10;
+    width: 100vw;
+    margin-top: 20px;
+    background: #ffffff33;
+    background: white;
+    padding: 5px;
+    box-shadow:
+        0     5px 5px                #00000033,
+        0     5px  5px         inset #00000011,
+        0     100px 3000px -200px          inset var(--highlight2),
+        0    -100px 70px 10px inset #00000022;
+
+}
+
+
+ul.volunteer {
+    display: grid;
+}
+ul.volunteer li a {
+    text-align: center;
+    font-weight: 300;
+}
+
+ul li {
+    display: block;
+    list-style: none;
+    margin: 0;
+    margin-left: 10px;
+}
+
+ul.main li a,
+ul.volunteer li a {
+    border: var(--primary) 5px solid;
+    border-top-width: 4px;
+    border-bottom-width: 6px;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 20px;
+    font-weight: 600;
+    letter-spacing: 0.075em; /* tracking wider */
+    font-size: 3rem;
+    display: block;
+    text-decoration: none;
+    min-width: 180px;
+    margin-left: 0;
+    margin-top: 10px;
+    text-align: left;
+    transition: box-shadow 0.17s;
+    letter-spacing: -0.02em;
+    white-space: nowrap;
+    background: white;
+    color: var(--highlight);
+    box-shadow:
+        0     5px 5px                #00000022,
+        0     5px  5px         inset #00000011,
+        0     100px 3000px -200px          inset var(--highlight2),
+        0    -100px 70px 10px inset #00000022;
+}
+
+ul.volunteer li a {
+    background: var(--highlight);
+    border:   var(--highlight2) 5px solid;
+    border-top-width: 4px;
+    border-bottom-width: 6px;
+    color: white;
+    text-align: center;
+    box-shadow:
+        0     5px 5px                #00000022,
+        0     5px  5px         inset #00000011,
+        0     100px 3000px -200px          inset var(--highlight),
+        0    -100px 70px 10px inset #00000022;
+}
+
+ul.main li a {
+    text-transform: uppercase;
+}
+
+ul.main li a::after {
+    content: ' ➤ ';
+    line-height: 1.2;
+    color: var(--highlight);
+    padding-left: 10px;
+    padding-right: 10px;
+    /*background: var(--highlight2);*/
+    float: right;
+}
+
+.right-cutout {
+    position: absolute;
+    z-index: 2;
+    top: 200px;
+    width: 40vw;
+    right: 0;
+}
+
+.left-logo {
+    position: absolute;
+    top: 100px;
+    left: 0;
+    width: 60vw;
+    z-index: 2;
+}
+
+.background-splash {
+    width: 100%;
+    display: block;
+    opacity: 0.3;
+    z-index: 0;
+}
+
+.background-splash::before {
+    position: absolute;
+    width: 100%;
+    height: 50vh;
+    z-index: 1;
+}
+
+.top-splash {
+    margin-bottom: -30px;
+}
+
+
+.menu-holder a {
+    display: block;
+    position: relative;
+    z-index: 10;
+    width: 8rem;
+    height: 8rem;
+    line-height: 0.8;
+    font-size: 7.6rem;
+    text-decoration: none;
+    color: white;
+    margin-top: 20px;
+    padding: 5px;
+    color: var(--primary);
+    border: var(--primary) 5px solid;
+    border-top-width: 4px;
+    border-bottom-width: 6px;
+    border-radius: 10px;
+    background: white;
+    box-shadow:
+        0     5px 5px                #00000033,
+        0     5px  5px         inset #00000011,
+        0     100px 3000px -200px          inset var(--highlight2),
+        0    -100px 70px 10px inset #00000022;
+
+}
+
+.menu-holder {
+    position: fixed;
+    z-index: 11;
+    top: 1px;
+    left: 1px;
+}
+
+.sliding-nav {
+    z-index: 12;
+    position: fixed;
+    top: 8rem;
+    left: 1vw;
+    transition: left 0.1s;
+}
+
+.sliding-nav--hide {
+    left: -100vw;
+}
+
+.right-logo-holder {
+    text-align: right;
+}
+
+img.right-logo {
+    z-index: 2;
+    margin-top: -7.5vw;
+    width: 400px;
+    margin-right: auto;
+}
+
+.sliding-nav--index {
+    position: static;
+    left:0
+}
+
+.sliding-nav--hide.sliding-nav--index {
+    position: fixed;
+}
+
+
