@@ -19,7 +19,7 @@
         </a>
     </div>
     <ul>
-        {% for page in script.navigation %}
+        {% for page in staticdata.navigation %}
             <li>
                 <a href="{% if page.file == props.selected %}#c{% else %}/{{ page.file }}#c{% endif %}"
                     title="{{ page.title }}"
