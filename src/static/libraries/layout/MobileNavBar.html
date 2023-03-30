@@ -42,7 +42,7 @@
         {% endfor %}
     </ul>
 
-    <ul class="volunteer" style="grid-template-columns: repeat({{ script.volunteerNav|length }}, 1fr)">
+    <ul class="volunteer" style="grid-template-columns: repeat({{ staticdata.smallNav|length }}, 1fr)">
         {% for page in staticdata.smallNav %}
             <li>
                 <a href="{{ page.href }}">{{ page.title }}</a>

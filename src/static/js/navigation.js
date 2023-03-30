@@ -31,11 +31,11 @@
 
     smallNav: [
         {
-            href: '/contact/?volunteer=y',
+            href: '/contact/volunteer.html',
             title: 'Volunteer',
         },
         {
-            href: '/contact/?pledge=y',
+            href: '/contact/pledge.html',
             title: 'Pledge',
         },
     ],

@@ -45,6 +45,14 @@ function prepareCallback() {
         } else if (urlParams.get('pledge')) {
             state.pledge = true;
             state.title = 'Pledge';
+        } else {
+            if (props.volunteerform) {
+                state.volunteer = true;
+                state.title = 'Volunteer';
+            } else if (props.pledgeform) {
+                state.pledge = true;
+                state.title = 'Pledge';
+            }
         }
     }
     if (state.pledge === 'on') {

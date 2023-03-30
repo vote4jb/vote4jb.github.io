@@ -1,6 +1,3 @@
-
-
-<a name="nav"></a>
 <nav class="Page-nav layout-container">
     <div style="grid-column: 1;" class="logo-wrapper">
         <a href="/" style="border: none">
@@ -29,7 +26,7 @@
     <ul>
         {% for page in staticdata.navigation %}
             <li>
-                <a href="{% if page.file == props.selected %}#{% else %}/{{ page.file }}{% endif %}"
+                <a href="/{{ page.file }}"
                     title="{{ page.title }}"
                     class="
                         Page-navLink
@@ -41,52 +38,13 @@
         {% endfor %}
     </ul>
 
-    <div style="grid-column: 3; width: 250px">
-        <a href="/contact/?volunteer=y" class="right-cta">Volunteer</a>
-        <a href="/contact/?pledge=y" class="right-cta">Pledge</a>
+    <div style="grid-column: 3; width: 300px">
+        {% for page in staticdata.smallNav %}
+                <a href="{{ page.href }}" class="right-cta">{{ page.title }}</a>
+        {% endfor %}
     </div>
-
-{% comment %}
-    {% if props.selected != "index.html" %}
-    {% endif %}
-    <div class="right-involvement-nav" style="grid-column: 3">
-        <div class="right-topbutton-holder">
-            <a href="/contact/" class="join-the-cause-nav-button">Join the cause!</a>
-        </div>
-        {% if props.selected == "index.html" %}
-        <div class="right-dropdown-holder">
-            <h1 class="join-the-cause-title-button"><a href="#c">Join the cause!</a></h1>
-            <h2>Volunteer</h2>
-
-
-<form action="https://tinyletter.com/freecodinglessons" method="post" target="popupwindow" onsubmit="window.open('https://tinyletter.com/freecodinglessons', 'popupwindow', 'scrollbars=yes,width=800,height=600');return true">
-<input type="hidden" value="1" name="embed"/>
-<input type="text" name="email" id="tlemail" placeholder="Enter your e-mail..." />
-<button>Sign-up to be notified</button>
-</form>
-            <p>Just an hour of time can make a difference. <em>Newbies
-            welcome!</em></p>
-
-            <h2>Donate</h2>
-            <a href="#">Donate $2</a>
-            <a href="#">Donate $9</a>
-            <a href="#">Donate $27</a>
-            <a href="#">Donate $50</a>
-            <a href="#">Donate $200</a>
-            <p>If we all chip in, we can go toe-to-toe against corporate-funded
-            campaigns that oppose our bold, progressive grass-roots movement.</p>
-        </div>
-    </div>
-        {% endif %}
-    {% endcomment %}
-    <!--<div class="right-links" style="grid-column: 3"></div>-->
 </nav>
 
-<div class="Page-navHBMenu">
-    <a href="#nav" class="btn-hbmenu">☰</a>
-</div>
-
-<a name="c"></a> <!-- c = content -->
 
 {% if props.selected == "index.html" %}
     <img class="background-splash-cover" src="/static/images/seiu_jovanka_1.jpg">
