@@ -1,7 +1,7 @@
 <!DOCTYPE HTML><html><head>
 
 
-<title>Contact - Jovanka for California State Senate</title><meta name="title" content="Contact | Jovanka for California State Senate"><meta name="description" content="Jovanka fights for the working class. She fights for healthcare, good jobs, and progressive values for the East Bay. Learn more and join an event! "><meta name="keywords" content="oakland,berkeley,richmond,california,senate,vote,2024,november"><meta name="robots" content="index, follow"><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="language" content="English"><meta name="revisit-after" content="30 days"><link rel="stylesheet" href="/_modulo/modulo-build-x1vgkujt.css" /></head><body>
+<title>Contact / Volunteer - Jovanka for California State Senate</title><meta name="title" content="Contact / Volunteer | Jovanka for California State Senate"><meta name="description" content="Jovanka fights for the working class. She fights for healthcare, good jobs, and progressive values for the East Bay. Learn more and join an event! "><meta name="keywords" content="oakland,berkeley,richmond,california,senate,vote,2024,november"><meta name="robots" content="index, follow"><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="language" content="English"><meta name="revisit-after" content="30 days"><link rel="stylesheet" href="/_modulo/modulo-build-x1vgkujt.css" /></head><body>
     
 
     
@@ -137,10 +137,9 @@
 
 <slot class="Page-container layout-container">
 
-
-<x-contactform modulo-original-html="">
+  <x-contactform volunteerform="true" modulo-original-html="">
 <div class="form-container">
-    <h2></h2>
+    <h2>Volunteer</h2>
     <form name="contact" method="POST" netlify="">
         
             
@@ -191,12 +190,13 @@
             
                 <div class="field-pair">
                     
-                        <input [state.bind]="" type="checkbox" name="volunteer" id="volunteer_28">
+                        <div>
+                            <input type="hidden" name="volunteer" value="yes_form" id="volunteer_28">
+                        </div>
                     
                     <div>
                         <label for="volunteer_28">
                             
-                            Yes, I want to volunteer
                             
                         </label>
                         
@@ -261,34 +261,13 @@
         
 
         <div style="text-align: center">
-            <button>Submit</button>
+            <button>Volunteer</button>
         </div>
     </form>
 
 </div>
 
 </x-contactform>
-
-
-<h1>Other contact methods</h1>
-
-<p>If you’re interested in keeping tabs on our work or hearing about upcoming
-events, email jovanka4senate@gmail.com or follow us on Twitter.</p>
-
-<p>We’re a grass-roots, volunteer-oriented organization, which means
-we need volunteers. This means we need you, a volunteer, to join! In
-particular, we are in need of these roles:</p>
-
-<li>Canvassers - Related to the senate campaign, you can participate by talking
-to neighbors about this demand.</li>
-<li>Communications - We publish articles, design graphics, maintain a Twitter feed,
-and make memes.</li>
-
-<p>With that being said, you don’t need any particular skills or even more than a
-few hours to be a huge help to our movement. Power flows from the people, so
-get involved! We strive to actively mentor. Email us at jovanka4senate@gmail.com if
-you are interested.</p>
-
 
 </slot>
 
