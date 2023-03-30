@@ -21,13 +21,11 @@
 <x-NavBar
     class="u--desktop"
     selected="{{ props.navselected }}"
-    navigation:="{{ script.navigation|json }}"
 ></x-NavBar>
 
 <x-MobileNavBar
     class="u--mobile"
     selected="{{ props.navselected }}"
-    navigation:="{{ script.navigation|json }}"
 ></x-MobileNavBar>
 
 {% if props.toptitle %}

@@ -30,7 +30,7 @@
 
 <nav class="sliding-nav {% if props.selected == "index.html" %}sliding-nav--index{% endif %} {% if state.hide %}sliding-nav--hide{% endif %} ">
     <ul class="main">
-        {% for page in script.navigation %}
+        {% for page in staticdata.navigation %}
             <li>
                 <a
                     href="{% if page.file == props.selected %}#c{% else %}/{{ page.file }}{% endif %}"
@@ -43,7 +43,7 @@
     </ul>
 
     <ul class="volunteer" style="grid-template-columns: repeat({{ script.volunteerNav|length }}, 1fr)">
-        {% for page in script.volunteerNav %}
+        {% for page in staticdata.smallNav %}
             <li>
                 <a href="{{ page.href }}">{{ page.title }}</a>
             </li>
