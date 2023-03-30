@@ -1,9 +1,8 @@
 <div class="u--layout">
+
     <ul>
         <h3>Contact</h3>
         <li><a href="mailto:jovankaforsenate@gmail.com">jovankaforsenate@gmail.com</a></li>
-        <li><tt>Paid for by Jovanka Beckles For State Senate 2024</tt></li>
-        <li><tt>FPPC 149429</tt></li>
         {% comment %}
         <li><tt>1234 Street Address</tt></li>
         <li><tt>City, CA 00000</tt></li>
@@ -12,7 +11,7 @@
 
     <ul>
         <h3>Links</h3>
-        {% for page in script.navigation %}
+        {% for page in staticdata.navigation %}
             <li>
                 <a href="/{{ page.file }}"> {{ page.title }}</a>
             </li>
@@ -22,10 +21,17 @@
     <ul>
         <h3>&nbsp;</h3>
         <li> <a href="/">Home</a> </li>
-        <li> <a href="/contact/?volunteer=y">Volunteer</a> </li>
-        <li> <a href="/contact/?pledge=y">Pledge</a> </li>
+        {% for page in staticdata.smallNav %}
+            <li> <a href="{{ page.href }}">{{ page.title }}</a> </li>
+        {% endfor %}
     </ul>
 
+    <div style="font-size: 12px; padding-top: 100px;">
+        Paid for by:<br />
+        <tt>Jovanka Beckles For State Senate 2024</tt><br />
+        <tt>FPPC 149429</tt><br />
+        &copy; {{ script.currentYear }} Jovanka Beckles For State Senate 2024
+    </div>
     <!--
     <ul>
         <h3>Social Media</h3>
@@ -48,8 +54,4 @@
 
 
 </div>
-<p style="text-align: center">
-    &copy; {{ script.currentYear }} Jovanka 4 Senate
-    {#| Kickstart Coding LLC | <a href="https://modulojs.org/" title="Made with Modulo.js" target="_blank">%</a>#}
-</p>
 
