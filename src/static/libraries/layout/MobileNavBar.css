@@ -182,14 +182,13 @@ ul.main li a::after {
 
 img.right-logo {
     z-index: 2;
-    margin-top: -7.5vw;
     width: 400px;
     margin-right: auto;
 }
 
 .sliding-nav--index {
     position: static;
-    left:0
+    left: 0;
 }
 
 .sliding-nav--hide.sliding-nav--index {

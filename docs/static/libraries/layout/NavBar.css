@@ -30,7 +30,7 @@
 
 .left-logo {
     position: absolute;
-    top: 100px;
+    top: 140px;
     left: 10vw;
     width: 50vw;
     z-index: 1;
@@ -38,7 +38,7 @@
 
 
 .background-splash-cover {
-    opacity: 0.3;
+    opacity: 0.2;
     width: 100%;
     height: 900px;
     display: block;
@@ -49,11 +49,27 @@
 }
 
 
+@media (max-width: 1440px) {
+    .background-splash-cover {
+        padding-top: 0;
+        height: 700px;
+    }
+}
 
 /* FHD */
 .nav-logo {
-    width: 150px;
+    width: 160px;
     transition: width 0.1s;
+    background: white;
+    border-top: 2px solid var(--secondary);
+    margin-top: -2px;
+    z-index: 5;
+    background: var(--white);
+    border-radius: 0 0 2px 2px;
+    box-shadow: 
+        0 5px 10px inset var(--lightgray),
+        0 0 0 2px #00000011,
+        0 10px 20px #00000011;
 }
 
 
