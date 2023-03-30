@@ -4,6 +4,12 @@
 <nav class="Page-nav layout-container">
     <div style="grid-column: 1;" class="logo-wrapper">
         <a href="/" style="border: none">
+            <img
+                class="nav-logo"
+                src="/static/images/logos/logo.png"
+                alt="Delivering Results! Together. Jovanka Beckles for State Senate"
+            />
+            {% comment %}
             {% if props.selected != "index.html" %}
             <img
                 [script.image]
@@ -13,15 +19,17 @@
                         nav-logo--hero
                     {% endif %}
                 "
-                src="/static/images/logo1_transparent_filled_shadow_alt.png" alt="Delivering Results! Together. Jovanka Beckles for State Senate"
+                src="/static/images/logos/logo.png"
+                alt="Delivering Results! Together. Jovanka Beckles for State Senate"
             />
             {% endif %}
+            {% endcomment %}
         </a>
     </div>
     <ul>
         {% for page in staticdata.navigation %}
             <li>
-                <a href="{% if page.file == props.selected %}#c{% else %}/{{ page.file }}#c{% endif %}"
+                <a href="{% if page.file == props.selected %}#{% else %}/{{ page.file }}{% endif %}"
                     title="{{ page.title }}"
                     class="
                         Page-navLink
@@ -87,7 +95,7 @@
 
     <img
         class="left-logo"
-        src="/static/images/logo1_transparent_filled_shadow_alt.png"
+        src="/static/images/logos/logo_large.png"
         alt="Delivering Results Together! Jovanka Beckles for State Senate"
     />
 {% endif %}
