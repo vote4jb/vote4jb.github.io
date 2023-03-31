@@ -32,7 +32,7 @@ const fields = [
     },
 ];
 
-const increments = [ 2, 9, 27, 50, 200 ];
+const increments = [ 2, 9, 27, 50, 200, 1000 ];
 
 let hasRun = false;
 function prepareCallback() {
