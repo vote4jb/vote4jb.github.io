@@ -41,8 +41,14 @@
     </div>
 {% endif %}
 
-<slot class="Page-container layout-container">
-</slot>
+{% if script.markdown %}
+    <div class="Page-container layout-container Page-markdown">
+        {{ script.markdown|safe }}
+    </div>
+{% else %}
+    <slot class="Page-container layout-container">
+    </slot>
+{% endif %}
 
 <footer class="Page-footer layout-container">
     {% include template_footer %}

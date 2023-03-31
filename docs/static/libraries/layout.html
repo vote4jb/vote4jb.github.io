@@ -1,8 +1,20 @@
+<script Configuration -src="https://unpkg.com/showdown/dist/showdown.min.js">
+    function doMarkdown(source) {
+        // Unescape
+        source = source.replace(/&gt;/gi, '>').replace(/&lt;/gi, '<');
+        //let html = snarkdown(source);
+        let html = (new showdown.Converter()).makeHtml(source);
+        return html;
+    }
+    modulo.register('util', doMarkdown);
+</script>
+
 <Component name="Page" mode="vanish-into-document">
     <Props
         title
         toptitle
         bottomtitle
+        markdown
         navselected
     ></Props>
 
@@ -23,10 +35,15 @@
         function prepareCallback() {
             element.removeAttribute('title'); // get rid of annoying title attr
             // For now, store the navigation array and generate year in JS
+            let markdown = null;
+            if (props.markdown) {
+                markdown = modulo.registry.utils.doMarkdown(element.originalHTML);
+            }
             return {
                 currentYear: (new Date()).getFullYear(),
                 navigation: staticdata.navigation,
                 smallNav: staticdata.smallNav,
+                markdown,
             };
         }
     </Script>
