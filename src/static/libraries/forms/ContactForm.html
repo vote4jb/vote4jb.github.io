@@ -1,73 +1,70 @@
 
 <div class="form-container">
     <h2>{{ state.title }}</h2>
-    <form name="contact" method="POST" netlify>
-        {% for field in script.fields %}
-            {% if field.name in "volunteer,pledge" %}
-                <div class="field-pair">
-                    {% if field.name == state.title|lower %}
-                        <div>
-                            <input
-                                type="hidden"
-                                name="{{ field.name }}"
-                                value="yes_form"
-                                id="{{ field.name }}_{{ component.id }}"
-                            />
-                        </div>
-                    {% else %}
+    {% for field in script.fields %}
+        {% if field.name in "volunteer,pledge" %}
+            <div class="field-pair">
+                {% if field.name == state.title|lower %}
+                    <div>
                         <input
-                            [state.bind]
-                            type="checkbox"
+                            type="hidden"
                             name="{{ field.name }}"
+                            value="yes_form"
                             id="{{ field.name }}_{{ component.id }}"
                         />
-                    {% endif %}
-                    <div>
-                        <label for="{{ field.name }}_{{ component.id }}">
-                            {% if field.name == state.title|lower %}
-                            {% else %}
-                            {{ field.label }}
-                            {% endif %}
-                        </label>
-                        {% if field.name == "pledge" %}
-                            <ul class="submenu {% if state.pledge %}submenu--visible{% endif %}">
-                                {% for num in script.increments %}
-                                    <li>
-                                        <input
-                                            [state.bind]
-                                            type="radio"
-                                            name="{{ field.name }}_value"
-                                            value="{{ num }}"
-                                            id="{{ field.name }}_{{ component.id }}_{{ num }}"
-                                        />
-                                        <label for="{{ field.name }}_{{ component.id }}_{{ num }}">
-                                            PLEDGE ${{ num }}
-                                        </label>
-                                    </li>
-                                {% endfor %}
-                            </ul>
-                        {% endif %}
                     </div>
-                </div>
-            {% else %}
-                <div class="field-pair {% if field.style %}field-pair--{{ field.style }}{% endif %}">
-                    <label for="{{ field.name }}_{{ component.id }}">
-                        {{ field.label }}
-                    </label>
+                {% else %}
                     <input
                         [state.bind]
+                        type="checkbox"
                         name="{{ field.name }}"
-                        type="{% if state|get:field.name|type == 'string' %}text{% else %}checkbox{% endif %}"
                         id="{{ field.name }}_{{ component.id }}"
                     />
+                {% endif %}
+                <div>
+                    <label for="{{ field.name }}_{{ component.id }}">
+                        {% if field.name == state.title|lower %}
+                        {% else %}
+                        {{ field.label }}
+                        {% endif %}
+                    </label>
+                    {% if field.name == "pledge" %}
+                        <ul class="submenu {% if state.pledge %}submenu--visible{% endif %}">
+                            {% for num in script.increments %}
+                                <li>
+                                    <input
+                                        [state.bind]
+                                        type="radio"
+                                        name="{{ field.name }}_value"
+                                        value="{{ num }}"
+                                        id="{{ field.name }}_{{ component.id }}_{{ num }}"
+                                    />
+                                    <label for="{{ field.name }}_{{ component.id }}_{{ num }}">
+                                        PLEDGE ${{ num }}
+                                    </label>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
                 </div>
-            {% endif %}
-        {% endfor %}
+            </div>
+        {% else %}
+            <div class="field-pair {% if field.style %}field-pair--{{ field.style }}{% endif %}">
+                <label for="{{ field.name }}_{{ component.id }}">
+                    {{ field.label }}
+                </label>
+                <input
+                    [state.bind]
+                    name="{{ field.name }}"
+                    type="{% if state|get:field.name|type == 'string' %}text{% else %}checkbox{% endif %}"
+                    id="{{ field.name }}_{{ component.id }}"
+                />
+            </div>
+        {% endif %}
+    {% endfor %}
 
-        <div style="text-align: center">
-            <button>{{ state.title|default:"Submit" }}</button>
-        </div>
-    </form>
-
+    <div style="text-align: center">
+        <button>{{ state.title|default:"Submit" }}</button>
+    </div>
 </div>
 
