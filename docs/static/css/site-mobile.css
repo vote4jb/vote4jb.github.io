@@ -1,4 +1,5 @@
 
+
 @media (max-width: 1440px) {
     .Page-container .hero-image-right {
         margin-top: 10px;
@@ -50,7 +51,7 @@
 
 
     .image-gallery img {
-        width: 49.5vw;
+        width: 48vw;
     }
 
     .Page-nav {

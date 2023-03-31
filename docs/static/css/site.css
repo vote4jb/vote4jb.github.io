@@ -166,6 +166,10 @@ p {
     color: #00000088;
 }
 
+.Page-footer li:hover::marker {
+    color: var(--primary);
+}
+
 .Page-footer li a {
     font-size: 0.9rem;
     color: #00000088;
@@ -179,8 +183,9 @@ p {
 }
 
 .Page-footer li a:hover {
-    color: var(--highlight2);
-    border-bottom: 2px solid var(--highlight2);
+    /*color: var(--highlight2);*/
+    color: var(--highlight);
+    border-bottom: 2px solid var(--primary);
 }
 
 .Page-footer li tt {
@@ -582,4 +587,12 @@ a.join-the-cause-nav-button {
     box-shadow: 0 0 10px #ffffff00;
     transition: box-shadow 0.2s;
 }
+
+.video-embed {
+    width: 100%;
+    border: none;
+    border-radius: 50px;
+    min-height: 500px;
+}
+
 
