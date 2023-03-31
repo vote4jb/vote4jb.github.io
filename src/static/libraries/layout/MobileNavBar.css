@@ -49,14 +49,16 @@ ul.volunteer li a {
     margin: 20px;
     font-weight: 600;
     letter-spacing: 0.075em; /* tracking wider */
-    font-size: 3rem;
+    font-size: 2.5rem;
     display: block;
     text-decoration: none;
     min-width: 180px;
     margin-left: 0;
     margin-top: 10px;
     text-align: left;
-    transition: box-shadow 0.17s;
+    transition: box-shadow 0.17s,
+                background-color 0.17s,
+                opacity 2s;
     letter-spacing: -0.02em;
     white-space: nowrap;
     background: white;
@@ -69,7 +71,7 @@ ul.volunteer li a {
 }
 
 ul.volunteer li a {
-    background: var(--highlight);
+    background-color: var(--highlight);
     border:   var(--highlight2) 5px solid;
     border-top-width: 4px;
     border-bottom-width: 6px;
@@ -84,6 +86,19 @@ ul.volunteer li a {
 
 ul.main li a {
     text-transform: uppercase;
+}
+
+ul.main li a:hover,
+ul.main li a:active,
+ul.main li a.mnav--selected {
+    background-color: var(--primary);
+    box-shadow:
+        0     -5px  5px         inset #00000011,
+        0     -100px 3000px -200px          inset var(--highlight2),
+        0    -100px 70px 10px inset #00000022;
+}
+ul.main li a.mnav--selected::after {
+    opacity: 0;
 }
 
 ul.main li a::after {
@@ -106,7 +121,7 @@ ul.main li a::after {
 
 .left-logo {
     position: absolute;
-    top: 100px;
+    top: -10px;/* scoot over to reveal jovanka behind photo */
     left: 0;
     width: 60vw;
     z-index: 2;
@@ -135,26 +150,31 @@ ul.main li a::after {
     display: block;
     position: relative;
     z-index: 10;
-    width: 8rem;
-    height: 8rem;
+    width: 5rem;
+    height: 5rem;
     line-height: 0.8;
-    font-size: 7.6rem;
+    font-size: 4.6rem;
     text-decoration: none;
     color: white;
     margin-top: 20px;
     padding: 5px;
-    color: var(--primary);
-    border: var(--primary) 5px solid;
+    transition: background-color 0.1s;
     border-top-width: 4px;
     border-bottom-width: 6px;
     border-radius: 10px;
-    background: white;
+    background-color: white;
+    user-select: none;
     box-shadow:
         0     5px 5px                #00000033,
         0     5px  5px         inset #00000011,
         0     100px 3000px -200px          inset var(--highlight2),
         0    -100px 70px 10px inset #00000022;
 
+}
+
+.menu-holder a:hover,
+.menu-holder a:active {
+    background-color: var(--primary);
 }
 
 .menu-holder {
