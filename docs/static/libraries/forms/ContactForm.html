@@ -44,6 +44,26 @@
                                     </label>
                                 </li>
                             {% endfor %}
+                            <li>
+                                <input
+                                    [state.bind]
+                                    type="radio"
+                                    name="{{ field.name }}_value"
+                                    value="other"
+                                    id="{{ field.name }}_{{ component.id }}_other"
+                                />
+                                <label for="{{ field.name }}_{{ component.id }}_other">
+                                    PLEDGE $_
+                                    <input
+                                        [state.bind]
+                                        name="{{ field.name }}_other_value"
+                                        class="other-amount"
+                                        type="text"
+                                        placeholder="Enter amount..."
+                                        id="{{ field.name }}_{{ component.id }}_other_value"
+                                    />
+                                </label>
+                            </li>
                         </ul>
                     {% endif %}
                 </div>
