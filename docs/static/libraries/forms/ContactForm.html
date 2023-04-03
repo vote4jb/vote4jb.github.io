@@ -25,11 +25,17 @@
                     <label for="{{ field.name }}_{{ component.id }}">
                         {% if field.name == state.title|lower %}
                         {% else %}
-                        {{ field.label }}
+                            {{ field.label }}
                         {% endif %}
                     </label>
                     {% if field.name == "pledge" %}
                         <ul class="submenu {% if state.pledge %}submenu--visible{% endif %}">
+                            <li style="display:none"> <!-- Hack to add a label to email / CSV -->
+                                <label>
+                                    PLEDGE
+                                    <input type="checkbox" name="my-sheep" value="">
+                                </label>
+                            </li>
                             {% for num in script.increments %}
                                 <li>
                                     <input

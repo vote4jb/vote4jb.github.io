@@ -196,7 +196,7 @@
                 <div>
                     <label for="volunteer_28">
                         
-                        Yes, I want to volunteer
+                            Yes, I want to volunteer
                         
                     </label>
                     
@@ -212,11 +212,17 @@
                 <div>
                     <label for="pledge_28">
                         
-                        Yes, I want to pledge a donation 
+                            Yes, I want to pledge a donation 
                         
                     </label>
                     
                         <ul class="submenu ">
+                            <li style="display:none"> <!-- Hack to add a label to email / CSV -->
+                                <label>
+                                    PLEDGE
+                                    <input type="checkbox" name="my-sheep" value="">
+                                </label>
+                            </li>
                             
                                 <li>
                                     <input [state.bind]="" type="radio" name="pledge_value" value="2" id="pledge_28_2">
@@ -372,7 +378,7 @@
 
 </footer>
 
-<script src="/_modulo/modulo-build-x1nff6cr.js"></script><script>window.moduloBuild && modulo.start(window.moduloBuild);
+<script src="/_modulo/modulo-build-xxcq6s5f.js"></script><script>window.moduloBuild && modulo.start(window.moduloBuild);
 modulo.assets.require("library_configuration");
 modulo.assets.require("library_Page");
 modulo.assets.require("library_NavBar");
