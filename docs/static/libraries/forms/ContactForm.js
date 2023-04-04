@@ -66,7 +66,3 @@ function prepareCallback() {
     }
 }
 
-function updateCallback () {
-    // Force a full state rerender
-}
-
