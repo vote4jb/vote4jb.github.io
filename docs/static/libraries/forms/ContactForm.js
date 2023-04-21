@@ -90,9 +90,9 @@ function redirectToActBlue(formData) {
     }
     state.is_redirecting_to_actblue = true;
     let amount = formData.get('donate_value') || '';
-    if (amount === 'other') {
+    if (amount === 'other' || (amount === '0' && formData.get('donate_other_value'))) {
         const otherVal = String(formData.get('donate_other_value') || '');
-        amount = otherVal.replace(/(^.*)(\d+)(.*$)/i, '$2');
+        amount = otherVal.replace(/\D+/g, '');
     }
     if (amount === '0') {
         amount = '';
