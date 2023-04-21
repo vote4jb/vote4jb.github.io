@@ -2,7 +2,7 @@
 <div class="form-container">
     <h2>{{ state.title }}</h2>
     {% for field in script.fields %}
-        {% if field.name in "volunteer,pledge" %}
+        {% if field.name in "volunteer,donate" %}
             <div class="field-pair">
                 {% if field.name == state.title|lower %}
                     <div>
@@ -28,11 +28,11 @@
                             {{ field.label }}
                         {% endif %}
                     </label>
-                    {% if field.name == "pledge" %}
-                        <ul class="submenu {% if state.pledge %}submenu--visible{% endif %}">
+                    {% if field.name == "donate" %}
+                        <ul class="submenu {% if state.donate %}submenu--visible{% endif %}">
                             <li style="display:none"> <!-- Hack to add a label to email / CSV -->
                                 <label>
-                                    Pledge Value Entered (If Any):
+                                    Donation Value Entered (If Any):
                                     <input type="checkbox" name="{{ field.name }}_value" value="" />
                                 </label>
                             </li>
@@ -46,7 +46,7 @@
                                         id="{{ field.name }}_{{ component.id }}_{{ num }}"
                                     />
                                     <label for="{{ field.name }}_{{ component.id }}_{{ num }}">
-                                        PLEDGE ${{ num }}
+                                        DONATE ${{ num }}
                                     </label>
                                 </li>
                             {% endfor %}
@@ -59,7 +59,7 @@
                                     id="{{ field.name }}_{{ component.id }}_other"
                                 />
                                 <label for="{{ field.name }}_{{ component.id }}_other">
-                                    PLEDGE $_
+                                    DONATE $_
                                     <input
                                         [state.bind]
                                         name="{{ field.name }}_other_value"
@@ -93,4 +93,29 @@
         <button>{{ state.title|default:"Submit" }}</button>
     </div>
 </div>
+
+<div class="form-modal-wrapper">
+    {% if state.error %}
+        <div class="form-modal-backdrop"></div>
+        <div class="form-modal">
+            <h2>Error</h2>
+            <p>There was an error when submitting your form. If the problem
+            persists, please reach out to our email to get in touch:<br />
+            <strong>jovankaforsenate@gmail.com</strong>
+            </p>
+            <!--<p>{{ state.error }}</p>-->
+            <a href="/">Back to home</a>
+            <a class="form-modal-button" href="?try-again=true">Try again</a>
+        </div>
+    {% endif %}
+    {% if state.success %}
+        <div class="form-modal-backdrop"></div>
+        <div class="form-modal">
+            <h2>Form Submitted</h2>
+            <h3>Thank you!</h3>
+            <a class="form-modal-button" href="/">Back to home</a>
+        </div>
+    {% endif %}
+<div>
+
 

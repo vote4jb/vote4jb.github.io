@@ -35,8 +35,8 @@
             title: 'Volunteer',
         },
         {
-            href: '/contact/pledge.html',
-            title: 'Pledge',
+            href: '/contact/donate.html',
+            title: 'Donate',
         },
     ],
 }
