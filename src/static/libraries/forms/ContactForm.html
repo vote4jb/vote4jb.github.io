@@ -45,7 +45,8 @@
                                         value="{{ num }}"
                                         id="{{ field.name }}_{{ component.id }}_{{ num }}"
                                     />
-                                    <label for="{{ field.name }}_{{ component.id }}_{{ num }}">
+                                    <label for="{{ field.name }}_{{ component.id }}_{{ num }}"
+                                        @click:=script.setDonation payload="#{{ field.name }}_{{ component.id }}_{{ num }}">
                                         DONATE ${{ num }}
                                     </label>
                                 </li>
