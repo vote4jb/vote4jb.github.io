@@ -89,14 +89,22 @@ function redirectToActBlue(formData) {
         return; // nothing to do, but
     }
     state.is_redirecting_to_actblue = true;
-    let amount = formData.get('donate_value');
+    let amount = formData.get('donate_value') || '';
     if (amount === 'other') {
         const otherVal = String(formData.get('donate_other_value') || '');
         amount = otherVal.replace(/(^.*)(\d+)(.*$)/i, '$2');
     }
+    if (amount === '0') {
+        amount = '';
+    }
+    if (amount) {
+        amount = '&amount=' + amount;
+    }
+
+    /// create ref and url
     const ref = state.title ? ('x' + state.title.toLowerCase()) : '';
-    const url = `https://secure.actblue.com/donate/${ACT_BLUE}?refcode=` +
-                `f1${ ref }&amount=${ amount }`;
+    const url = `https://secure.actblue.com/donate/${ACT_BLUE}?refcode=f1` +
+                ref + amount;
     // Set 2 second delay to 1 second fade out
     window.document.body.style.opacity = "1.0";
     window.document.body.style.transition = "opacity 1s";
@@ -111,6 +119,16 @@ function redirectToActBlue(formData) {
     }, 2000);
 }
 
+function setDonation (payload) {
+    // hack, force copy back to get this working right
+    const split = payload.split('_');
+    const newValue = split.length === 3 ? split[2] : '';
+    state.donate_value = newValue || 'undefined';
+    const elem = element.querySelector(payload);
+    if (elem) {
+        elem.checked = true; // since we hijack the event
+    }
+}
 
 function mergeFormData(ev, data) {
     const myForm = ev.target;
