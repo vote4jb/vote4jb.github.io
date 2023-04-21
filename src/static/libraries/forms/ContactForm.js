@@ -1,3 +1,4 @@
+const ACT_BLUE = 'jovankaforcastatesenate';
 
 const fields = [
     {
@@ -82,6 +83,35 @@ function prepareCallback() {
     }
 }
 
+function redirectToActBlue(formData) {
+    if (!state.donate) {
+        state.show_final_donation_modal = true;
+        return; // nothing to do, but
+    }
+    state.is_redirecting_to_actblue = true;
+    let amount = formData.get('donate_value');
+    if (amount === 'other') {
+        const otherVal = String(formData.get('donate_other_value') || '');
+        amount = otherVal.replace(/(^.*)(\d+)(.*$)/i, '$2');
+    }
+    const ref = state.title ? ('x' + state.title.toLowerCase()) : '';
+    const url = `https://secure.actblue.com/donate/${ACT_BLUE}?refcode=` +
+                `f1${ ref }&amount=${ amount }`;
+    // Set 2 second delay to 1 second fade out
+    window.document.body.style.opacity = "1.0";
+    window.document.body.style.transition = "opacity 1s";
+    setTimeout(() => {
+        window.document.body.style.opacity = "0.0";
+        setTimeout(() => {
+            setTimeout(() => {
+                window.document.body.style.opacity = "0.9";
+            }, 0);
+            window.location.href = url;
+        }, 1000);
+    }, 2000);
+}
+
+
 function mergeFormData(ev, data) {
     const myForm = ev.target;
     const formData = new FormData(myForm);
@@ -97,7 +127,6 @@ function handleSubmit(ev) {
     const formData = mergeFormData(ev, state, {
         FORM_USED: ev.target.getAttribute('name'),
     });
-    console.log(formData);
     state.submitted = true;
     fetch("/", {
           method: "POST",
@@ -109,18 +138,19 @@ function handleSubmit(ev) {
               state.success = false;
               state.error = '' + response;
               window.response = response;
-              console.log(state.error);
-              element.rerender();
               response.text().then(text => {
-                  const div = document.createElement('div'); // just stripping html
+                  // Using div to "clean" the tags away
+                  const div = document.createElement('div');
                   div.innerHTML = text;
                   const cleanText = div.textContent;
                   state.error = cleanText;
+                  redirectToActBlue(formData);
                   element.rerender();
               });
           } else {
-              console.log("Form successfully submitted");
               state.success = true;
+              redirectToActBlue(formData);
+              element.rerender();
           }
       })
       .catch((error) => {

@@ -98,20 +98,30 @@
     {% if state.error %}
         <div class="form-modal-backdrop"></div>
         <div class="form-modal">
-            <h2>Error</h2>
-            <p>There was an error when submitting your form. If the problem
-            persists, please reach out to our email to get in touch:<br />
-            <strong>jovankaforsenate@gmail.com</strong>
-            </p>
-            <!--<p>{{ state.error }}</p>-->
-            <a href="/">Back to home</a>
+            {% if state.is_redirecting_to_actblue %}
+                <h2>Redirecting to Act Blue</h2>
+                <p>Please re-enter details on our secure Act Blue donation page!<p>
+            {% else %}
+                <h2>Error</h2>
+                <p>There was an error when submitting your form. If the problem
+                persists, please reach out to our email to get in touch:<br />
+                <strong>jovankaforsenate@gmail.com</strong>
+                </p>
+            {% endif %}
             <a class="form-modal-button" href="?try-again=true">Try again</a>
+            <a href="/">Back to home</a>
         </div>
     {% endif %}
     {% if state.success %}
         <div class="form-modal-backdrop"></div>
         <div class="form-modal">
-            <h2>Form Submitted</h2>
+            <h2>
+                {% if state.is_redirecting_to_actblue %}
+                Redirecting to Act Blue
+                {% else %}
+                Form Submitted
+                {% endif %}
+            </h2>
             <h3>Thank you!</h3>
             <a class="form-modal-button" href="/">Back to home</a>
         </div>
