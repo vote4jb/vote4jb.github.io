@@ -1,7 +1,7 @@
 <!DOCTYPE HTML><html><head>
 
 
-<title>Contact - Jovanka for California State Senate</title><meta name="title" content="Contact | Jovanka for California State Senate"><meta name="description" content="Jovanka fights for the working class. She fights for healthcare, good jobs, and progressive values for the East Bay. Learn more and join an event! "><meta name="keywords" content="oakland,berkeley,richmond,california,senate,vote,2024,november"><meta name="robots" content="index, follow"><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="language" content="English"><meta name="revisit-after" content="30 days"><link rel="stylesheet" href="/_modulo/modulo-build-xx4taj4v.css" /></head><body>
+<title>Contact / Donate - Jovanka for California State Senate</title><meta name="title" content="Contact / Donate | Jovanka for California State Senate"><meta name="description" content="Jovanka fights for the working class. She fights for healthcare, good jobs, and progressive values for the East Bay. Learn more and join an event! "><meta name="keywords" content="oakland,berkeley,richmond,california,senate,vote,2024,november"><meta name="robots" content="index, follow"><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="language" content="English"><meta name="revisit-after" content="30 days"><link rel="stylesheet" href="/_modulo/modulo-build-xx4taj4v.css" /></head><body>
     
 
     
@@ -138,10 +138,10 @@
 
     <slot class="Page-container layout-container">
 
-    <form name="contact_form" method="POST" netlify="">
-        <x-contactform modulo-original-html="">
+  <form name="donate_form" method="POST" netlify="">
+      <x-contactform donateform="true" modulo-original-html="">
 <div class="form-container">
-    <h2></h2>
+    <h2>Donate</h2>
     
         
             <div class="field-pair ">
@@ -207,16 +207,17 @@
         
             <div class="field-pair">
                 
-                    <input [state.bind]="" type="checkbox" name="donate" id="donate_28">
+                    <div>
+                        <input type="hidden" name="donate" value="yes_form" id="donate_28">
+                    </div>
                 
                 <div>
                     <label for="donate_28">
                         
-                            Yes, I want to donate
                         
                     </label>
                     
-                        <ul class="submenu ">
+                        <ul class="submenu submenu--visible">
                             <li style="display:none"> <!-- Hack to add a label to email / CSV -->
                                 <label>
                                     Donation Value Entered (If Any):
@@ -281,7 +282,7 @@
     
 
     <div style="text-align: center">
-        <button>Submit</button>
+        <button>Donate</button>
     </div>
 </div>
 
@@ -292,26 +293,7 @@
 
 
 </div></div></x-contactform>
-    </form>
-
-    <h1>Other contact methods</h1>
-
-    <p>If you’re interested in keeping tabs on our work or hearing about upcoming
-    events, email us at the email found in the footer, or follow us on Twitter.</p>
-
-    <p>We’re a grass-roots, volunteer-oriented organization, which means
-    we need volunteers. This means we need you, a volunteer, to join! In
-    particular, we are in need of these roles:</p>
-
-    <li>Canvassers - Related to the senate campaign, you can participate by talking
-    to neighbors about this demand.</li>
-    <li>Communications - We publish articles, design graphics, maintain a Twitter feed,
-    and make memes.</li>
-
-    <p>With that being said, you don’t need any particular skills or even more than a
-    few hours to be a huge help to our movement. Power flows from the people, so
-    get involved! We strive to actively mentor.</p>
-
+  </form>
 
 </slot>
 

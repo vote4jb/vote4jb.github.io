@@ -49,7 +49,8 @@ h2 {
 
 
 .submenu label,
-button {
+button,
+.form-modal-button {
     color: white;
     margin-right: 10px;
     text-decoration: none;
@@ -150,8 +151,42 @@ input[type=text].other-amount {
     height: 150px;
 }
 
+.form-modal-backdrop {
+    display: block;
+    position: fixed;
+    box-sizing: border-box;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 100;
+    background: #00000099;
+}
 
-button {
+.form-modal {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    z-index: 101;
+    top: 30vh;
+    width: 80vw;
+    left: 10vw;
+    height: 40vh;
+    text-align: center;
+    background: white;
+    padding: 5px;
+    border-top: 3px solid var(--highlight);
+    box-shadow:
+        0     5px 5px                #00000033,
+        0     5px  5px         inset #00000011,
+        0     100px 3000px -200px          inset var(--highlight2),
+        0    -100px 70px 10px inset #00000022;
+}
+
+button,
+.form-modal-button {
     font-size: 1.3rem;
     text-transform: uppercase;
     padding: 10px 10% 10px 10%;

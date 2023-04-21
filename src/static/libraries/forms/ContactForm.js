@@ -65,7 +65,6 @@ function prepareCallback() {
 
     }
 
-
     // ///////////////////////////////////////
     // Hacky bug fixes -v
     if (state.donate === 'on') {

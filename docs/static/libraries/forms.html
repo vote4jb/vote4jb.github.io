@@ -2,7 +2,7 @@
 <Component name="ContactForm">
     <Props
         volunteerform
-        pledgeform
+        donateform
     ></Props>
 
     <Template
@@ -11,15 +11,18 @@
 
     <State
         -store="contact"
+        success:=null
+        submitted:=null
+        error:=null
         title=""
         firstname=""
         lastname=""
         email=""
         zip=""
         phone=""
-        pledge:=false
-        pledge_value:=0
-        pledge_value_other:=0
+        donate:=false
+        donate_value:=0
+        donate_other_value=""
         volunteer:=false
     ></State>
 
@@ -31,3 +34,4 @@
         -src="/static/libraries/forms/ContactForm.css"
     ></Style>
 </Component>
+
