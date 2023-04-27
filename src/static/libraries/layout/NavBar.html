@@ -40,7 +40,7 @@
 
     <div style="grid-column: 3; width: 300px">
         {% for page in staticdata.smallNav %}
-                <a href="{{ page.href }}" class="right-cta">{{ page.title }}</a>
+            <a href="{{ page.href }}" class="right-cta">{{ page.title }}</a>
         {% endfor %}
     </div>
 </nav>
@@ -49,6 +49,7 @@
 {% if props.selected == "index.html" %}
     <img class="background-splash-cover" src="/static/images/seiu_jovanka_1.jpg">
 
+    <!--<img class="right-cutout" src="/static/images/hero/portrait_cut_out_IMG_8300.png">-->
     <img class="right-cutout" src="/static/images/hero/portrait_cut_out_cropped_2.png">
 
     <img
