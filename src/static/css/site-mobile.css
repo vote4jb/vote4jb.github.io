@@ -111,6 +111,11 @@
         display: block;
     }
 
+    .j4s-BtnBox {
+        /*display: block;*/
+        margin-left: -100px;
+    }
+
     .Page-container .hero-image-right {
         z-index: 1;
         position: absolute;
