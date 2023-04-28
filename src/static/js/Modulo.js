@@ -170,7 +170,7 @@ window.modulo.DEVLIB_SOURCE = (`
         script.exports.suffix = '</body></html>';
     </S` + `cript>
     <Template>{{ script.prefix|safe }}<link rel="stylesheet" href="{{ definitions._artifact_css.OutputPath }}" />
-        {{ script.interfix|safe }}<script src="{{ definitions._artifact_js.OutputPath }}"></s` + `cript>
+        {{ script.interfix|safe }}<script async src="{{ definitions._artifact_js.OutputPath }}"></s` + `cript>
         {{ script.suffix|safe }}</Template>
 </Artifact>
 `).replace(/^\s+/gm, '');
