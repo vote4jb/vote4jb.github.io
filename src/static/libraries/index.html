@@ -7,10 +7,15 @@
     if (window.location.host.startsWith('localhost')) {
         return;
     }
+    if (window.location.host.startsWith('127')) {
+        return;
+    }
+    if (window.location.host.startsWith('192')) {
+        return;
+    }
     if (window.location.host.startsWith('dev--')) {
         return;
     }
-    console.log(window.location.host);
     gtag('js', new Date());
     gtag('config', 'G-6ZT8F1MF6V'); // TODO: Swap with correct
 </script>
