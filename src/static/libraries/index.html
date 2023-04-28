@@ -1,19 +1,16 @@
-<!--
-    This is the common "header" across all the pages on this site. Define more
-    components here to have them be available with an "x-" prefix, or create
-    new libraries and include them in file with <Library -src=...></Library>
-    type syntax.
+<!-- This is the common "header" across all the pages on this site.  -->
 
-    To get you started, we import the "layout" library, and load it with an
-    "x-" prefix.
--->
+<!-- Set up analytics -->
+<script Configuration>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-6ZT8F1MF6V'); // TODO: Swap with correct
+</script>
 
+<!-- Run analytics script (TODO Swap with correct script )-->
+<script Configuration -src="https://www.googletagmanager.com/gtag/js?id=G-6ZT8F1MF6V"></script>
 
 <Library namespace="x" -src="/static/libraries/layout.html"></Library>
 <Library namespace="x" -src="/static/libraries/forms.html"></Library>
-
-<!--
-    To get started with custom JS and/or custom Component Parts:
-    <Script -src="/static/js/ExampleCustomCPart.js"></Script>
--->
 
