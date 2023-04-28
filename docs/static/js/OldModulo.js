@@ -1,65 +1,122 @@
-/* Modulo.js | (C) 2023 Michael Bethencourt | Use in compliance with LGPL 2.1 */
-window.ModuloPrevious = window.Modulo;
+// Modulo.js - Copyright 2023 - LGPL 2.1 - https://modulojs.org/
+window.ModuloPrevious = window.Modulo; // Avoid overwriting Modulo
 window.moduloPrevious = window.modulo;
 window.Modulo = class Modulo {
-    constructor() {
-        window._moduloID = (window._moduloID || 0) + 1;
-        this.id = window._moduloID; // Every Modulo instance gets a unique ID.
-        this._configSteps = 0; // Used to check for an infinite loop during load
-        this.registry = {}; // All classes and functions get put here
-        this.config = {}; // For default configurations (e.g. all Components)
-        this.definitions = {}; // For specific definitions (e.g. one Component)
-        this.stores = {}; // Global data store (by default, only used by State)
+    constructor(parentModulo = null, registryKeys = null) {
+        window._moduloID = (window._moduloID || 0) + 1; // Global ID
+        window._moduloStack = (window._moduloStack || [ ]);
+        this.id = window._moduloID;
+        this._configSteps = 0;
+        this.config = {};
+        this.definitions = {};
+        this.stores = {};
+        if (parentModulo) { // TODO: Delete code path (Note: parentModulo arg is still being used by mws/Demo.js)
+            this.parentModulo = parentModulo;
+            const { deepClone } = modulo.registry.utils;
+            this.config = deepClone(parentModulo.config, parentModulo);
+            this.registry = deepClone(parentModulo.registry, parentModulo);
+            this.assets = parentModulo.assetManager;
+        } else {
+            this.registry = Object.fromEntries(registryKeys.map(cat => [ cat, {} ] ));
+        }
     }
 
-    start(elem, callback = null) { // XXX DEAD CODE
-        this.loadFromDOM(elem, null, true);
-        this.preprocessAndDefine(callback);
+    static moduloClone(modulo, other) {
+        return modulo; // Never clone Modulos to prevent reference loops
+    }
+
+    pushGlobal() {
+        if (window.modulo && window.modulo.id !== this.id) {
+            window._moduloStack.push(window.modulo);
+        }
+        window.modulo = this;
+    }
+
+    popGlobal() {
+        if (window._moduloStack.length > 0) {
+            window.modulo = window._moduloStack.pop();
+        }
+    }
+
+    start(build = null) {
+        const elem = build && build.tagName ? build : window.document.head;
+        if (build && !build.tagName) {
+            if (build.loadedBy) {
+                return;
+            }
+            this.assets.modules = build.modules;
+            this.assets.nameToHash = build.nameToHash;
+            this.definitions = build.definitions;
+            build.loadedBy = this.id;
+        } else if (elem) { // Loadable tag exists, load sync/blocking
+            this.loadFromDOM(elem, null, true);
+            this.preprocessAndDefine();
+        } else { // Doesn't exist, wait for page to load
+            window.document.addEventListener('DOMContentLoaded', () => {
+                this.loadFromDOM(window.document.head, null, true);
+                this.preprocessAndDefine();
+            });
+        }
     }
 
     register(type, cls, defaults = undefined) {
-        type = (`${type}s` in this.registry) ? `${type}s` : type; // pluralize
-        if (type in this.registry.registryCallbacks) { // TODO: Either refactor logic inot this, or rm
-            this.registry.registryCallbacks[type](this,  cls, defaults);
-        }
-        this.assert(type in this.registry, 'Unknown registry type: ' + type);
+        type = (`${type}s` in this.registry) ? `${type}s` : type; // plural / singular
+        this.assert(type in this.registry, 'Unknown registration type: ' + type);
         this.registry[type][cls.name] = cls;
+
+        if (type === 'commands') { // Attach globally to 'm' alias
+            window.m = window.m || {};
+            window.m[cls.name] = () => cls(this);
+        }
+
         if (cls.name[0].toUpperCase() === cls.name[0]) { // is CapFirst
-            // TODO: Refactor below:
             const conf = Object.assign(this.config[cls.name.toLowerCase()] || {}, { Type: cls.name }, cls.defaults, defaults);
             this.config[cls.name.toLowerCase()] = conf;
 
-            if (type === 'core') { // Global / core class getting registered
+            // Global / core utility class getting registered
+            if (type === 'core') {
+                // TODO: Implement differently, like { fetchQ: utils.FetchQueue
+                // } or something, since right now it doesn't even get cloned.
                 const lowerName = cls.name[0].toLowerCase() + cls.name.slice(1);
                 this[lowerName] = new cls(this);
                 this.assets = this.assetManager;
             }
+        }
+        if (type === 'cparts') { // CParts get loaded from DOM
+            this.registry.dom[cls.name.toLowerCase()] = cls;
+            //this.config[cls.name.toLowerCase()].DefLoaders = [ 'DefinedAs', 'Src' ]; // daed
         }
         if (type === 'processors') {
             this.registry.processors[cls.name.toLowerCase()] = cls;
         }
     }
 
-    preprocessAndDefine(callback) {
-        callback = callback ? callback : (() => {});
+    loadFromDOM(elem, parentName = null, quietErrors = false) { // TODO: Refactor this method away
+        this.loader = new this.registry.core.DOMLoader(this);
+        return this.loader.loadFromDOM(elem, parentName, quietErrors);
+    }
+
+    preprocessAndDefine() {
         this.fetchQueue.wait(() => {
             this.repeatProcessors(null, 'DefBuilders', [ ], () => {
-                this.repeatProcessors(null, 'DefFinalizers', [ ], callback);
+                this.repeatProcessors(null, 'DefFinalizers', [ ]);
             });
         });
     }
 
-    loadString(text, parentName = null) { // TODO: Refactor this method away
-        return this.loadFromDOM(this.registry.utils.makeDiv(text), parentName);
-    }
-
-    loadFromDOM(elem, parentName = null, quietErrors = false) { // TODO: Refactor this method away
-        const loader = new this.registry.core.DOMLoader(this);
-        return loader.loadFromDOM(elem, parentName, quietErrors);
+    loadString(text, parentName = null) {
+        const tmp_Cmp = new this.registry.cparts.Component({}, {}, this);
+        tmp_Cmp.dataPropLoad = tmp_Cmp.dataPropMount; // XXX
+        this.reconciler = new this.registry.engines.Reconciler(this, {
+            directives: { 'modulo.dataPropLoad': tmp_Cmp }, // TODO: Change to "this", + resolve to conf stuff
+            directiveShortcuts: [ [ /:$/, 'modulo.dataProp' ] ],
+        });
+        const div = this.reconciler.loadString(text, {});
+        const result = this.loadFromDOM(div, parentName);
+        return result;
     }
 
     repeatProcessors(confs, field, defaults, cb) {
-        // TODO: Move defaults into global modulo config
         let changed = true; // Run at least once
         while (changed) {
             this.assert(this._configSteps++ < 90000, 'Config steps: 90000+');
@@ -85,17 +142,15 @@ window.Modulo = class Modulo {
         }
     }
 
-    applyProcessors(def, processorNameArray) {
-        const cls = this.registry.cparts[def.Type] || this.registry.core[def.Type]; // TODO: Fix this
-        for (const name of processorNameArray) {
+    applyProcessors(conf, processors) {
+        for (const name of processors) {
             const [ attrName, aliasedName ] = name.split('|');
-            if (attrName in def) {
+            if (attrName in conf) {
+                const value = conf[attrName];
+                delete conf[attrName];
                 const funcName = (aliasedName || attrName).toLowerCase();
-                const func = cls && cls[funcName] ? cls[funcName] :
-                    this.registry.processors[funcName];
-                const value = def[attrName]; // Pluck value & remove attribute
-                delete def[attrName]; // TODO: document 'wait' or rm -v
-                return func(this, def, value) === true ? 'wait' : true;
+                const result = this.registry.processors[funcName](this, conf, value);
+                return result === true ? 'wait' : true;
             }
         }
         return false;
@@ -103,7 +158,7 @@ window.Modulo = class Modulo {
 
     assert(value, ...info) {
         if (!value) {
-            console.error(this.id, ...info);
+            console.error(...info);
             throw new Error(`Modulo Error: "${Array.from(info).join(' ')}"`);
         }
     }
@@ -118,165 +173,85 @@ Modulo.INVALID_WORDS = new Set((`
 `).split(/\s+/ig));
 
 // Create a new modulo instance to be the global default instance
-window.modulo = new Modulo();
+window.modulo = (new Modulo(null, [
+    'cparts', 'dom', 'utils', 'core', 'engines', 'commands', 'templateFilters',
+    'templateTags', 'processors', 'elements',
+]));//.pushGlobal();
+
 if (typeof modulo === "undefined" || modulo.id !== window.modulo.id) {
-    var modulo = window.modulo; // TODO: RM when global modulo is cleaned up
+    var modulo = window.modulo; // TODO: RM (Hack for VirtualWindow)
 }
-window.modulo.registry = Object.fromEntries([
-    'registryCallbacks', 'cparts', 'coreDefs', 'utils', 'core', 'engines',
-    'commands', 'templateFilters', 'templateTags', 'processors', 'elements',
-].map(registryType => ([ registryType, {} ])));
-
-window.modulo.register('registryCallback', function commands(modulo, func, defaults) {
-    window.m = window.m || {}; // Avoid overwriting existing truthy m
-    window.m[func.name] = () => func(this); // Attach shortcut to global "m"
-});
-
-window.modulo.DEVLIB_SOURCE = (`
-<Artifact name="css" bundle="link[rel=stylesheet]" exclude="[modulo-asset]">
-    <Template>{% for elem in bundle %}{{ elem.bundledContent|safe }}{% endfor %}
-              {% for css in assets.cssAssetsArray %}{{ css|safe }}
-              {% endfor %}</Template>
-</Artifact>
-<Artifact name="js" bundle="script[src]" exclude="[modulo-asset]">
-    <Template macros="yesplease">window.moduloBuild = window.moduloBuild || { modules: {}, nameToHash: {} };
-        {% for name, hash in assets.nameToHash %}{% if hash in assets.moduleSources %}{% if name|first is not "_" %}
-            window.moduloBuild.modules["{{ hash }}"] = function {{ name }} (modulo) {
-                {{ assets.moduleSources|get:hash|safe }}
-            };
-            window.moduloBuild.nameToHash.{{ name }} = "{{ hash }}";
-        {% endif %}{% endif %}{% endfor %}
-        window.moduloBuild.definitions = { {% for name, value in definitions %}
-            {% if name|first is not "_" %}{{ name }}: {{ value|json|safe }},{% endif %} 
-        {% endfor %} };
-        {% for elem in bundle %}{{ elem.bundledContent|safe }}{% endfor %}
-        modulo.assets.modules = window.moduloBuild.modules;
-        modulo.assets.nameToHash = window.moduloBuild.nameToHash;
-        modulo.definitions = window.moduloBuild.definitions;
-        {% for name in assets.mainRequires %}
-            modulo.assets.require("{{ name|escapejs }}");
-        {% endfor %}
-    </Template>
-</Artifact>
-<Artifact name="html" remove="script[src],link[href],[modulo-asset],template[modulo],script[modulo],modulo">
-    <Script>
-        for (const elem of window.document.querySelectorAll('*')) {
-            if (elem.isModulo && elem.originalHTML !== elem.innerHTML) {
-                elem.setAttribute('modulo-original-html', elem.originalHTML);
-            }
-        }
-        script.exports.prefix = '<!DOCTYPE html><html><head>' + (window.document.head ? window.document.head.innerHTML : '');
-        script.exports.interfix = '</head><body>' + (window.document.body ? window.document.body.innerHTML : '');
-        script.exports.suffix = '</body></html>';
-    </S` + `cript>
-    <Template>{{ script.prefix|safe }}<link rel="stylesheet" href="{{ definitions._artifact_css.OutputPath }}" />
-        {{ script.interfix|safe }}<script src="{{ definitions._artifact_js.OutputPath }}"></s` + `cript>
-        {{ script.suffix|safe }}</Template>
-</Artifact>
-`).replace(/^\s+/gm, '');
 
 
-modulo.register('core', class ValueResolver {
-    constructor(contextObj = null) {
-        this.ctxObj = contextObj;
-    }
-
-    get(key, ctxObj = null) {
-        ctxObj = ctxObj || this.ctxObj;
-        if (!/^[a-z]/i.test(key) || Modulo.INVALID_WORDS.has(key)) { // XXX global ref
-            return JSON.parse(key); // Not a valid identifier, try JSON
-        } // Otherwise, split and return:
-        return modulo.registry.utils.get(ctxObj, key);
-    }
-
-    set(obj, keyPath, val) {
-        const index = keyPath.lastIndexOf('.') + 1; // Index at 1 (0 if missing)
-        const key = keyPath.slice(index).replace(/:$/, ''); // Between "." & ":"
-        const path = keyPath.slice(0, index - 1); // Exclude "."
-        const target = index ? this.get(path, obj) : obj; // Get ctxObj or obj
-        //TODO: maybe bind? target[key] = typeof val === 'function' ? val.bind(target) : val;
-        target[key] = keyPath.endsWith(':') ? this.get(val) : val;
-    }
-});
-
-
-modulo.config.domloader = {
-    topLevelTags: [ 'modulo' ], // Only "Modulo" is top
-    genericDefTags: { def: 1, script: 1, template: 1, style: 1 },
-};
 modulo.register('core', class DOMLoader {
     constructor(modulo) {
-        this.modulo = modulo; // TODO: need to standardize back references to prevent mismatches
-    }
-
-    getAllowedChildTags(parentName) {
-        let tagsLower = this.modulo.config.domloader.topLevelTags; // "Modulo"
-        if (/^_[a-z][a-zA-Z]+$/.test(parentName)) { // _likethis, e.g. _artifact
-            tagsLower = [ parentName.toLowerCase().replace('_', '') ];
-        } else if (parentName) { // Normal parent, e.g. Library, Component etc
-            const parentDef = this.modulo.definitions[parentName];
-            const msg = `Invalid parent: ${ parentName } (${ parentDef })`;
-            this.modulo.assert(parentDef && parentDef.Contains, msg);
-            const names = Object.keys(this.modulo.registry[parentDef.Contains]);
-            tagsLower = names.map(s => s.toLowerCase()); // Ignore case
-        }
-        return tagsLower;
+        this.modulo = modulo;
     }
 
     loadFromDOM(elem, parentName = null, quietErrors = false) {
-        const resolver = new this.modulo.registry.core.ValueResolver(this.modulo);
-        const { defaultDef } = this.modulo.config.modulo;
-        const toCamel = s => s.replace(/-([a-z])/g, g => g[1].toUpperCase());
-        const tagsLower = this.getAllowedChildTags(parentName);
-        const array = [];
-        for (const node of elem.children || []) {
-            const partTypeLC = this.getDefType(node, tagsLower, quietErrors);
-            if (node._moduloLoadedBy || partTypeLC === null) {
-                continue; // Already loaded, or an ignorable or silenced error
+        const camelCase = s => s.replace(/-([a-z])/g, g => g[1].toUpperCase());
+        const arr = [];
+        const { get, set } = modulo.registry.utils;
+        for (const node of elem.children) { // Loop through all child nodes
+            const partTypeLC = this.getDefType(node, quietErrors);
+            if (partTypeLC === null) {
+                continue; // This will be null if this is an ignorable node
             }
-            node._moduloLoadedBy = this.modulo.id; // First time loading, mark
-            // Valid definition, now create the "def" object
-            const def = Object.assign({ Parent: parentName }, defaultDef);
+            // Valid CPart definition, now create the "def" object
+            const def = { Parent: parentName, DefinedAs: null, DefName: null };
+            arr.push(Object.assign(def, this.modulo.config[partTypeLC]));
             def.Content = node.tagName === 'SCRIPT' ? node.textContent : node.innerHTML;
-            array.push(Object.assign(def, this.modulo.config[partTypeLC]));
             for (let name of node.getAttributeNames()) { // Loop through attrs
-                const value = node.getAttribute(name);
-                if (partTypeLC === name && !value) { // e.g. <def Script>
+                let value = node.getAttribute(name);
+                if (partTypeLC === name && !value) { // e.g. <cpart Script>
                     continue; // This is the "Type" attribute itself, skip
                 }
-                def[toCamel(name)] = value; // "-kebab-case" to "CamelCase"
+                const tmp_IsData = name.endsWith(':'); // RM TODO
+                if (name.endsWith(':')) {
+                    const isVar = /^[a-z]/i.test(value) && !Modulo.INVALID_WORDS.has(value);
+                    value = isVar ? get(this.modulo, value) : JSON.parse(value);
+                    name = name.slice(0, -1);
+                }
+                if (tmp_IsData) {
+                    set(def, camelCase(name), value);
+                } else {
+                    def[camelCase(name)] = value; // Store "resolved" value in definition
+                }
+                // TODO: Delete above, make it just set, once that is the default path
+                //set(def, camelCase(name), value);
             }
         }
-        this.modulo.repeatProcessors(array, 'DefLoaders', [ 'DefTarget', 'DefinedAs', 'Src' ]);
-        return array;
+        this.modulo.repeatProcessors(arr, 'DefLoaders', [ 'DefinedAs', 'Src' ]);
+        return arr;
     }
 
-    getDefType(node, tagsLower, quiet = false) {
+    getDefType(node, quietErrors = false) {
         const { tagName, nodeType, textContent } = node;
+        const dom = this.modulo.registry.dom;
+        const err = msg => quietErrors || console.error('Modulo Load:', msg);
         if (nodeType !== 1) { // Text nodes, comment nodes, etc
-            if (nodeType === 3 && textContent && textContent.trim() && !quiet) {
-                console.error(`Unexpected text in definition: ${textContent}`);
+            if (nodeType === 3 && textContent && textContent.trim()) {
+                err(`Unexpected text found near definitions: ${textContent}`);
             }
             return null;
         }
-        let defType = tagName.toLowerCase();
-        if (defType in this.modulo.config.domloader.genericDefTags) {
+
+        let cPartName = tagName.toLowerCase();
+        if (cPartName in { cpart: 1, script: 1, template: 1, style: 1 }) {
             for (const attrUnknownCase of node.getAttributeNames()) {
                 const attr = attrUnknownCase.toLowerCase();
-                if (!node.getAttribute(attr) && tagsLower.includes(attr)) {
-                    defType = attr; // Has an empty string value, is a def
+                if (attr in dom && !node.getAttribute(attr)) {
+                    cPartName = attr; // Is a CPart, but has empty string value
                 }
-                break; // Always break: We will only look at first attribute
+                break; // Always exit, since we are only looking at first iter
             }
         }
-        if (!(tagsLower.includes(defType))) { // Were any discovered?
-            if (defType === 'testsuite') { return null; } /* XXX Remove and add recipe to stub / silence TestSuite not found errors */
-            if (!quiet) { // Invalid def / cPart: This type is not allowed here
-                console.error(`"${ defType }" is not one of: ${ tagsLower }`);
-            }
-            return null // Return null to signify not a definition
+        if (!(cPartName in dom)) {
+            if (cPartName === 'testsuite') { /* XXX HACK */ return null;}
+            err(`${ cPartName }. CParts: ${ Object.keys(dom) }`);
+            return null;
         }
-        return defType; // Valid, expected definition: Return lowercase type
+        return cPartName;
     }
 });
 
@@ -288,27 +263,13 @@ modulo.register('processor', function src (modulo, def, value) {
     });
 });
 
-modulo.register('processor', function defTarget (modulo, def, value) {
-    const resolverName = def.DefResolver || 'ValueResolver'; // TODO: document, make it switch to TemplaterResolver if there is {% or {{
-    const resolver = new modulo.registry.core[resolverName](modulo);
-    const target = value === null ? def : resolver.get(value);
-    for (const [ key, defValue ] of Object.entries(def)) {
-        if (key.endsWith(':') || key.includes('.')) {
-            delete def[key]; // Remove & replace unresolved value
-            resolver.set(/^[a-z]/.test(key) ? target : def, key, defValue);
-        }
-    }
-});
-
 modulo.register('processor', function content (modulo, conf, value) {
     modulo.loadString(value, conf.DefinitionName);
 });
 
 modulo.register('processor', function definedAs (modulo, def, value) {
     def.Name = value ? def[value] : (def.Name || def.Type.toLowerCase());
-    const parentDef = modulo.definitions[def.Parent];
-    const parentPrefix = parentDef && ('ChildPrefix' in parentDef) ?
-        parentDef.ChildPrefix : (def.Parent ? def.Parent + '_' : '');
+    const parentPrefix = def.Parent ? def.Parent + '_' : '';
     def.DefinitionName = parentPrefix + def.Name;
     // Search for the next free Name by suffixing numbers
     while (def.DefinitionName in modulo.definitions) {
@@ -418,12 +379,7 @@ modulo.register('util', function mountElement (modulo, def, elem) {
     const { cparts } = elem.modulo.registry;
     const isLower = key => key[0].toLowerCase() === key[0];
     for (const def of allNames.map(name => modulo.definitions[name])) {
-        let instance;
-        if (def.Type === 'Component') {
-            instance = new elem.modulo.registry.coreDefs.Component(elem.modulo, def, elem);
-        } else {
-            instance = new cparts[def.Type](elem.modulo, def, elem);
-        }
+        const instance = new cparts[def.Type](elem.modulo, def, elem);
         instance.element = elem;
         instance.modulo = elem.modulo;
         instance.conf = def;
@@ -431,6 +387,15 @@ modulo.register('util', function mountElement (modulo, def, elem) {
         instance.id = ++window._moduloID;
         elem.cparts[def.RenderObj || def.Name] = instance;
     }
+    /*
+    for (const instance of Object.values(elem.cparts)) {
+        instance.element = elem;
+        instance.modulo = elem.modulo;
+        instance.conf = def;
+        instance.attrs = elem.modulo.registry.utils.keyFilter(def, isLower);
+        elem.cparts[def.RenderObj || def.Name] = instance;
+    }
+    */
     ////////
 
     ////////
@@ -451,76 +416,6 @@ modulo.register('processor', function mainRequire (modulo, conf, value) {
     modulo.assets.mainRequire(value);
 });
 
-modulo.register('cpart', class Artifact {
-    // TODO: Refactor Component logic to be shared with Artifact (maybe using
-    // preprocessors?). Refactor this to use something more generalized for
-    // children, so it shares code flow with component.
-    static build(modulo, def) {
-        const finish = () => {
-            const { saveFileAs, hash } = modulo.registry.utils;
-            const children = (def.ChildrenNames || []).map(n => modulo.definitions[n]);
-            //for (const child of children
-            const tDef = children.filter(({ Type }) => Type === 'Template')[0] || null;
-            const sDef = children.filter(({ Type }) => Type === 'Script')[0] || null;
-            let result = { exports: {} };
-            if (sDef) {
-                result = modulo.assets.require(sDef.DefinitionName);
-            }
-            const ctx = Object.assign({}, modulo, { script: result.exports });
-            ctx.bundle = bundledElems;
-            const templater = new modulo.registry.engines.Templater(modulo, tDef);
-            let code = templater.render(ctx);
-            if (tDef && tDef.macros) { // TODO: Refactor this code, maybe turn into Template core feature to allow 2 tier / "macro" templating?
-                const tDef2 = Object.assign({}, tDef, {
-                    modeTokens: ['/' + '*-{-% %-}-*/', '/' + '*-{-{ }-}-*/', '/' + '*-{-# #-}-*/'],
-                    modes: {
-                        ['/' + '*-{-%']: templater.modes['{%'], // alias
-                        ['/' + '*-{-{']: templater.modes['{{'], // alias
-                        ['/' + '*-{-#']: templater.modes['{#'], // alias
-                        text: templater.modes.text,
-                    },
-                    Content: code,
-                    DefinitionName: tDef.DefinitionName + '_macro',
-                    Hash: undefined,
-                });
-                const templater2 = new modulo.registry.engines.Templater(modulo, tDef2);
-                //templater2.escapeText = s => s; // turn on safe all the time
-                code = templater2.render(ctx);
-            }
-            def.FileName = `modulo-build-${ hash(code) }.${ def.name }`;
-            if (def.name === 'html') { // TODO: Make this only happen during SSG
-                def.FileName = window.location.pathname.split('/').pop() || 'index.html';
-            }
-            def.OutputPath = saveFileAs(def.FileName, code);
-        }
-
-        const bundledElems = [];
-        if (def.bundle) {
-            for (const elem of document.querySelectorAll(def.bundle)) {
-                if (def.exclude && elem.matches(def.exclude)) {
-                    continue;
-                }
-                if (elem.src || elem.href) {
-                    modulo.fetchQueue.fetch(elem.src || elem.href).then(text => {
-                        delete modulo.fetchQueue.data[elem.src || elem.href];
-                        elem.bundledContent = text;
-                    });
-                }
-                bundledElems.push(elem);
-            }
-        }
-        if (def.remove) {
-            document.querySelectorAll(def.remove).forEach(elem => elem.remove());
-        }
-        modulo.fetchQueue.enqueueAll(() => finish(bundledElems));
-    }
-}, {
-    Contains: 'cparts',
-    DefinedAs: 'name',
-    DefLoaders: [ 'DefTarget', 'DefinedAs', 'Src', 'Content' ],
-});
-
-
 /*
 modulo.config.reconciler = {
     directiveShortcuts: [ [ /^@/, 'component.event' ],
@@ -529,25 +424,23 @@ modulo.config.reconciler = {
 };
 */
 
-
 modulo.config.component = {
     mode: 'regular',
     rerender: 'event',
     engine: 'Reconciler', // TODO: 'Engine':, depends on Instbuilders
     // namespace: 'x',
-    Contains: 'cparts',
     CustomElement: 'window.HTMLElement',
     DefinedAs: 'name',
     RenderObj: 'component', // Make features available as "renderObj.component" 
     // Children: 'cparts', // How we can implement Parentage: Object.keys((get('modulo.registry.' + value))// cparts))
-    DefLoaders: [ 'DefTarget', 'DefinedAs', 'Src', 'Content' ],
+    DefLoaders: [ 'DefinedAs', 'Src', 'Content' ],
     DefBuilders: [ 'CustomElement', 'Code' ],
     DefFinalizers: [ 'MainRequire' ],
     Directives: [ 'slotLoad', 'eventMount', 'eventUnmount', 'dataPropMount', 'dataPropUnmount' ],
     //InstBuilders: [ 'CreateChildren' ],
 };
 
-modulo.register('coreDef', class Component {
+modulo.register('cpart', class Component {
     rerender(original = null) {
         if (original) {
             if (this.element.originalHTML === null) {
@@ -612,7 +505,6 @@ modulo.register('coreDef', class Component {
             }
         }
         this.reconciler = new this.modulo.registry.engines.Reconciler(this, opts);
-        this.resolver = new this.modulo.registry.core.ValueResolver(this.modulo);
     }
 
     prepareCallback() {
@@ -701,15 +593,20 @@ modulo.register('coreDef', class Component {
     }
 
     dataPropMount({ el, value, attrName, rawName }) { // element, 
+        const { get, set } = modulo.registry.utils;
         // Resolve the given value and attach to dataProps
         if (!el.dataProps) {
             el.dataProps = {};
             el.dataPropsAttributeNames = {};
         }
-        const resolver = new modulo.registry.core.ValueResolver(// TODO: Global modulo
-                      this.element && this.element.getCurrentRenderObj());
-        resolver.set(el.dataProps, attrName + ':', value);
+        const isVar = /^[a-z]/i.test(value) && !Modulo.INVALID_WORDS.has(value);
+        const renderObj = isVar ? this.element.getCurrentRenderObj() : {};
+        let val = isVar ? get(renderObj, value) : JSON.parse(value);
+        /* XXX */ if (attrName === 'click' && !val) { val = ()=> console.log('XXX ERROR: (DEBUGGING Wrong Script Tag) click is undefined', renderObj); }
+        //modulo.assert(val !== undefined, 'Error: Cannot assign value "undefined" to dataProp')
+        set(el.dataProps, attrName, val); // set according to path given
         el.dataPropsAttributeNames[rawName] = attrName;
+        ///* XXX */ if (attrName === 'click') { console.log('XXX click', el, value, val); }
     }
 
     dataPropUnmount({ el, attrName, rawName }) {
@@ -721,23 +618,38 @@ modulo.register('coreDef', class Component {
     }
 });
 
-modulo.register('coreDef', class Modulo { }, {
-    ChildPrefix: '', // Prevents all children from getting modulo_ prefixed
-    Contains: 'coreDefs',
-    DefLoaders: [ 'DefTarget', 'DefinedAs', 'Src', 'Content' ],
-    defaultDef: { DefTarget: null, DefinedAs: null, DefName: null },
+modulo.register('cpart', class Modulo { }, {
+    DefLoaders: [ 'Src', 'Content' ],
 });
 
-modulo.register('coreDef', class Library { }, {
-    Contains: 'coreDefs',
-    DefTarget: 'config.component',
+modulo.register('cpart', class Library { }, {
+    SetAttrs: 'config.component',
     // DefinedAs: 'namespace', // TODO: Write tests for Library, the add this
-    DefLoaders: [ 'DefTarget', 'DefinedAs', 'Src', 'Content' ],
+    DefLoaders: [ 'DefinedAs', 'Src', 'Content', 'SetAttrs' ],
 });
 
 modulo.register('util', function keyFilter (obj, func) {
     const keys = func.call ? Object.keys(obj).filter(func) : func;
     return Object.fromEntries(keys.map(key => [ key, obj[key] ]));
+});
+
+modulo.register('util', function deepClone (obj, modulo) {
+    if (obj === null || typeof obj !== 'object' || (obj.exec && obj.test)) {
+        return obj;
+    }
+    const { constructor } = obj;
+    if (constructor.moduloClone) {
+        // Use a custom modulo-specific cloning function
+        return constructor.moduloClone(modulo, obj);
+    }
+    const clone = new constructor();
+    const { deepClone } = modulo.registry.utils;
+    for (const key in obj) {
+        if (obj.hasOwnProperty(key)) {
+            clone[key] = deepClone(obj[key], modulo);
+        }
+    }
+    return clone;
 });
 
 modulo.register('util', function resolveDataProp (key, elem, defaultVal) {
@@ -783,10 +695,6 @@ modulo.register('util', function normalize(html) {
     return html.replace(/\s+/g, ' ').replace(/(^|>)\s*(<|$)/g, '$1$2').trim();
 });
 
-modulo.register('util', function escapeRegExp(s) {
-    return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-});
-
 modulo.register('util', function saveFileAs(filename, text) {
     const element = window.document.createElement('a');
     const enc = window.encodeURIComponent(text);
@@ -799,11 +707,18 @@ modulo.register('util', function saveFileAs(filename, text) {
 });
 
 modulo.register('util', function get(obj, key) {
-    return (key in obj) ? obj[key] : (key + '').split('.').reduce((o, name) => o[name], obj);
+    if (key in obj) { // Shortcut for common case
+        return obj[key];
+    }
+    return (key + '').split('.').reduce((o, name) => o[name], obj);
 });
 
-modulo.register('util', function set(obj, keyPath, val) {
-    return new modulo.registry.core.ValueResolver(modulo).set(obj, keyPath, val); // TODO: Global modulo
+modulo.register('util', function set(obj, keyPath, val, ctx = null) {
+    const index = keyPath.lastIndexOf('.') + 1; // 0 if not found
+    const key = keyPath.slice(index);
+    const path = keyPath.slice(0, index - 1); // exclude .
+    const dataObj = index ? modulo.registry.utils.get(obj, path) : obj;
+    dataObj[key] = val;// typeof val === 'function' ? val.bind(ctx) : val;
 });
 
 modulo.register('util', function getParentDefPath(modulo, def) {
@@ -876,20 +791,70 @@ modulo.register('core', class AssetManager {
         return this.modules[hash].call(window, this.modulo);
     }
 
+    wrapDefine(hash, name, code, prefix = 'window.modulo.assets') {
+        const assignee = `${ prefix }.modules["${ hash }"]`;
+        return `${ assignee } = function ${ name } (modulo) {\n${ code }\n};\n`;
+    }
+
     define(name, code) {
         const hash = this.modulo.registry.utils.hash(code);
         this.modulo.assert(!(name in this.nameToHash), `Duplicate: ${ name }`);
         this.nameToHash[name] = hash;
         if (!(hash in this.modules)) {
             this.moduleSources[hash] = code;
-            const assignee = `window.modulo.assets.modules["${ hash }"] = `;
-            const prefix = assignee + `function ${ name } (modulo) {\n`;
-            //this.modulo.assets = this;// TODO Should investigate why needed
-            //this.modulo.pushGlobal();
-            this.appendToHead('script', `"use strict";${ prefix }${ code }};\n`);
-            //this.modulo.popGlobal();
+            const jsText = this.wrapDefine(hash, name, code);
+            this.modulo.assets = this;// TODO Should investigate why needed
+            this.modulo.pushGlobal();
+            this.appendToHead('script', '"use strict";' + jsText);
+            this.modulo.popGlobal();
         }
         return () => this.modules[hash].call(window, modulo); // TODO: Rm this, and also rm the extra () in Templater
+    }
+
+    buildJavaScript() {
+        const prefix = `window.moduloBuild = window.moduloBuild || { modules: {} };\n`;
+        return prefix + this.buildModuleDefs() + this.buildConfigDef();
+    }
+
+    buildConfigDef() {
+        const defs = JSON.stringify(this.modulo.definitions, null, 1);
+        return `window.moduloBuild.definitions = ${ defs };\n`;
+    }
+
+    buildModuleDefs() {
+        let jsText = '';
+        const pre = 'window.moduloBuild';
+        for (const name of Object.keys(this.nameToHash).sort()) {
+            const hash = this.nameToHash[name]; // Alphabetic by name, not hash
+            if (hash in this.moduleSources) {
+                const source = this.moduleSources[hash];
+                jsText += this.wrapDefine(hash, name, source, pre);
+                delete this.moduleSources[hash];
+            }
+        }
+        const namesString = JSON.stringify(this.nameToHash, null, 1);
+        jsText += pre + '.nameToHash = ' + namesString + ';\n';
+        modulo.assert(Object.keys(this.moduleSources).length === 0, 'Unused mod keys');
+        return jsText.length > 40 ? jsText : ''; // <40 chars means no-op
+    }
+
+    buildMain() {
+        const p = 'window.moduloBuild && modulo.start(window.moduloBuild);\n';
+        const asRequireInvocation = s => `modulo.assets.require("${ s }");`;
+        return p + this.mainRequires.map(asRequireInvocation).join('\n');
+    }
+
+    bundleAssets(callback) {
+        const { fetchBundleData } = this.modulo.registry.utils;
+        fetchBundleData(this.modulo, bundleData => {
+            //const results = this.cssAssetsArray;
+            const results = { js: [], css: this.cssAssetsArray };
+            results.js.push(this.modulo.assets.buildJavaScript());
+            for (const bundle of bundleData) { // Loop through bundle data
+                results[bundle.type].push(bundle.content);
+            }
+            callback(results.js.join('\n'), results.css.join('\n'));
+        });
     }
 
     registerStylesheet(text) {
@@ -1032,17 +997,6 @@ modulo.register('cpart', class Style {
             this.element.shadowRoot.append(style);
         }
     }
-    /*
-    updateCallback() {
-        const { isolateClass, allSelectors } = this.def;
-        if (!isolateClass || allSelectors.length < 1) {
-            return;
-        }
-        for (const elem of this.element.querySelector(allSelectors.join(','))) {
-            elem.classList.add(isolateClass); // ensure always has class added
-        }
-    }
-    */
 }, {
     DefFinalizers: [ 'Content|PrefixCSS' ]
 });
@@ -1075,7 +1029,6 @@ modulo.register('cpart', class Template {
     TemplatePrebuild: "yes",
     DefFinalizers: [ 'TemplatePrebuild' ]
 });
-
 
 modulo.register('processor', function contentCSV (modulo, def, value) {
     const js = JSON.stringify((def.Content || '').split('\n').map(line => line.split(',')));
@@ -1111,6 +1064,14 @@ modulo.register('processor', function code (modulo, def, value) {
     modulo.assets.define(def.DefinitionName, value);
 });
 
+modulo.register('processor', function setAttrs (modulo, def, value) {
+    for (const [ key, val ] of Object.entries(def)) {
+        if (/^[a-z]/.test(key) && (value + key).includes('.')) { // Set anything with dots
+            modulo.registry.utils.set(modulo, (value + '.' + key), val);
+        }
+    }
+});
+
 modulo.register('processor', function requireData (modulo, def, value) {
     def.data = modulo.assets.require(def[value]);
 });
@@ -1125,13 +1086,20 @@ modulo.register('cpart', class StaticData {
 }, {
     DataType: '?', // Default behavior is to guess based on Src ext
     RequireData: 'DefinitionName',
-    DefLoaders: [ 'DefTarget', 'DefinedAs', 'DataType', 'Src' ],
+    DefLoaders: [ 'DefinedAs', 'DataType', 'Src' ],
     DefBuilders: [ 'ContentCSV', 'ContentTXT', 'ContentJSON', 'ContentJS' ],
     DefFinalizers: [ 'Code', 'RequireData' ],
 });
 
-modulo.register('coreDef', class Configuration { }, {
-    DefTarget: 'config',
+modulo.register('cpart', class GetParams { // TODO: Test / document, or delete
+    static factoryCallback(renderObj, def, modulo) { // TODO: allow "plucking"
+        return Object.from(new URLSearchParams(window.location.search));
+    }
+}); // TODO: Worth it if we can add simple pushState routing
+
+modulo.register('cpart', class Configuration { }, {
+    SetAttrs: 'config',
+    DefLoaders: [ 'DefinedAs', 'SetAttrs', 'Src' ],
     DefBuilders: [ 'Content|Code', 'DefinitionName|MainRequire' ],
 });
 
@@ -1201,8 +1169,6 @@ modulo.register('cpart', class Script {
     lifecycle: null,
     DefBuilders: [ 'Content|ScriptAutoExport', 'Code' ],
 });
-
-
 
 modulo.register('cpart', class State {
     static factoryCallback(renderObj, def, modulo) {
@@ -1332,8 +1298,8 @@ modulo.register('engine', class Templater {
 
     tokenizeText(text) {
         // Join all modeTokens with | (OR in regex).
-        const { escapeRegExp } = this.modulo.registry.utils;
-        const re = '(' + this.modeTokens.map(escapeRegExp).join('|(').replace(/ +/g, ')(.+?)');
+        // Replace space with wildcard capture.
+        const re = '(' + this.modeTokens.join('|(').replace(/ +/g, ')(.+?)');
         return text.split(RegExp(re)).filter(token => token !== undefined);
     }
 
@@ -1342,8 +1308,7 @@ modulo.register('engine', class Templater {
         this.stack = []; // Template tag stack
         this.output = 'var OUT=[];\n'; // Variable used to accumulate code
         let mode = 'text'; // Start in text mode
-        const tokens = this.tokenizeText(text);
-        for (const token of tokens) {
+        for (const token of this.tokenizeText(text)) {
             if (mode) { // if in a "mode" (text or token), then call mode func
                 const result = this.modes[mode](token, this, this.stack);
                 if (result) { // Mode generated text output, add to code
@@ -1484,7 +1449,7 @@ modulo.config.templater.tags = {
         const condition = condStructure.replace(/([XY])/g,
             (k, m) => tmplt.parseExpr(m === 'X' ? lHand : rHand));
         const start = `if (${condition}) {`;
-        return { start, end: '}' };
+        return {start, end: '}'};
     },
     'else': () => '} else {',
     'elif': (s, tmplt) => '} else ' + tmplt.tags['if'](s, tmplt).start,
@@ -1512,7 +1477,7 @@ modulo.config.templater.tags = {
         const oldEndCode = stack.pop().end; // get rid of dangling for
         const start = `${varName}=true; ${oldEndCode} if (!${varName}) {`;
         const end = `}${varName} = false;`;
-        return { start, end, close: 'endfor' };
+        return {start, end, close: 'endfor'};
     },
 };
 
@@ -1774,7 +1739,6 @@ modulo.register('engine', class Reconciler {
             }
 
             if (!child && rival) { // we have less than rival, take rival
-                // TODO: Possibly add directive resolution context to rival / child.originalChildren?
                 this.patch(cursor.parentNode, 'appendChild', rival);
                 this.patchAndDescendants(rival, 'Mount');
             }
@@ -1790,7 +1754,6 @@ modulo.register('engine', class Reconciler {
                     if (rival.hasAttribute('modulo-ignore')) {
                         // console.log('Skipping ignored node');
                     } else if (child.isModulo) { // is a Modulo component
-                        // TODO: Possibly add directive resolution context to rival / child.originalChildren?
                         this.patch(child, 'rerender', rival);
                     } else if (!this.shouldNotDescend) {
                         cursor.saveToStack();
@@ -1907,44 +1870,92 @@ modulo.register('util', function getAutoExportNames(contents) {
         .filter(s => s && !Modulo.INVALID_WORDS.has(s));
 });
 
-/*-{-% if not config.IS_BUILD %-}-*/
-modulo.register('util', function showDevMenu() {
-    const cmd = new URLSearchParams(window.location.search).get('mod-cmd');
-    const rerun = `<h1><a href="?mod-cmd=${ cmd }">&#x27F3; ${ cmd }</a></h1>`;
-    if (cmd) { // Command specified, skip dev menu, run, and replace HTML after
-        const callback = () => { window.document.body.innerHTML = rerun; };
-        return modulo.registry.commands[cmd](modulo, { callback });
-    } // Else: Display "COMMANDS:" menu in console
-    const commandNames = Object.keys(modulo.registry.commands);
-    const href = 'window.location.href += ';
-    const font = 'font-size: 28px; padding: 0 8px 0 8px; border: 2px solid black;';
-    const commandGetters = commandNames.map(cmd =>
-        ('get ' + cmd + ' () {' + href + '"?mod-cmd=' + cmd + '";}'));
-    const clsCode = 'class COMMANDS {' + commandGetters.join('\n') + '}';
-    new Function(`console.log('%c%', '${ font }', new (${ clsCode }))`)();
+modulo.register('util', function fetchBundleData(modulo, callback) {
+    const query = 'script[src],link[rel=stylesheet]';
+    const data = [];
+    const elems = Array.from(window.document.querySelectorAll(query));
+    for (const elem of elems) {
+        const dataItem = {
+            src: elem.src || elem.href,
+            type: elem.tagName === 'SCRIPT' ? 'js' : 'css',
+            content: null,
+        };
+        elem.remove();
+        // TODO: Add support for inline script tags..?
+        data.push(dataItem);
+        modulo.fetchQueue.fetch(dataItem.src).then(text => {
+            delete modulo.fetchQueue.data[dataItem.src]; // clear cached data
+            dataItem.content = text;
+        });
+    }
+    modulo.fetchQueue.enqueueAll(() => callback(data));
+});
+
+modulo.register('util', function getBuiltHTML(modulo, opts = {}) {
+    // Scan document for modulo elements, attaching modulo-original-html=""
+    // as needed, and clearing link / script tags that have been bundled
+    const bundledTags = { script: 1, link: 1, style: 1 }; // TODO: Move to conf?
+    for (const elem of window.document.querySelectorAll('*')) {
+        if (elem.tagName.toLowerCase() in bundledTags) {
+            elem.remove();
+        }
+        /*
+            // TODO: As we are bundling together, create a src/href/etc collection
+            // to the compare against instead?
+            // TODO: Maybe remove bundle logic here, since we remove when bundling?
+        if (elem.hasAttribute('modulo-asset')) {
+            elem.remove(); // TODO: Maybe remove bundle logic here, since we remove when bundling?
+        }
+        */
+        if (elem.isModulo && elem.originalHTML !== elem.innerHTML) {
+            elem.setAttribute('modulo-original-html', elem.originalHTML);
+        }
+    }
+    let head = '<head>' + window.document.head.innerHTML;
+    let body = '<body>' + window.document.body.innerHTML;
+    head += `<link rel="stylesheet" href="${ opts.cssFilePath }" /></head>`;
+    body += `<script src="${ opts.jsFilePath }"></script>`;
+    body += `<script>${ opts.jsInlineText }</script></body>`;
+    return '<!DOCTYPE HTML><html>' + head + body + '</html>';
 });
 
 modulo.register('command', function build (modulo, opts = {}) {
-    const filter = opts.filter || (({ Type }) => Type === 'Artifact');
-    modulo.config.IS_BUILD = true;
-    opts.callback = opts.callback || (() => {});
-    const artifacts = Object.values(modulo.definitions).filter(filter);
-    const buildNext = () => {
-        modulo.registry.cparts.Artifact.build(modulo, artifacts.shift());
-        modulo.fetchQueue.enqueueAll(artifacts.length > 0 ? buildNext : opts.callback);
-    };
-    modulo.assert(artifacts.length, 'Build filter produced no artifacts');
-    buildNext();
+    const { saveFileAs, getBuiltHTML, hash } = modulo.registry.utils;
+    modulo.assets.bundleAssets((js, css) => {
+        opts.jsInlineText = modulo.assets.buildMain();
+        opts.jsFilePath = saveFileAs(`modulo-build-${ hash(js) }.js`, js);
+        opts.cssFilePath = saveFileAs(`modulo-build-${ hash(css) }.css`, css);
+        const htmlFN = window.location.pathname.split('/').pop() || 'index.html';
+        opts.htmlFilePath = saveFileAs(htmlFN, getBuiltHTML(modulo, opts));
+        window.setTimeout(() => {
+            // TODO: Move this "refresh" into a generic utility
+            window.document.body.innerHTML = `<h1><a href="?mod-cmd=build">&#10227;
+                build</a>: ${ opts.htmlFilePath }</h1>`;
+            if (opts && opts.callback) {
+                opts.callback();
+            }
+        }, 0);
+    });
 });
 
-if (typeof window.document !== 'undefined') {
-    modulo.loadFromDOM(window.document.head, null, true); // Head blocking load
-    window.document.addEventListener('DOMContentLoaded', () => {
-        modulo.loadString(modulo.DEVLIB_SOURCE, '_artifact'); // Load DEV LIB
-        modulo.loadFromDOM(window.document.body, null, true); // Load new tags
-        modulo.preprocessAndDefine(modulo.registry.utils.showDevMenu);
-    });
+if (typeof document !== 'undefined' && !window.moduloBuild) {
+    window.document.addEventListener('DOMContentLoaded', () => modulo.fetchQueue.wait(() => {
+        const cmd = new URLSearchParams(window.location.search).get('mod-cmd');
+        if (cmd || window.moduloBuild) { // Command / already built: Run & exit
+            return cmd && modulo.registry.commands[cmd](modulo);
+        } // Else: Display "COMMANDS:" menu in console
+        const commandNames = Object.keys(modulo.registry.commands);
+        const href = 'window.location.href += ';
+        const font = 'font-size: 28px; padding: 0 8px 0 8px; border: 2px solid black;';
+        const commandGetters = commandNames.map(cmd =>
+            ('get ' + cmd + ' () {' + href + '"?mod-cmd=' + cmd + '";}'));
+        const clsCode = 'class COMMANDS {' + commandGetters.join('\n') + '}';
+        new Function(`console.log('%c%', '${ font }', new (${ clsCode }))`)();
+    }));
+}
+
+if (typeof document !== 'undefined' && document.head) { // Browser environ
+    modulo.start(window.moduloBuild);
 } else if (typeof exports !== 'undefined') { // Node.js / silo'ed script
     exports = { Modulo, modulo };
 }
-/*-{-% endif %-}-*/
