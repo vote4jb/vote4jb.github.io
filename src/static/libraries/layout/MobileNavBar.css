@@ -104,16 +104,17 @@ ul.main li a:active,
 ul.main li a.mnav--selected {
     background-color: var(--primary);
     box-shadow:
-        0     -5px  5px         inset #00000011,
+        0     -5px  5px         inset #00000007,
         0     -100px 3000px -200px          inset var(--highlight2),
-        0    -100px 70px 10px inset #00000022;
+        0    -100px 70px 10px inset #00000009;
 }
 ul.main li a.mnav--selected::after {
     opacity: 0;
 }
 
 ul.main li a::after {
-    content: ' ➤ ';
+    /*content: ' ➤ ';*/
+    content: ' \021c0 ';
     line-height: 1.2;
     color: var(--highlight);
     padding-left: 10px;
@@ -161,10 +162,10 @@ ul.main li a::after {
     display: block;
     position: relative;
     z-index: 10;
-    width: 5rem;
-    height: 5rem;
+    width: 3rem;
+    height: 3rem;
     line-height: 0.8;
-    font-size: 4.6rem;
+    font-size: 2.8rem;
     text-decoration: none;
     color: white;
     margin-top: 20px;
@@ -198,7 +199,7 @@ ul.main li a::after {
 .sliding-nav {
     z-index: 12;
     position: fixed;
-    top: 8rem;
+    top: 4.5rem;
     left: 1vw;
     transition: left 0.1s;
 }
@@ -215,6 +216,7 @@ img.right-logo {
     z-index: 2;
     width: 400px;
     margin-right: auto;
+    margin-top: 3rem;
 }
 
 .sliding-nav--index {
@@ -226,4 +228,10 @@ img.right-logo {
     position: fixed;
 }
 
+/* Ultra narrow devices (Galaxy Fold) gets chopped off */
+@media (max-width: 320px) {
+    ul.volunteer {
+        display: block;
+    }
+}
 
