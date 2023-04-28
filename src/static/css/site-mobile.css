@@ -64,6 +64,9 @@
     .platform h3 {
         font-size: 0.9rem;
     }
+    .landing-letter .landing-letter-image {
+        position: static;
+    }
 
     .image-gallery img {
         width: 48vw;

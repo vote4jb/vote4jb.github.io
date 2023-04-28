@@ -2,19 +2,27 @@ img {
     max-width: 100%;
 }
 
+li {
+    margin: 0; 
+    padding: 0; 
+}
+
 img.logo {
     width: 60vw;
 }
 
 ul {
     display: block;
+    box-sizing: border-box;
     position: relative;
     z-index: 10;
     width: 100vw;
-    margin-top: 20px;
+    margin-top: 5px;
     background: #ffffff33;
     background: white;
-    padding: 5px;
+    padding: 0;
+    padding-top: 5px;
+    padding-bottom: 5px;
     box-shadow:
         0     5px 5px                #00000033,
         0     5px  5px         inset #00000011,
@@ -36,7 +44,6 @@ ul li {
     display: block;
     list-style: none;
     margin: 0;
-    margin-left: 10px;
 }
 
 ul.main li a,
@@ -49,7 +56,7 @@ ul.volunteer li a {
     margin: 20px;
     font-weight: 600;
     letter-spacing: 0.075em; /* tracking wider */
-    font-size: 2.5rem;
+    font-size: 1.5rem;
     display: block;
     text-decoration: none;
     min-width: 180px;
@@ -70,10 +77,14 @@ ul.volunteer li a {
         0    -100px 70px 10px inset #00000022;
 }
 
+
 ul.volunteer li a {
     background-color: var(--highlight);
-    border:   var(--highlight2) 5px solid;
+    border:   var(--highlight2) 2px solid;
     border-top-width: 4px;
+    font-size: 1.5rem;
+    padding: 5px;
+    margin-right: 0;
     border-bottom-width: 6px;
     color: white;
     text-align: center;
@@ -114,7 +125,7 @@ ul.main li a::after {
 .right-cutout {
     position: absolute;
     z-index: 2;
-    top: 200px;
+    top: 100px;
     width: 40vw;
     right: 0;
 }
