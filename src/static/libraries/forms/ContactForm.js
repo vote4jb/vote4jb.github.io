@@ -26,10 +26,17 @@ const fields = [
     {
       label: 'Yes, I want to volunteer',
       name: 'volunteer',
+      style: 'check',
+    },
+    {
+      label: 'Include message',
+      name: 'has_message',
+      style: 'check',
     },
     {
       label: 'Yes, I want to donate',
       name: 'donate',
+      style: 'check',
     },
 ];
 
@@ -40,7 +47,7 @@ function prepareCallback() {
     if (!hasRun) {
         hasRun = true;
         const urlParams = new URLSearchParams(location.search);
-        if (urlParams.get('volunteer')) {
+        if (urlParams.get('volunteer')) { // TODO rm this, urlParams are dead code
             state.volunteer = true;
             state.title = 'Volunteer';
         } else if (urlParams.get('donate')) {
@@ -53,6 +60,8 @@ function prepareCallback() {
             } else if (props.donateform) {
                 state.donate = true;
                 state.title = 'Donate';
+            } else if (props.endorseform) {
+                state.title = 'Endorse Jovanka';
             }
         }
 
@@ -61,7 +70,6 @@ function prepareCallback() {
             console.error('could not find form, misusing component!', form);
         } else {
             form.addEventListener('submit', handleSubmit);
-            console.log('adding event!', form);
         }
 
     }
@@ -73,6 +81,9 @@ function prepareCallback() {
     }
     if (state.volunteer === 'on') {
         state.volunteer = !!document.querySelector('[name=volunteer]').checked;
+    }
+    if (state.has_message === 'on') {
+        state.has_message = !!document.querySelector('[name=has_message]').checked;
     }
     // ///////////////////////////////////////
 

@@ -11,6 +11,7 @@
 
     <ul>
         <h3>Links</h3>
+        <li> <a href="/">Home</a> </li>
         {% for page in staticdata.navigation %}
             <li>
                 <a href="/{{ page.file }}"> {{ page.title }}</a>
@@ -20,7 +21,7 @@
 
     <ul>
         <h3>&nbsp;</h3>
-        <li> <a href="/">Home</a> </li>
+        <li> <a href="/contact/endorse.html">Endorse</a> </li>
         {% for page in staticdata.smallNav %}
             <li> <a href="{{ page.href }}">{{ page.title }}</a> </li>
         {% endfor %}

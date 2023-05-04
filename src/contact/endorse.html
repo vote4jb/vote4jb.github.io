@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+
+<script Modulo
+    src="/static/js/Modulo.js"
+    -src="/static/libraries/" 
+></script>
+
+
+<x-Page
+    title="Contact / Donate"
+    navselected="contact/endorse.html"
+    toptitle="Contact"
+>
+
+
+    <p>Would you like to endorse Jovanka for California State Senate? Fill out
+    this form to add your name and contact details.</p>
+  <form name="endorse_form" method="POST" netlify>
+      <x-ContactForm
+          endorseform=true
+      ></x-ContactForm>
+  </form>
+
+</x-Page>
+
