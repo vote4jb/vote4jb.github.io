@@ -2,8 +2,8 @@
 <div class="form-container">
     <h2>{{ state.title }}</h2>
     {% for field in script.fields %}
-        {% if field.name in "volunteer,donate" %}
-            <div class="field-pair">
+        {% if field.name in "volunteer,donate,has_message" %}
+            <div class="field-pair  {% if field.style %}field-pair--{{ field.style }}{% endif %}">
                 {% if field.name == state.title|lower %}
                     <div>
                         <input
@@ -21,7 +21,7 @@
                         id="{{ field.name }}_{{ component.id }}"
                     />
                 {% endif %}
-                <div>
+                <div style="width: 100%">
                     <label for="{{ field.name }}_{{ component.id }}">
                         {% if field.name == state.title|lower %}
                         {% else %}
@@ -70,6 +70,17 @@
                                         id="{{ field.name }}_{{ component.id }}_other_value"
                                     />
                                 </label>
+                            </li>
+                        </ul>
+                    {% endif %}
+                    {% if field.name == "has_message" %}
+                        <ul class="submenu submenu--simple {% if state.has_message %}submenu--visible{% endif %}">
+                            <li>
+                                <textarea
+                                    [state.bind]
+                                    name="has_message_value"
+                                    class="message-value-text"
+                                ></textarea>
                             </li>
                         </ul>
                     {% endif %}

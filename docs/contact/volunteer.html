@@ -1,7 +1,7 @@
 <!DOCTYPE html><html><head>
 
 
-<title>Contact / Volunteer - Jovanka for California State Senate</title><meta name="title" content="Contact / Volunteer | Jovanka for California State Senate"><meta name="description" content="Jovanka fights for the working class. She fights for healthcare, good jobs, and progressive values for the East Bay. Learn more and join an event! "><meta name="keywords" content="oakland,berkeley,richmond,california,senate,vote,2024,november"><meta name="robots" content="index, follow"><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="language" content="English"><meta name="revisit-after" content="30 days"><link rel="stylesheet" href="/_modulo/modulo-build-x186lgfq.css">
+<title>Contact / Volunteer - Jovanka for California State Senate</title><meta name="title" content="Contact / Volunteer | Jovanka for California State Senate"><meta name="description" content="Jovanka fights for the working class. She fights for healthcare, good jobs, and progressive values for the East Bay. Learn more and join an event! "><meta name="keywords" content="oakland,berkeley,richmond,california,senate,vote,2024,november"><meta name="robots" content="index, follow"><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="language" content="English"><meta name="revisit-after" content="30 days"><link rel="stylesheet" href="/_modulo/modulo-build-xxbqa2rk.css">
 </head><body>
     
 
@@ -23,7 +23,7 @@
 
 
 
-<x-navbar class="u--desktop" selected="contact/" modulo-original-html=""><nav class="Page-nav layout-container">
+<x-navbar class="u--desktop" selected="contact/volunteer.html" modulo-original-html=""><nav class="Page-nav layout-container">
     <div style="grid-column: 1;" class="logo-wrapper">
         <a href="/" style="border: none">
             <img class="nav-logo" src="/static/images/logos/logo.png" alt="Delivering Results! Together. Jovanka Beckles for State Senate">
@@ -53,7 +53,7 @@
             <li>
                 <a href="/contact/" title="Contact" class="
                         Page-navLink
-                        Page-navLink--selected
+                        
                     ">
                     Contact
                 </a>
@@ -78,7 +78,7 @@
 
 </x-navbar>
 
-<x-mobilenavbar class="u--mobile" selected="contact/" modulo-original-html="">
+<x-mobilenavbar class="u--mobile" selected="contact/volunteer.html" modulo-original-html="">
     <div class="menu-holder" @click:="script.toggle">
         <a>☰</a>
     </div>
@@ -106,7 +106,7 @@
             </li>
         
             <li>
-                <a href="#c" title="Contact" class="mnav mnav--selected">
+                <a href="/contact/" title="Contact" class="mnav ">
                     Contact
                 </a>
             </li>
@@ -140,8 +140,11 @@
 
     <slot class="Page-container layout-container">
 
-  <form name="volunteer_form" method="POST" netlify="">
-      <x-contactform volunteerform="true" modulo-original-html="">
+    <p>You don't need any particular skills or even more than a few hours to be
+    a huge help to our movement. Power flows from the people, so sign up to get
+    notified about how to get involved today!</p>
+    <form name="volunteer_form" method="POST" netlify="">
+        <x-contactform volunteerform="true" modulo-original-html="">
 <div class="form-container">
     <h2>Volunteer</h2>
     
@@ -191,28 +194,52 @@
         
     
         
-            <div class="field-pair">
+            <div class="field-pair  field-pair--check">
                 
                     <div>
                         <input type="hidden" name="volunteer" value="yes_form" id="volunteer_28">
                     </div>
                 
-                <div>
+                <div style="width: 100%">
                     <label for="volunteer_28">
                         
                         
                     </label>
+                    
                     
                 </div>
             </div>
         
     
         
-            <div class="field-pair">
+            <div class="field-pair  field-pair--check">
+                
+                    <input [state.bind]="" type="checkbox" name="has_message" id="has_message_28">
+                
+                <div style="width: 100%">
+                    <label for="has_message_28">
+                        
+                            Include message
+                        
+                    </label>
+                    
+                    
+                        <ul class="submenu submenu--simple ">
+                            <li>
+                                <textarea [state.bind]="" name="has_message_value" class="message-value-text"></textarea>
+                            </li>
+                        </ul>
+                    
+                </div>
+            </div>
+        
+    
+        
+            <div class="field-pair  field-pair--check">
                 
                     <input [state.bind]="" type="checkbox" name="donate" id="donate_28">
                 
-                <div>
+                <div style="width: 100%">
                     <label for="donate_28">
                         
                             Yes, I want to donate
@@ -278,6 +305,7 @@
                             </li>
                         </ul>
                     
+                    
                 </div>
             </div>
         
@@ -295,7 +323,7 @@
 
 
 </div></div></x-contactform>
-  </form>
+    </form>
 
 </slot>
 
@@ -311,6 +339,7 @@
 
     <ul>
         <h3>Links</h3>
+        <li> <a href="/">Home</a> </li>
         
             <li>
                 <a href="/about/"> About</a>
@@ -328,7 +357,7 @@
 
     <ul>
         <h3>&nbsp;</h3>
-        <li> <a href="/">Home</a> </li>
+        <li> <a href="/contact/endorse.html">Endorse</a> </li>
         
             <li> <a href="/contact/volunteer.html">Volunteer</a> </li>
         
@@ -368,5 +397,5 @@
 
 </footer>
 
-<script async="" src="/_modulo/modulo-build-x1d2du05.js"></script>
+<script async="" src="/_modulo/modulo-build-x1g1pk69.js"></script>
 </body></html>

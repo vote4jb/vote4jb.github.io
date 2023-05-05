@@ -1,7 +1,7 @@
 <!DOCTYPE html><html><head>
 
 
-<title>Contact - Jovanka for California State Senate</title><meta name="title" content="Contact | Jovanka for California State Senate"><meta name="description" content="Jovanka fights for the working class. She fights for healthcare, good jobs, and progressive values for the East Bay. Learn more and join an event! "><meta name="keywords" content="oakland,berkeley,richmond,california,senate,vote,2024,november"><meta name="robots" content="index, follow"><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="language" content="English"><meta name="revisit-after" content="30 days"><link rel="stylesheet" href="/_modulo/modulo-build-xxbqa2rk.css">
+<title>Contact / Donate - Jovanka for California State Senate</title><meta name="title" content="Contact / Donate | Jovanka for California State Senate"><meta name="description" content="Jovanka fights for the working class. She fights for healthcare, good jobs, and progressive values for the East Bay. Learn more and join an event! "><meta name="keywords" content="oakland,berkeley,richmond,california,senate,vote,2024,november"><meta name="robots" content="index, follow"><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="language" content="English"><meta name="revisit-after" content="30 days"><link rel="stylesheet" href="/_modulo/modulo-build-xxbqa2rk.css">
 </head><body>
     
 
@@ -23,7 +23,7 @@
 
 
 
-<x-navbar class="u--desktop" selected="contact/" modulo-original-html=""><nav class="Page-nav layout-container">
+<x-navbar class="u--desktop" selected="contact/endorse.html" modulo-original-html=""><nav class="Page-nav layout-container">
     <div style="grid-column: 1;" class="logo-wrapper">
         <a href="/" style="border: none">
             <img class="nav-logo" src="/static/images/logos/logo.png" alt="Delivering Results! Together. Jovanka Beckles for State Senate">
@@ -53,7 +53,7 @@
             <li>
                 <a href="/contact/" title="Contact" class="
                         Page-navLink
-                        Page-navLink--selected
+                        
                     ">
                     Contact
                 </a>
@@ -78,7 +78,7 @@
 
 </x-navbar>
 
-<x-mobilenavbar class="u--mobile" selected="contact/" modulo-original-html="">
+<x-mobilenavbar class="u--mobile" selected="contact/endorse.html" modulo-original-html="">
     <div class="menu-holder" @click:="script.toggle">
         <a>☰</a>
     </div>
@@ -106,7 +106,7 @@
             </li>
         
             <li>
-                <a href="#c" title="Contact" class="mnav mnav--selected">
+                <a href="/contact/" title="Contact" class="mnav ">
                     Contact
                 </a>
             </li>
@@ -140,10 +140,13 @@
 
     <slot class="Page-container layout-container">
 
-    <form name="contact_form" method="POST" netlify="">
-        <x-contactform modulo-original-html="">
+
+    <p>Would you like to endorse Jovanka for California State Senate? Fill out
+    this form to add your name and contact details.</p>
+  <form name="endorse_form" method="POST" netlify="">
+      <x-contactform endorseform="true" modulo-original-html="">
 <div class="form-container">
-    <h2></h2>
+    <h2>Endorse Jovanka</h2>
     
         
             <div class="field-pair ">
@@ -308,7 +311,7 @@
     
 
     <div style="text-align: center">
-        <button>Submit</button>
+        <button>Endorse Jovanka</button>
     </div>
 </div>
 
@@ -319,7 +322,7 @@
 
 
 </div></div></x-contactform>
-    </form>
+  </form>
 
 </slot>
 
@@ -393,5 +396,5 @@
 
 </footer>
 
-<script async="" src="/_modulo/modulo-build-xxd1uvnm.js"></script>
+<script async="" src="/_modulo/modulo-build-x136sm71.js"></script>
 </body></html>

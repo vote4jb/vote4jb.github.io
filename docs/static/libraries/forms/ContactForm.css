@@ -1,3 +1,7 @@
+:host {
+  --sm-visible-height: 150px;
+}
+
 .form-container {
     background: white;
     text-align: left;
@@ -140,15 +144,18 @@ input[type=text].other-amount {
     display: flex;
     flex-wrap: wrap;
     height: 1px;
-    overflow: none;
     border: 1px solid #00000022;
     max-width: 700px;
     transition: height 0.2s;
     overflow: hidden;
 }
 
+.submenu--simple {
+    display: block;
+    width: 100%;
+}
 .submenu--visible {
-    height: 150px;
+    height: var(--sm-visible-height);
 }
 
 .form-modal-backdrop {
@@ -194,8 +201,34 @@ button,
     margin: 16px;
 }
 
+.message-value-text {
+    border: 1px solid #00000022;
+    /*border-radius: 30px;*/
+    padding: 3px;
+    background: white;
+    width: 100%;
+    font-size: 1.1rem;
+    height: var(--sm-visible-height);
+    font-family: 'Playfair Display', serif;
+}
+
 @media (max-width: 992px) {
-    .field-pair.field-pair--half {
+    /* NOTE: Hardcoded name here */
+    x-ContactForm {
+      --sm-visible-height: 170px; /* Gives a little extra space so it doesn't chop off button */
+    }
+    .field-pair {
         display: block;
+    }
+    .field-pair.field-pair--check {
+        display: grid;
+        grid-template-columns: 15px 1fr;
+    }
+}
+
+@media (max-width: 576px) {
+    /* NOTE: Hardcoded name here */
+    x-ContactForm {
+      --sm-visible-height: 440px;
     }
 }
