@@ -106,3 +106,34 @@
     ></Style>
 </Component>
 
+
+
+<Component name="Banner">
+    <Props
+        cta
+        date
+        expiry
+        text
+        title
+        url
+    ></Props>
+    <Template
+        -src="/static/libraries/layout/Banner.html"
+    ></Template>
+    <Style
+        -src="/static/libraries/layout/Banner.css"
+    ></Style>
+
+    <Script>
+        function prepareCallback() {
+            let expired = false;
+            if (props.expiry) {
+                const [ year, month, day] = props.expiry.split('-');
+                const expiry = new Date(Number(year), Number(month) - 1, Number(day));
+                expired = expiry < new Date(); // in the past!
+            }
+            return { expired };
+        }
+    </Script>
+</Component>
+

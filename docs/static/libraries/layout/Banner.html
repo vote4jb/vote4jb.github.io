@@ -1,0 +1,11 @@
+
+{% if not script.expired %}
+    <a href="{{ props.url }}">
+        🗓️
+        <strong>{{ props.title }}</strong>
+        {{ props.text }}
+        <strong>{{ props.date|default:"" }}</strong>
+        <span>{{ props.cta|default:"RSVP" }} &#8640;</span>
+    </a>
+{% endif %}
+
