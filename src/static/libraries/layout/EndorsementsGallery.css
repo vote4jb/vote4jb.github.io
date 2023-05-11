@@ -1,0 +1,33 @@
+
+
+.endorsements-gallery {
+    grid-column: 1;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.endorsements-gallery img {
+    width: 200px;
+    border: 2px solid white;
+    border-radius: 30px;
+    box-shadow:
+        0     5px 5px                #00000033,
+        0     5px  5px         inset #00000011,
+        0     100px 3000px -200px          inset var(--highlight2),
+        0    -100px 70px 10px inset #00000022;
+    margin: 0.5vw;
+    width: 19vw;
+}
+
+/*
+    transition: transform 0.3s;
+    transform: scale(1.0);
+.endorsements-gallery img:hover {
+    transform: scale(1.4);
+    z-index: 12;
+}
+*/
+
+
