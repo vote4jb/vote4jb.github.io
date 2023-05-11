@@ -37,14 +37,19 @@
             element.removeAttribute('title'); // get rid of annoying title attr
             // For now, store the navigation array and generate year in JS
             let markdown = null;
+            let hideJoin = false;
             if (props.markdown) {
                 markdown = modulo.registry.utils.doMarkdown(element.originalHTML);
+            }
+            if (props.navselected.includes('contact')) {
+                hideJoin = true;
             }
             return {
                 currentYear: (new Date()).getFullYear(),
                 navigation: staticdata.navigation,
                 smallNav: staticdata.smallNav,
                 markdown,
+                hideJoin,
             };
         }
     </Script>
