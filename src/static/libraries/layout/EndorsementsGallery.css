@@ -21,6 +21,12 @@
     width: 19vw;
 }
 
+@media (max-width: 992px) {
+    .endorsements-gallery img {
+        width: 46vw;
+    }
+}
+
 /*
     transition: transform 0.3s;
     transform: scale(1.0);
@@ -29,5 +35,6 @@
     z-index: 12;
 }
 */
+
 
 
