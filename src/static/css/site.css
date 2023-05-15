@@ -159,7 +159,7 @@ p {
 
 .Page-container {
     /*min-height: calc(100vh - 200px);*/
-    /*padding-top: 80px;*/
+    padding-top: 80px;
     max-width: calc(100vw);
     overflow: hidden;
     background: var(--white);

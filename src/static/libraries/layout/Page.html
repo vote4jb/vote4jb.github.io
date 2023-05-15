@@ -47,7 +47,7 @@
         {{ script.markdown|safe }}
     </div>
 {% else %}
-    <slot class="Page-container layout-container">
+    <slot class="Page-container layout-container" style="{% if props.navselected == "index.html" %}padding-top:0{% endif %}">
     </slot>
 {% endif %}
 
