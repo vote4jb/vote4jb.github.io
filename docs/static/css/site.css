@@ -215,6 +215,12 @@ p {
 }
 
 
+.Page-markdown ul li {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    /*list-style: '✓ ';*/
+}
+
 
 .landing-letter {
     background: white;
@@ -233,8 +239,8 @@ p {
         0    -100px 70px 10px inset #00000022;
 }
 .landing-letter h1 {
-    font-style: italic;
-    font-weight: 400;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 500;
     padding: 0;
     margin: 0;
 }

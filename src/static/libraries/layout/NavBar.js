@@ -19,11 +19,21 @@ function prepareCallback() {
         }
     }
     element.removeAttribute('title'); // get rid of annoying title attr
+
+    let inBuild = false;
+    const cmd = new URLSearchParams(window.location.search).get('mod-cmd');
+    if (cmd === 'build') {
+        // Currently being built!
+        inBuild = true;
+    }
+
+
     // For now, store the navigation array and generate year in JS
     return {
         currentYear: (new Date()).getFullYear(),
         navigation: props.navigation,
         volunteerNav,
+        inBuild,
     };
 }
 

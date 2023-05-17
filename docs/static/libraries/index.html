@@ -7,6 +7,9 @@
     if (window.location.host.startsWith('localhost')) {
         return;
     }
+    if (window.location.host.includes('.local')) {
+        return;
+    }
     if (window.location.host.startsWith('127')) {
         return;
     }
@@ -20,8 +23,9 @@
     gtag('config', 'G-6ZT8F1MF6V'); // TODO: Swap with correct
 </script>
 
-<!-- Run analytics script (TODO Swap with correct script )-->
+<!-- Run analytics script (TODO Swap with correct script )
 <script Configuration -src="https://www.googletagmanager.com/gtag/js?id=G-6ZT8F1MF6V"></script>
+-->
 
 <Library namespace="x" -src="/static/libraries/layout.html"></Library>
 <Library namespace="x" -src="/static/libraries/forms.html"></Library>
