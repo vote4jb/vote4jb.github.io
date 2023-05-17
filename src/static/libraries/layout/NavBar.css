@@ -13,6 +13,7 @@
         0 5px 10px inset var(--lightgray),
         0 10px 20px #00000011;
     border-bottom: 1px solid #00000022;
+    transition: background 0.2s;
     /*border-bottom: 2px solid var(--primary);*/
     /*justify-items: center;*/
     /* background: whiteSmoke; */
