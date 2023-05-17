@@ -32,7 +32,7 @@ function prepareCallback() {
         currentYear: (new Date()).getFullYear(),
         navigation: props.navigation,
         volunteerNav,
-        //transparent,
+        transparent,
     };
 }
 
