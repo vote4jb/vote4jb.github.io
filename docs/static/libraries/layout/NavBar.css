@@ -329,7 +329,10 @@
 }
 
 .hero-composite-splash {
-    height: auto;
+    background: url("/static/images/hero/jovanka_splash_photo_rasterized.jpg");
+    background-size: 100% auto;
+    /* Aspect ratio: 1920x866 = 0.4510416 */
+    height: calc(100vw * 0.45);
     width: 100%;
     margin: 0;
     margin-bottom: -6px;
