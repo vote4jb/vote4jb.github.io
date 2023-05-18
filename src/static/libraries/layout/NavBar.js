@@ -31,6 +31,7 @@ function prepareCallback() {
     return {
         currentYear: (new Date()).getFullYear(),
         navigation: props.navigation,
+        s: props.selected.slice(1),
         volunteerNav,
         transparent,
     };

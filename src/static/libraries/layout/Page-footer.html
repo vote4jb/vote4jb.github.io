@@ -21,7 +21,11 @@
 
     <ul>
         <h3>&nbsp;</h3>
-        <li> <a href="/contact/endorse.html">Endorse</a> </li>
+        <li> <a href="/contact/contact.html">Contact us...</a> </li>
+        {% for page in staticdata.linkNav %}
+            <li> <a href="{{ page.href }}">{{ page.title }}</a> </li>
+        {% endfor %}
+
         {% for page in staticdata.smallNav %}
             <li> <a href="{{ page.href }}">{{ page.title }}</a> </li>
         {% endfor %}

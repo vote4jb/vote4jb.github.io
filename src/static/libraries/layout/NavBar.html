@@ -23,6 +23,7 @@
             {% endcomment %}
         </a>
     </div>
+
     <ul>
         {% for page in staticdata.navigation %}
             <li>
@@ -36,13 +37,28 @@
                 </a>
             </li>
         {% endfor %}
+        {% for page in staticdata.linkNav %}
+            <li>
+                {% if page.emoji %}<span class="emoji">{{ page.emoji }}</span>{% endif %}
+                <a href="{{ page.href }}" class="right-link-nav-cta
+                        {% if page.href == script.s %}nav--selected{% endif %}
+                ">{{ page.title }}</a>
+            </li>
+        {% endfor %}
+        {% for page in staticdata.smallNav %}
+            <li>
+                <a href="{{ page.href }}" class="right-cta
+                        {% if page.href == script.s %}nav--selected{% endif %}
+                ">{{ page.title }}</a>
+            </li>
+        {% endfor %}
+
     </ul>
 
+    <!--
     <div style="grid-column: 3; width: 300px">
-        {% for page in staticdata.smallNav %}
-            <a href="{{ page.href }}" class="right-cta">{{ page.title }}</a>
-        {% endfor %}
     </div>
+    -->
 </nav>
 
 

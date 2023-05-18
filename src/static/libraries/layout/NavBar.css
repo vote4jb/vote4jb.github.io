@@ -13,7 +13,7 @@
         0 5px 10px inset var(--lightgray),
         0 10px 20px #00000011;
     border-bottom: 1px solid #00000022;
-    transition: background 0.2s;
+    transition: background 0.2s, color 0.2s;
     /*border-bottom: 2px solid var(--primary);*/
     /*justify-items: center;*/
     /* background: whiteSmoke; */
@@ -89,14 +89,6 @@
 @media (max-width: 576px) { .nav-logo--forcibly-normal { width: 200px; } } /* Phone */
 
 
-/* Ul dimensions */
-.Page-nav ul {
-    width: 600px;
-}
-@media (max-width: 1440px) { .Page-nav ul { width: 450px; } }
-@media (max-width: 992px) {  .Page-nav ul { width: 270px;  } }
-@media (max-width: 576px) {  .Page-nav ul { width: 100%;  } } /* sm phone */
-
 
 /* Nav logo hero wrapper dimensions */
 .logo-wrapper {
@@ -107,6 +99,15 @@
 @media (max-width: 576px) {  .logo-wrapper { width: 100%;  } } /* sm phone */
 
 
+.Page-nav li a {
+    transition: color 0.2s;
+}
+.Page-nav li a:hover,
+a.nav--selected {
+    color: var(--primary);
+}
+
+
 
 .Page-nav li {
     list-style: none;
@@ -114,11 +115,12 @@
 }
 
 .Page-nav ul {
+    grid-column: 2 / span 2;
     display: flex;
     justify-content: flex-end;
     margin: 0;
     padding: 0;
-    flex-wrap: no-wrap;
+    flex-wrap: none;
     margin-top: 18px; /* Baseline align with logo */
 }
 
@@ -137,9 +139,75 @@
     }
 }
 
+li {
+  position: relative;
+}
+li .emoji {
+    display: block;
+    position: absolute;
+    left: -30px;
+    color: white;
+    text-decoration: none;
+    border: 3px solid var(--highlight);
+    background: var(--highlight);
+    border-bottom-width: 4px;
+    border-top-width: 2px;
+    padding: 2px;
+    display: inline-block;
+    border-radius: 3px;
+    transition: background 0.2s, color 0.2s;
+    box-shadow: 0 0 10px #ffffff00;
+    transition: box-shadow 0.2s;
+
+}
+
+.right-link-nav-cta {
+    color: var(--highlight);
+    padding: 4px;
+    border-radius: 3px;
+    font-weight: 200;
+    text-decoration: underline;
+    transition: background 0.2s, color 0.2s;
+    transition: box-shadow 0.2s;
+    color: var(--highlight);
+    /*
+    background: #ffffff99;
+    border: 1px solid var(--highlight);
+    border-bottom-width: 2px;*/
+    text-align: center;
+    display: inline-block;
+    height: auto;
+    font-size: 0.9rem;
+}
+.right-link-nav-cta:hover,
+.right-link-nav-cta.nav--selected {
+    background: var(--highlight);
+}
+
+@media (max-width: 1440px) {
+    .right-link-nav-cta {
+        font-size: 0.7rem;
+        height: 50px;
+    }
+}
+
+
+.light-button {
+    margin-top: 10px;
+    color: var(--highlight);
+    border: 3px solid var(--highlight);
+    border-bottom-width: 4px;
+    border-top-width: 2px;
+    text-decoration: none;
+    padding: 4px;
+    display: inline-block;
+    border-radius: 3px;
+    box-shadow: 0 0 10px #ffffff00;
+    transition: box-shadow 0.2s;
+}
+
 .right-cta {
     color: white;
-    margin-top: 10px;
     text-decoration: none;
     border: 3px solid var(--highlight);
     background: var(--highlight);
@@ -179,7 +247,6 @@
     min-height: 60px;
     max-height: auto;
     /*transition: 0.2s;*/
-    width: 120%;
     min-width: 100px;
     z-index: -1;
     overflow: hidden;
@@ -216,10 +283,10 @@
     color: var(--highlight);
     font-weight: 300;
     letter-spacing: 0.075em; /* tracking wider */
-    font-size: 1rem;
+    font-size: 1.5rem;
+    min-width: 200px;
     display: block;
     text-decoration: none;
-    min-width: 180px;
     margin-left: 0;
     margin-top: 10px;
     text-align: center;
@@ -239,7 +306,6 @@
     font-size: 2rem;
     display: block;
     text-decoration: none;
-    min-width: 220px;
     margin-left: 0;
     margin-top: 10px;
     text-align: center;
@@ -374,4 +440,21 @@
     }
 }
 
+
+@media (max-width: 1440px) {
+    .Page-navLink {
+        font-size: 1.2rem;
+        margin-left: 20px;
+        margin-top: 8px;
+        min-width: 10px;
+    }
+}
+
+@media (max-width: 992px) {
+    .Page-navLink--selected {
+        background-color: var(--secondary);
+        box-shadow: 0 -5px  10px 0 inset #00000014;
+        border-radius: 1px;
+    }
+}
 
