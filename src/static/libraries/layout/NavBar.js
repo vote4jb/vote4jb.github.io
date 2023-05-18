@@ -23,9 +23,9 @@ function prepareCallback() {
     element.removeAttribute('title'); // get rid of annoying title attr
 
     let transparent = false;
-    if (props.selected === 'index.html' && state.attop) {
+    /*if (props.selected === 'index.html' && state.attop) {
         transparent = true;
-    }
+    }*/
 
     // For now, store the navigation array and generate year in JS
     return {
