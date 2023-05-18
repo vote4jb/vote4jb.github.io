@@ -1,7 +1,6 @@
 <!DOCTYPE html><html><head>
 
-
-<title>News - Jovanka for California State Senate</title><meta name="title" content="News | Jovanka for California State Senate"><meta name="description" content="Jovanka fights for the working class. She fights for healthcare, good jobs, and progressive values for the East Bay. Learn more and join an event! "><meta name="keywords" content="oakland,berkeley,richmond,alameda,pinole,albany,el cerrito,california,senate,vote,2024"><meta name="robots" content="index, follow"><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="language" content="English"><meta name="revisit-after" content="30 days"><link rel="stylesheet" href="/_modulo/modulo-build-xxi30t6d.css">
+<title>Platform - Jovanka for California State Senate</title><meta name="title" content="Platform | Jovanka for California State Senate"><meta name="description" content="Jovanka fights for the working class. She fights for healthcare, good jobs, and progressive values for the East Bay. Learn more and join an event! "><meta name="keywords" content="oakland,berkeley,richmond,alameda,pinole,albany,el cerrito,california,senate,vote,2024"><meta name="robots" content="index, follow"><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="language" content="English"><meta name="revisit-after" content="30 days"><link rel="stylesheet" href="/_modulo/modulo-build-xxi30t6d.css">
 </head><body>
     
 
@@ -23,7 +22,7 @@
 
 
 
-<x-navbar class="u--desktop" selected="news/" modulo-original-html=""><nav class="Page-nav layout-container" style="">
+<x-navbar class="u--desktop" selected="platform/" modulo-original-html=""><nav class="Page-nav layout-container" style="">
     <div style="grid-column: 1;" class="logo-wrapper">
         <a href="/" style="border: none">
             <img class="nav-logo" src="/static/images/logos/logo.png" alt="Delivering Results! Together. Jovanka Beckles for State Senate">
@@ -45,7 +44,7 @@
             <li>
                 <a href="/platform/" title="Platform" class="
                         Page-navLink
-                        
+                        Page-navLink--selected
                     ">
                     Platform
                 </a>
@@ -63,7 +62,7 @@
             <li>
                 <a href="/news/" title="News" class="
                         Page-navLink
-                        Page-navLink--selected
+                        
                     ">
                     News
                 </a>
@@ -115,7 +114,7 @@
 
 </x-navbar>
 
-<x-mobilenavbar class="u--mobile" selected="news/" modulo-original-html="">
+<x-mobilenavbar class="u--mobile" selected="platform/" modulo-original-html="">
     <div class="menu-holder" @click:="script.toggle">
         <a>☰</a>
     </div>
@@ -137,7 +136,7 @@
             </li>
         
             <li>
-                <a href="/platform/" title="Platform" class="mnav ">
+                <a href="#c" title="Platform" class="mnav mnav--selected">
                     Platform
                 </a>
             </li>
@@ -149,7 +148,7 @@
             </li>
         
             <li>
-                <a href="#c" title="News" class="mnav mnav--selected">
+                <a href="/news/" title="News" class="mnav ">
                     News
                 </a>
             </li>
@@ -174,7 +173,7 @@
 
     <div class="Page-container layout-container page-top">
         <h1 class="hero-text-top layout-container">
-            <div>News</div>
+            <div>Platform</div>
         </h1>
         
     </div>
@@ -183,13 +182,24 @@
 
     <slot class="Page-container layout-container" style="">
 
-<h1>Stay tuned</h1>
-
-<p>Stay tuned for news on how we are allying East Bay movements and community
-leaders to bring leadership we can trust to Sacramento!
 
 
-</p><h2>Example subheader</h2>
+        <div class="platform" style="margin: 0">
+            <div>
+                <div class="platform-plank">
+                    <h3>Working people, not just the greedy few</h3>
+                    <p>Fair wages, power in our workplaces, and taxes on the
+                    rich</p>
+                </div>
+            </div>
+        </div>
+
+<h1>Example Topic</h1>
+
+<p>We have the best platform.</p>
+
+
+<h2>Example subheader</h2>
 
 <p>Text...</p>
 
@@ -197,6 +207,34 @@ leaders to bring leadership we can trust to Sacramento!
 <h2>Example subheader</h2>
 
 <p>Text...</p>
+
+        <div class="platform" style="margin: 0">
+            <div>
+                <div class="platform-plank">
+                    <h3>Women, families, and children</h3>
+                    <p>Paid time off, free early childcare, and women's
+                    reproductive rights</p>
+                </div>
+
+                <div class="platform-plank">
+                    <h3>Our whole physical and mental health</h3>
+                    <p>We should provide free healthcare for everybody</p>
+                </div>
+
+                <div class="platform-plank">
+                    <h3>Our climate</h3>
+                    <p>A Green New Deal for the East Bay starts with green,
+                    fare-free transit</p>
+                </div>
+
+                <div class="platform-plank">
+                    <h3>Working homeowners and tenants</h3>
+                    <p>Win housing that works for us, not the big landlords and
+                    developers</p>
+                </div>
+            </div>
+
+        </div>
 
 
 </slot>
