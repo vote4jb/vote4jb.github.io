@@ -12,12 +12,12 @@ img.logo {
 }
 
 ul {
+    margin: 0;
     display: block;
     box-sizing: border-box;
     position: relative;
     z-index: 10;
     width: 100vw;
-    margin-top: 5px;
     background: #ffffff33;
     background: white;
     padding: 0;
@@ -32,13 +32,21 @@ ul {
 }
 
 
-ul.volunteer {
+ul.volunteer,
+ul.small-links {
     display: grid;
 }
-ul.volunteer li a {
+ul.volunteer li a,
+ul.small-links li a {
     text-align: center;
     font-weight: 300;
 }
+
+ul.small-links li a {
+    text-align: center;
+    display: block;
+}
+
 
 ul li {
     display: block;
@@ -168,7 +176,6 @@ ul.main li a::after {
     font-size: 2.8rem;
     text-decoration: none;
     color: white;
-    margin-top: 20px;
     padding: 5px;
     transition: background-color 0.1s;
     border-top-width: 4px;

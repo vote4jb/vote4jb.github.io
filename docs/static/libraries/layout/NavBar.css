@@ -1,13 +1,25 @@
+:host {
+    --nav-height: 80px;
+}
+
+.nav-logo {
+    height: calc(var(--nav-height) + 43px);
+    background: url("/static/images/logos/logo.png");
+    width: 160px;
+    margin-bottom: -43px;
+}
+
 .Page-nav {
     position: fixed;
     display: grid;
     grid-template-columns: 1fr minmax(auto, 900px) 1fr;
+    grid-template-row: var(--nav-height);
     width: 100vw;
     padding-right: 10px;
     padding-left: 10px;
     border-top: 2px solid var(--secondary);
     z-index: 5;
-    height: 80px;
+    height: var(--nav-height);
     background: var(--white);
     box-shadow: 
         0 5px 10px inset var(--lightgray),
@@ -76,14 +88,6 @@
 
 
 
-/* Nav logo hero dimensions */
-.nav-logo--hero {
-    width: 600px;
-}
-@media (max-width: 1440px) { .nav-logo--hero { width: 450px; } }
-@media (max-width: 992px) {  .nav-logo--hero { width: 270px;  } }
-@media (max-width: 576px) {  .nav-logo--hero { width: 200px;  } } /* sm phone */
-
 
 .nav-logo--forcibly-normal { width: 150px; }
 @media (max-width: 576px) { .nav-logo--forcibly-normal { width: 200px; } } /* Phone */
@@ -118,10 +122,11 @@ a.nav--selected {
     grid-column: 2 / span 2;
     display: flex;
     justify-content: flex-end;
+    align-items: center;
     margin: 0;
     padding: 0;
-    flex-wrap: none;
-    margin-top: 18px; /* Baseline align with logo */
+    flex-wrap: nowrap;
+    /*margin-top: 18px;*/ /* Baseline align with logo */
 }
 
 @media (max-width: 992px) {
@@ -284,16 +289,16 @@ li .emoji {
     font-weight: 300;
     letter-spacing: 0.075em; /* tracking wider */
     font-size: 1.5rem;
-    min-width: 200px;
     display: block;
     text-decoration: none;
     margin-left: 0;
-    margin-top: 10px;
+    margin-top: 0;
     text-align: center;
     transition: box-shadow 0.17s;
     letter-spacing: -0.02em;
     white-space: nowrap;
     text-transform: uppercase;
+    margin-right: 1rem;
     /*text-shadow: 1px 2px var(--primary);*/
     /*border-bottom: 1px solid var(--primary);*/
     /*border-bottom: 1px solid var(--darkgray);*/
@@ -444,9 +449,18 @@ li .emoji {
 @media (max-width: 1440px) {
     .Page-navLink {
         font-size: 1.2rem;
-        margin-left: 20px;
-        margin-top: 8px;
         min-width: 10px;
+        margin-right: 1rem;
+        margin-top: -5px;
+    }
+    .Page-navLink {
+        margin-right: 0.3rem;
+    }
+}
+
+@media (max-width: 1179px) { /* below iPad Air, e.g. iPad Mini  */
+    .Page-navLink {
+        margin-right: 0.3rem;
     }
 }
 
