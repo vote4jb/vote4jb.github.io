@@ -109,10 +109,22 @@
         grid-template-columns: 1fr 1fr;
     }
 
+    .hero-inset h1 {
+        font-size: 2.4rem;
+        font-weight: 800;
+    }
 
     img.hero-background-splash,
     img.hero-background-overlay {
         margin-top: 30vh;
+    }
+    .j4s-BtnBox {
+        display: block;
+        height: auto !important;
+        margin: 0 !important;
+    }
+    .j4s-BtnBox > * {
+        margin: 0 !important;
     }
 }
 
@@ -142,15 +154,6 @@
 }
 
 
-
-/* FHD */
-.nav-logo {
-    width: 130px;
-}
-
-@media (max-width: 1440px) { .nav-logo { width: 70px; } } /* Tablet / laptop */
-@media (max-width: 992px) { .nav-logo { width: 70px; } }  /* Phone / tablet */
-@media (max-width: 576px) { .nav-logo { width: 100%; } } /* Phone */
 
 
 /* clean up */

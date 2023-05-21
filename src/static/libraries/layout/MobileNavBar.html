@@ -42,6 +42,14 @@
         {% endfor %}
     </ul>
 
+    <ul class="small-links" style="grid-template-columns: repeat({{ staticdata.linkNav|length }}, 1fr)">
+        {% for page in staticdata.linkNav %}
+            <li>
+                <a href="{{ page.href }}">{{ page.title }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+
     <ul class="volunteer" style="grid-template-columns: repeat({{ staticdata.smallNav|length }}, 1fr)">
         {% for page in staticdata.smallNav %}
             <li>

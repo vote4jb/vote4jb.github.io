@@ -460,6 +460,11 @@ p {
     box-shadow: 0 10px 10px inset #00000033;
 }
 
+.hero-inset h1 {
+    font-size: 3rem;
+    font-weight: 800;
+}
+
 .hero-inset--alt {
     background: linear-gradient(to bottom, var(--white), var(--white), var(--highlight2));
     box-shadow:
