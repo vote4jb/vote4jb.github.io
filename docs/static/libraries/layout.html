@@ -149,6 +149,12 @@
         -src="/static/libraries/layout/Banner.css"
     ></Style>
 
+    <State
+        -name="ebState"
+        -store="eventBanner"
+        shown:=false
+    ></State>
+
     <Script>
         function prepareCallback() {
             let expired = false;
@@ -156,6 +162,14 @@
                 const [ year, month, day] = props.expiry.split('-');
                 const expiry = new Date(Number(year), Number(month) - 1, Number(day));
                 expired = expiry < new Date(); // in the past!
+                if (expired === false) {
+                    if (!ebState.shown) { // not one shown
+                        ebState.shown = props.url; // ensure only 1 gets showed
+                    }
+                    if (ebState.shown !== props.url) { // already one shown
+                        expired = true;
+                    }
+                }
             }
             return { expired };
         }

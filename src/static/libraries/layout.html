@@ -163,7 +163,6 @@
                 const expiry = new Date(Number(year), Number(month) - 1, Number(day));
                 expired = expiry < new Date(); // in the past!
                 if (expired === false) {
-                    console.log('not expired!', JSON.stringify(ebState));
                     if (!ebState.shown) { // not one shown
                         ebState.shown = props.url; // ensure only 1 gets showed
                     }
