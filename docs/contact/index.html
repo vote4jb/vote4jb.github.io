@@ -23,7 +23,7 @@
 
 
 
-<!-- Note: Only one will be shown: The first non-expired one -->
+<x-navbar class="u--desktop" selected="contact/" modulo-original-html=""><!-- Note: Only one will be shown: The first non-expired one -->
 
 <x-banner style="grid-column: 1 / span 3" title="JOIN OUR LIT DROP" text="Jovanka for State Senate Lit Drop" date="Sun May 28th at Martin Luther King Jr. Park in Berkeley" url="https://www.mobilize.us/jovanka4casenate/event/564948/" cta="Get details &amp; RSVP" expiry="2023-05-29" modulo-original-html="">
 
@@ -45,7 +45,8 @@
 
 
 
-<x-navbar class="u--desktop" selected="contact/" modulo-original-html=""><nav class="Page-nav layout-container" style="">
+
+<nav class="Page-nav layout-container" style="">
     <div style="grid-column: 1;" class="logo-wrapper">
         <a href="/" style="border: none">
             <img class="nav-logo" src="/static/images/logos/logo.png" alt="Delivering Results! Together. Jovanka Beckles for State Senate">
@@ -201,6 +202,29 @@
         
     </ul>
 </nav>
+<!-- Note: Only one will be shown: The first non-expired one -->
+
+<x-banner style="grid-column: 1 / span 3" title="JOIN OUR LIT DROP" text="Jovanka for State Senate Lit Drop" date="Sun May 28th at Martin Luther King Jr. Park in Berkeley" url="https://www.mobilize.us/jovanka4casenate/event/564948/" cta="Get details &amp; RSVP" expiry="2023-05-29" modulo-original-html="">
+
+    <a href="https://www.mobilize.us/jovanka4casenate/event/564948/">
+        🗓️
+        <strong>JOIN OUR LIT DROP</strong>
+        Jovanka for State Senate Lit Drop
+        <strong>Sun May 28th at Martin Luther King Jr. Park in Berkeley</strong>
+        <span>Get details &amp; RSVP ⇀</span>
+    </a>
+
+
+</x-banner>
+
+<x-banner style="grid-column: 1 / span 3" title="JOIN OUR HOUSE PARTY!" text="House Party for Jovanka for State Senate" date="June 10th near Downtown Berkeley, CA" url="https://www.mobilize.us/jovanka4casenate/event/564951/" cta="Get details &amp; RSVP" expiry="2023-06-10" modulo-original-html="">
+
+
+</x-banner>
+
+
+
+
 
 </x-mobilenavbar>
 
@@ -223,56 +247,56 @@
     
         
             <div class="field-pair ">
-                <label for="firstname_30">
+                <label for="firstname_28">
                     First Name
                 </label>
-                <input [state.bind]="" name="firstname" type="text" id="firstname_30">
+                <input [state.bind]="" name="firstname" type="text" id="firstname_28">
             </div>
         
     
         
             <div class="field-pair ">
-                <label for="lastname_30">
+                <label for="lastname_28">
                     Last Name
                 </label>
-                <input [state.bind]="" name="lastname" type="text" id="lastname_30">
+                <input [state.bind]="" name="lastname" type="text" id="lastname_28">
             </div>
         
     
         
             <div class="field-pair ">
-                <label for="email_30">
+                <label for="email_28">
                     Email
                 </label>
-                <input [state.bind]="" name="email" type="text" id="email_30">
+                <input [state.bind]="" name="email" type="text" id="email_28">
             </div>
         
     
         
             <div class="field-pair field-pair--half">
-                <label for="zip_30">
+                <label for="zip_28">
                     Zip Code
                 </label>
-                <input [state.bind]="" name="zip" type="text" id="zip_30">
+                <input [state.bind]="" name="zip" type="text" id="zip_28">
             </div>
         
     
         
             <div class="field-pair field-pair--half">
-                <label for="phone_30">
+                <label for="phone_28">
                     Phone
                 </label>
-                <input [state.bind]="" name="phone" type="text" id="phone_30">
+                <input [state.bind]="" name="phone" type="text" id="phone_28">
             </div>
         
     
         
             <div class="field-pair  field-pair--check">
                 
-                    <input [state.bind]="" type="checkbox" name="volunteer" id="volunteer_30">
+                    <input [state.bind]="" type="checkbox" name="volunteer" id="volunteer_28">
                 
                 <div style="width: 100%">
-                    <label for="volunteer_30">
+                    <label for="volunteer_28">
                         
                             Yes, I want to volunteer
                         
@@ -286,10 +310,10 @@
         
             <div class="field-pair  field-pair--check">
                 
-                    <input [state.bind]="" type="checkbox" name="has_message" id="has_message_30">
+                    <input [state.bind]="" type="checkbox" name="has_message" id="has_message_28">
                 
                 <div style="width: 100%">
-                    <label for="has_message_30">
+                    <label for="has_message_28">
                         
                             Include message
                         
@@ -309,10 +333,10 @@
         
             <div class="field-pair  field-pair--check">
                 
-                    <input [state.bind]="" type="checkbox" name="donate" id="donate_30">
+                    <input [state.bind]="" type="checkbox" name="donate" id="donate_28">
                 
                 <div style="width: 100%">
-                    <label for="donate_30">
+                    <label for="donate_28">
                         
                             Yes, I want to donate
                         
@@ -327,52 +351,52 @@
                             </li>
                             
                                 <li>
-                                    <input [state.bind]="" type="radio" name="donate_value" value="2" id="donate_30_2">
-                                    <label for="donate_30_2" @click:="script.setDonation" payload="#donate_30_2">
+                                    <input [state.bind]="" type="radio" name="donate_value" value="2" id="donate_28_2">
+                                    <label for="donate_28_2" @click:="script.setDonation" payload="#donate_28_2">
                                         DONATE $2
                                     </label>
                                 </li>
                             
                                 <li>
-                                    <input [state.bind]="" type="radio" name="donate_value" value="9" id="donate_30_9">
-                                    <label for="donate_30_9" @click:="script.setDonation" payload="#donate_30_9">
+                                    <input [state.bind]="" type="radio" name="donate_value" value="9" id="donate_28_9">
+                                    <label for="donate_28_9" @click:="script.setDonation" payload="#donate_28_9">
                                         DONATE $9
                                     </label>
                                 </li>
                             
                                 <li>
-                                    <input [state.bind]="" type="radio" name="donate_value" value="27" id="donate_30_27">
-                                    <label for="donate_30_27" @click:="script.setDonation" payload="#donate_30_27">
+                                    <input [state.bind]="" type="radio" name="donate_value" value="27" id="donate_28_27">
+                                    <label for="donate_28_27" @click:="script.setDonation" payload="#donate_28_27">
                                         DONATE $27
                                     </label>
                                 </li>
                             
                                 <li>
-                                    <input [state.bind]="" type="radio" name="donate_value" value="50" id="donate_30_50">
-                                    <label for="donate_30_50" @click:="script.setDonation" payload="#donate_30_50">
+                                    <input [state.bind]="" type="radio" name="donate_value" value="50" id="donate_28_50">
+                                    <label for="donate_28_50" @click:="script.setDonation" payload="#donate_28_50">
                                         DONATE $50
                                     </label>
                                 </li>
                             
                                 <li>
-                                    <input [state.bind]="" type="radio" name="donate_value" value="200" id="donate_30_200">
-                                    <label for="donate_30_200" @click:="script.setDonation" payload="#donate_30_200">
+                                    <input [state.bind]="" type="radio" name="donate_value" value="200" id="donate_28_200">
+                                    <label for="donate_28_200" @click:="script.setDonation" payload="#donate_28_200">
                                         DONATE $200
                                     </label>
                                 </li>
                             
                                 <li>
-                                    <input [state.bind]="" type="radio" name="donate_value" value="1000" id="donate_30_1000">
-                                    <label for="donate_30_1000" @click:="script.setDonation" payload="#donate_30_1000">
+                                    <input [state.bind]="" type="radio" name="donate_value" value="1000" id="donate_28_1000">
+                                    <label for="donate_28_1000" @click:="script.setDonation" payload="#donate_28_1000">
                                         DONATE $1000
                                     </label>
                                 </li>
                             
                             <li>
-                                <input [state.bind]="" type="radio" name="donate_value" value="other" id="donate_30_other">
-                                <label for="donate_30_other">
+                                <input [state.bind]="" type="radio" name="donate_value" value="other" id="donate_28_other">
+                                <label for="donate_28_other">
                                     DONATE $_
-                                    <input [state.bind]="" name="donate_other_value" class="other-amount" type="text" placeholder="Enter amount..." id="donate_30_other_value">
+                                    <input [state.bind]="" name="donate_other_value" class="other-amount" type="text" placeholder="Enter amount..." id="donate_28_other_value">
                                 </label>
                             </li>
                         </ul>
@@ -504,5 +528,5 @@
 
 </footer>
 
-<script async="" src="/_modulo/modulo-build-x1a9k6i4.js"></script>
+<script async="" src="/_modulo/modulo-build-x1smq0rn.js"></script>
 </body></html>
