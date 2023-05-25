@@ -25,12 +25,13 @@ function prepareCallback() {
     };
 }
 
-// Disabling scroll listener
-/*
 function toggle() {
     state.hide = !state.hide;
 }
 
+
+// Disabling scroll listener
+/*
 const ATTOP_THRESHHOLD = 100;
 function handleScroll(scrollPos) {
     // Do something with the throttled scroll position
