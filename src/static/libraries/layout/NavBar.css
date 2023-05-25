@@ -10,7 +10,8 @@
 }
 
 .Page-nav {
-    position: fixed;
+    position: sticky;
+    top: 0;
     display: grid;
     grid-template-columns: 1fr minmax(auto, 900px) 1fr;
     grid-template-row: var(--nav-height);
@@ -410,6 +411,24 @@ li .emoji {
     margin-bottom: -6px;
 }
 
+.hero-splash-video-holder {
+    position: relative;
+    top: -100px;
+    left: 40vw;
+    /*margin-bottom: calc(0 - 100vw * 0.45);*/
+    height: 315px;
+    margin-bottom: -315px;
+ 
+}
+
+.hero-splash-video-holder iframe {
+    border: 2px solid white;
+    border-radius: 30px;
+    box-shadow:
+        0     5px 5px                #00000033,
+        0     5px  5px         inset #00000011,
+        0    -100px 70px 10px inset #00000022;
+}
 
 @media (max-width: 576px) {
     .Page-navHBMenu {

@@ -1,0 +1,88 @@
+
+
+:host {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    grid-column: 1 / span 3 !important; /* !important is needed due to layout-container messiness */
+    background: var(--secondary);
+    /*z-index: 1;*/
+}
+
+
+:host {
+    background: linear-gradient(to bottom, var(--white), var(--white), var(--highlight2));
+    box-shadow:
+        0     5px 5px                #00000066,
+        0     5px  5px         inset #00000011,
+        0     100px 3000px -200px          inset var(--highlight2),
+        0    -100px 70px 10px inset #00000022;
+}
+
+:host {
+    display: grid;
+    /*grid-template-columns: 1fr minmax(auto, 900px) 1fr;*/
+    grid-template-columns: 1fr 900px 1fr;
+}
+
+:host > * {
+    grid-column: 2;
+}
+
+h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    border-bottom-width: 3px;
+    padding-left: 40px;
+}
+/*
+.wide-slogan-with-video {
+    top: -100px;
+    position: relative;
+    z-index: 1;
+    display: block;
+}
+*/
+
+/*
+.wide-slogan-with-video {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+}
+*/
+
+.wide-slogan-with-video iframe {
+    border: 2px solid white;
+    border-radius: 30px;
+    box-shadow:
+        0     5px 5px                #00000033,
+        0     5px  5px         inset #00000011,
+        0    -100px 70px 10px inset #00000022;
+}
+
+
+@media (max-width: 992px) {
+
+    :host {
+        grid-template-columns: 5px 1fr 5px;
+    }
+
+    .hero-inset-grid {
+        display: block; /* go static */
+    }
+
+    .wide-slogan-with-video {
+        display: block;
+    }
+
+    :host h1 {
+        font-size: 2.4rem;
+        font-weight: 800;
+    }
+
+}
+
+@media (max-width: 576px) {
+    :host {
+        display: block; /* Ensure all layouts go to static at this point */
+    }
+}
