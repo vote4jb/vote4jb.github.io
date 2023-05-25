@@ -174,7 +174,6 @@ li .emoji {
     font-weight: 200;
     text-decoration: underline;
     transition: background 0.2s, color 0.2s;
-    transition: box-shadow 0.2s;
     color: var(--highlight);
     /*
     background: #ffffff99;
@@ -185,9 +184,14 @@ li .emoji {
     height: auto;
     font-size: 0.9rem;
 }
+/*
 .right-link-nav-cta:hover,
 .right-link-nav-cta.nav--selected {
     background: var(--highlight);
+}
+*/
+.right-link-nav-cta.nav--selected {
+    border: 1px solid var(--highlight);
 }
 
 @media (max-width: 1440px) {
