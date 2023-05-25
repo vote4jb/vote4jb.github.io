@@ -1,6 +1,6 @@
 {% if props.button %}
     <h2 style="margin: 3vw 0 0 3vw";>
-        Endorsed by trusted East Bay elected officials and community leaders
+        Endorsed by East Bay Mayors, City Councilmembers, and trusted community leaders:
     </h2>
     <!--
     <h3>
@@ -10,20 +10,22 @@
     -->
 {% endif %}
 
-<div class="endorsements-gallery" >
-    <img
-        src="/static/images/endorsements/2305/kevin_murphy_facebook.jpg"
-    />
-    <img
-        src="/static/images/endorsements/2305/alfredtwu_w_twitter.jpg"
-    />
-    <img
-        src="/static/images/endorsements/2305/pamprice_pga.png"
-    />
-    {% if props.button %}
+<div class="endorsements-gallery">
+    <a style="text-decoration: none" href="/endorsements/">
         <img
-            src="/static/images/endorsements/2305/pinole_pa_instagram.jpg" 
+            src="/static/images/endorsements/230523/GusNewport4_Square_Endorse.jpg"
         />
-        <a class="j4s-Btn" href="/endorsements/">See the rest <br /> &#8640;</a>
+        <img
+            src="/static/images/endorsements/230523/DevinMurphy_Facebook_MadeIntoSquare_512px.jpg"
+        />
+        <img
+            src="/static/images/endorsements/230523/Paola_Laverde_Square_512px.jpg"
+        />
+        <img
+            src="/static/images/endorsements/230523/WiP_Square_Endorse_512px.jpg" 
+        />
+    </a>
+    {% if props.button %}
+        <a class="j4s-Btn" href="/endorsements/">Endorsements <br />&#8640;</a>
     {% endif %}
 </div>

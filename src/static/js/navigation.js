@@ -10,23 +10,23 @@
             file: "about/",
         },
         {
-            title: "Platform",
-            file: "platform/",
-        },
-        {
             title: "Endorsements",
             file: "endorsements/",
         },
+        /*
         {
             title: "News",
             file: "news/",
         },
-        /*
+        {
+            title: "Platform",
+            file: "platform/",
+        },
+        */
         {
             title: "Contact",
             file: "contact/",
         },
-        */
     ],
 
     linkNav: [
