@@ -19,7 +19,7 @@ strong {
     padding: 5px;
 }
 span {
-    color: var(--primary);
+    /*color: var(--primary);*/
     border: 1px solid white;
     background: var(--highlight);
     box-shadow:
@@ -30,6 +30,10 @@ span {
     padding: 5px;
 }
 
+a:hover span {
+    color: var(--primary);
+    border-color: var(--primary);
+}
 
 @media (max-width: 1440px) {
     strong {
