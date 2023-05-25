@@ -1,14 +1,3 @@
-const volunteerNav = [
-        {
-            href: '/contact/?volunteer=y',
-            title: 'Volunteer',
-        },
-        {
-            href: '/contact/?pledge=y',
-            title: 'Pledge',
-        },
-];
-
 function prepareCallback() {
     // On mobile, have it start as hidden if not index.html, otherwise start as
     // expanded (hide=false)
@@ -32,11 +21,12 @@ function prepareCallback() {
         currentYear: (new Date()).getFullYear(),
         navigation: props.navigation,
         s: props.selected.slice(1),
-        volunteerNav,
         transparent,
     };
 }
 
+// Disabling scroll listener
+/*
 function toggle() {
     state.hide = !state.hide;
 }
@@ -70,6 +60,7 @@ document.addEventListener("scroll", (event) => {
         ticking = true;
     }
 });
+*/
 
 
 /*
