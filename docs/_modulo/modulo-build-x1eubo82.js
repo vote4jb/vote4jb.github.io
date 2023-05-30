@@ -25,7 +25,7 @@ window.moduloBuild.modules["xxulnbjr"] = function configuration (modulo) {
 };
 window.moduloBuild.nameToHash.configuration = "xxulnbjr";
 
-window.moduloBuild.modules["x1acauin"] = function configuration1 (modulo) {
+window.moduloBuild.modules["xxhvd4vo"] = function configuration1 (modulo) {
 
 // Copyright 2012 Google Inc. All rights reserved.
  
@@ -274,7 +274,7 @@ Rg:"us_privacy_string",ia:"value",wc:"wbraid",Sg:"wbraid_multiple_conversions",U
 1,Ah[P.g.nc]=1,Ah[P.g.Kd]=1,Ah[P.g.Ld]=1,Ah[P.g.Md]=1,Ah[P.g.yg]=1,Ah[P.g.kb]=1,Ah[P.g.Ag]=1,Ah[P.g.Qd]=1,Ah[P.g.jf]=1,Ah[P.g.qc]=1,Ah[P.g.lb]=1,Ah[P.g.Ba]=1,Ah[P.g.nf]=1,Ah[P.g.Td]=1,Ah[P.g.Sb]=1,Ah[P.g.Ra]=1,Ah[P.g.Tb]=1,Ah[P.g.qf]=1,Ah[P.g.bd]=1,Ah[P.g.rf]=1,Ah[P.g.dd]=1,Ah[P.g.vc]=1,Ah[P.g.ed]=1,Ah[P.g.wf]=1,Ah[P.g.Sa]=1,Ah[P.g.me]=1,Ah));Object.freeze([P.g.ka,P.g.Ga,P.g.Db,P.g.Aa,P.g.pf,P.g.Ca,P.g.ff,P.g.vi]);
 var Ch={},Dh=Object.freeze((Ch[P.g.ii]=1,Ch[P.g.ji]=1,Ch[P.g.ki]=1,Ch[P.g.li]=1,Ch[P.g.mi]=1,Ch[P.g.ni]=1,Ch[P.g.oi]=1,Ch[P.g.ri]=1,Ch[P.g.si]=1,Ch[P.g.zd]=1,Ch)),Eh={},Fh=Object.freeze((Eh[P.g.ig]=1,Eh[P.g.jg]=1,Eh[P.g.Zb]=1,Eh[P.g.ac]=1,Eh[P.g.kg]=1,Eh[P.g.Mb]=1,Eh[P.g.bc]=1,Eh[P.g.cb]=1,Eh[P.g.wb]=1,Eh[P.g.eb]=1,Eh[P.g.Ia]=1,Eh[P.g.fc]=1,Eh[P.g.Ja]=1,Eh[P.g.lg]=1,Eh)),Gh=Object.freeze([P.g.aa,P.g.yb,P.g.ib]),Hh=Object.freeze([].concat(Gh)),Ih=Object.freeze([P.g.Fa,P.g.Ld,P.g.bd,P.g.rf,P.g.Id]),
 Jh=Object.freeze([].concat(Ih)),Kh={},Lh=(Kh[P.g.H]="1",Kh[P.g.P]="2",Kh),Mh={},Nh=Object.freeze((Mh[P.g.aa]=1,Mh[P.g.Bd]=1,Mh[P.g.Ea]=1,Mh[P.g.Nb]=1,Mh[P.g.Ze]=1,Mh[P.g.Cd]=1,Mh[P.g.Dd]=1,Mh[P.g.Ed]=1,Mh[P.g.ba]=1,Mh[P.g.Fd]=1,Mh[P.g.La]=1,Mh[P.g.za]=1,Mh[P.g.Oa]=1,Mh[P.g.Fa]=1,Mh[P.g.Pa]=1,Mh[P.g.Ma]=1,Mh[P.g.xa]=1,Mh[P.g.Gd]=1,Mh[P.g.da]=1,Mh[P.g.zi]=1,Mh[P.g.Yc]=1,Mh[P.g.Jd]=1,Mh[P.g.ff]=1,Mh[P.g.Md]=1,Mh[P.g.lb]=1,Mh[P.g.Aa]=1,Mh[P.g.Zc]=1,Mh[P.g.ka]=1,Mh[P.g.Ga]=1,Mh[P.g.Gg]=1,Mh[P.g.Hg]=1,
-Mh[P.g.Ig]=1,Mh[P.g.Jg]=1,Mh[P.g.Sb]=1,Mh[P.g.Ra]=1,Mh[P.g.Tb]=1,Mh[P.g.qf]=1,Mh[P.g.dd]=1,Mh[P.g.qa]=1,Mh[P.g.vc]=1,Mh[P.g.ed]=1,Mh[P.g.ob]=1,Mh[P.g.ra]=1,Mh[P.g.Ca]=1,Mh[P.g.ia]=1,Mh));Object.freeze(P.g);var Oh={},Ph=z.google_tag_manager=z.google_tag_manager||{},Qh=Math.random();Oh.Xg="35o0";Oh.ke=Number("0")||0;Oh.ma="dataLayer";Oh.Rj="ChAI8LHBowYQ8Jzu+brIz5ouEiUAOuKLx4y1F4aQgHMIrZTd0N4+ImFwnMjU7quOLFgqXlFX9sE5GgK66g\x3d\x3d";var Rh={__cl:1,__ecl:1,__ehl:1,__evl:1,__fal:1,__fil:1,__fsl:1,__hl:1,__jel:1,__lcl:1,__sdl:1,__tl:1,__ytl:1},Sh={__paused:1,__tg:1},Th;for(Th in Rh)Rh.hasOwnProperty(Th)&&(Sh[Th]=1);var Uh=Ra("true"),Vh,Wh=!1;Wh=!0;
+Mh[P.g.Ig]=1,Mh[P.g.Jg]=1,Mh[P.g.Sb]=1,Mh[P.g.Ra]=1,Mh[P.g.Tb]=1,Mh[P.g.qf]=1,Mh[P.g.dd]=1,Mh[P.g.qa]=1,Mh[P.g.vc]=1,Mh[P.g.ed]=1,Mh[P.g.ob]=1,Mh[P.g.ra]=1,Mh[P.g.Ca]=1,Mh[P.g.ia]=1,Mh));Object.freeze(P.g);var Oh={},Ph=z.google_tag_manager=z.google_tag_manager||{},Qh=Math.random();Oh.Xg="35o0";Oh.ke=Number("0")||0;Oh.ma="dataLayer";Oh.Rj="ChEI8L3WowYQu/KC8fXFz5rFARIlANUDDwl66CJmA5iw5t5VzQTxMYjAGuCbGB0pqj1HaV4sv/ukSBoCj/k\x3d";var Rh={__cl:1,__ecl:1,__ehl:1,__evl:1,__fal:1,__fil:1,__fsl:1,__hl:1,__jel:1,__lcl:1,__sdl:1,__tl:1,__ytl:1},Sh={__paused:1,__tg:1},Th;for(Th in Rh)Rh.hasOwnProperty(Th)&&(Sh[Th]=1);var Uh=Ra("true"),Vh,Wh=!1;Wh=!0;
 Vh=Wh;var Xh,Yh=!1;Xh=Yh;var Zh,$h=!1;Zh=$h;var ai,bi=!1;ai=bi;Oh.Xe="www.googletagmanager.com";
 var ci=""+Oh.Xe+(Vh?"/gtag/js":"/gtm.js"),di=null,ei=null,fi={},gi={},hi={},ii=function(){var a=Ph.sequence||1;Ph.sequence=a+1;return a};Oh.Qj="true";var ji="";Oh.Ef=ji;var ki=new Na,li={},mi={},yi={name:Oh.ma,set:function(a,b){Wc(cb(a,b),li);ni()},get:function(a){return xi(a,2)},reset:function(){ki=new Na;li={};ni()}},xi=function(a,b){return 2!=b?ki.get(a):zi(a)},zi=function(a,b){var c=a.split(".");b=b||[];for(var d=li,e=0;e<c.length;e++){if(null===d)return!1;if(void 0===d)break;d=d[c[e]];if(-1!==b.indexOf(d))return}return d},Ai=function(a,b){mi.hasOwnProperty(a)||(ki.set(a,b),Wc(cb(a,b),li),ni())},Bi=function(){for(var a=["gtm.allowlist","gtm.blocklist","gtm.whitelist",
 "gtm.blacklist","tagTypeBlacklist"],b=0;b<a.length;b++){var c=a[b],d=xi(c,1);if(Ka(d)||Vc(d))d=Wc(d);mi[c]=d}},ni=function(a){m(mi,function(b,c){ki.set(b,c);Wc(cb(b),li);Wc(cb(b,c),li);a&&delete mi[b]})},Ci=function(a,b){var c,d=1!==(void 0===b?2:b)?zi(a):ki.get(a);"array"===Tc(d)||"object"===Tc(d)?c=Wc(d):c=d;return c};var Di=[],Ei=function(a){return void 0==Di[a]?!1:Di[a]};var R=[];R[7]=!0;R[9]=!0;R[27]=!0;
@@ -638,7 +638,7 @@ ba.split("|"):[],S={},qa=0;qa<V.length;qa++)S[V[qa]]=!0;for(var ja=0;ja<Qk.lengt
 
 
 };
-window.moduloBuild.nameToHash.configuration1 = "x1acauin";
+window.moduloBuild.nameToHash.configuration1 = "xxhvd4vo";
 
 window.moduloBuild.modules["x19tuf26"] = function library_configuration (modulo) {
 /*! showdown v 2.1.0 - 21-04-2022 */
@@ -1454,7 +1454,7 @@ return {"navigation":[{"title":"About","file":"about/"},{"title":"Endorsements",
 };
 window.moduloBuild.nameToHash.library_Page_staticdata = "xxb2mijg";
 
-window.moduloBuild.modules["x186r6pl"] = function library_NavBar_template (modulo) {
+window.moduloBuild.modules["x129i8cf"] = function library_NavBar_template (modulo) {
 return function (CTX, G) { var OUT=[];
   OUT.push("<x-AllBanners></x-AllBanners>\n\n<nav class=\"Page-nav layout-container\" style=\""); // "<x-AllBanners></x-AllBanners><nav class=\"Page-nav layout-container\" style=\""
   if (CTX.script.transparent) { // "if script.transparent"
@@ -1510,9 +1510,9 @@ return function (CTX, G) { var OUT=[];
   /* // "comment"
   OUT.push("\n        <div style=\"\n                height: 800px;\n                background: url('/static/images/images-landing/DSC_1643_cropped_and_scaled.jpg');\n                background-position: center center;\n                background-repeat: no-repeat;\n                background-size: cover;\n            \"\n            alt=\"Jovanka for California State Senate - Delivering Results Together!\">\n        </div>\n        <!-- <img class=\"right-cutout\" src=\"/static/images/hero/portrait_cut_out_IMG_8300.png\"> -->\n    "); // "<div style=\" height: 800px; background: url('/static/images/images-landing/DSC_1643_cropped_and_scaled.jpg'); background-position: center center; background-repeat: no-repeat; background-size: cover; \" alt=\"Jovanka for California State Senate - Delivering Results Together!\"></div><!-- <img class=\"right-cutout\" src=\"/static/images/hero/portrait_cut_out_IMG_8300.png\"> -->"
   */ // "endcomment"
-  OUT.push("\n\n    <div \n        class=\"hero-composite-splash\"\n        role=\"img\"\n        aria-label=\"Splash image with Delivering Results Together! Jovanka Beckles for State Senate logo, and photo of Jovanka at a picket line\"\n    ></div>\n    <div class=\"hero-splash-video-holder\">\n        <iframe width=\"560\" height=\"315\"\n            src=\"https://www.youtube.com/embed/dqQ8jJDBhj8\"\n            title=\"YouTube video player\"\n            frameborder=\"0\"\n            allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\"\n            allowfullscreen></iframe>\n        "); // "<div class=\"hero-composite-splash\" role=\"img\" aria-label=\"Splash image with Delivering Results Together! Jovanka Beckles for State Senate logo, and photo of Jovanka at a picket line\" ></div><div class=\"hero-splash-video-holder\"><iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/dqQ8jJDBhj8\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen></iframe>"
+  OUT.push("\n\n    <div \n        class=\"hero-composite-splash\"\n        role=\"img\"\n        aria-label=\"Splash image with Delivering Results Together! Jovanka Beckles for State Senate logo, and photo of Jovanka at a picket line\"\n    ></div>\n    <div class=\"hero-splash-video-holder\">\n        <iframe width=\"560\" height=\"315\"\n            src=\"https://www.youtube.com/embed/dqQ8jJDBhj8\"\n            title=\"YouTube video player\"\n            frameborder=\"0\"\n            allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;\"\n            allowfullscreen></iframe>\n        "); // "<div class=\"hero-composite-splash\" role=\"img\" aria-label=\"Splash image with Delivering Results Together! Jovanka Beckles for State Senate logo, and photo of Jovanka at a picket line\" ></div><div class=\"hero-splash-video-holder\"><iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/dqQ8jJDBhj8\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;\" allowfullscreen></iframe>"
   /* // "comment"
-  OUT.push("\n            <iframe\n                width=\"560\"\n                height=\"315\" \n                src=\"https://www.youtube-nocookie.com/embed/dqQ8jJDBhj8\"\n                title=\"YouTube video player\"\n                frameborder=\"0\"\n                allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\"\n                allowfullscreen></iframe>\n        "); // "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube-nocookie.com/embed/dqQ8jJDBhj8\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen></iframe>"
+  OUT.push("\n            allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\"\n            <iframe\n                width=\"560\"\n                height=\"315\" \n                src=\"https://www.youtube-nocookie.com/embed/dqQ8jJDBhj8\"\n                title=\"YouTube video player\"\n                frameborder=\"0\"\n                allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\"\n                allowfullscreen></iframe>\n        "); // "allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" <iframe width=\"560\" height=\"315\" src=\"https://www.youtube-nocookie.com/embed/dqQ8jJDBhj8\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen></iframe>"
   */ // "endcomment"
   OUT.push("\n    </div>\n\n    "); // "</div>"
   /* // "comment"
@@ -1532,19 +1532,19 @@ return function (CTX, G) { var OUT=[];
 
 return OUT.join(""); };
 };
-window.moduloBuild.nameToHash.library_NavBar_template = "x186r6pl";
+window.moduloBuild.nameToHash.library_NavBar_template = "x129i8cf";
 
 window.moduloBuild.modules["xxb2mijg"] = function library_NavBar_staticdata (modulo) {
 return {"navigation":[{"title":"About","file":"about/"},{"title":"Endorsements","file":"endorsements/"},{"title":"Contact","file":"contact/"}],"linkNav":[{"href":"/find-my-district/","title":"Find my district..."},{"href":"/contact/endorse.html","title":"Endorse Jovanka"}],"smallNav":[{"href":"/contact/volunteer.html","title":"Volunteer"},{"href":"/contact/donate.html","title":"Donate"}]};
 };
 window.moduloBuild.nameToHash.library_NavBar_staticdata = "xxb2mijg";
 
-window.moduloBuild.modules["xx9lj3mn"] = function library_EndorsementsGallery_template (modulo) {
+window.moduloBuild.modules["x1e4f3rv"] = function library_EndorsementsGallery_template (modulo) {
 return function (CTX, G) { var OUT=[];
   if (CTX.props.button) { // "if props.button"
-  OUT.push("\n    <h2 style=\"margin: 3vw 0 0 3vw\";>\n        Endorsed by East Bay Mayors, City Councilmembers, and trusted community leaders:\n    </h2>\n    <!--\n    <h3>\n        Including 10+ East Bay\n        Mayors & Councilmembers:\n    </h2>\n    -->\n"); // "<h2 style=\"margin: 3vw 0 0 3vw\";> Endorsed by East Bay Mayors, City Councilmembers, and trusted community leaders: </h2><!-- <h3> Including 10+ East Bay Mayors & Councilmembers: </h2> -->"
+  OUT.push("\n    <h2 style=\"margin: 3vw 0 0 3vw\";>\n        Endorsed by elected officials, trusted community leaders,\n        and rank &amp; file union members and grassroots organizations:\n    </h2>\n"); // "<h2 style=\"margin: 3vw 0 0 3vw\";> Endorsed by elected officials, trusted community leaders, and rank &amp; file union members and grassroots organizations: </h2>"
   } // "endif"
-  OUT.push("\n\n<div class=\"endorsements-gallery\">\n    <a style=\"text-decoration: none\" href=\"/endorsements/\">\n        <img\n            src=\"/static/images/endorsements/230523/GusNewport4_Square_Endorse.jpg\"\n        />\n        <img\n            src=\"/static/images/endorsements/230523/DevinMurphy_Facebook_MadeIntoSquare_512px.jpg\"\n        />\n        <img\n            src=\"/static/images/endorsements/230523/Paola_Laverde_Square_512px.jpg\"\n        />\n        <img\n            src=\"/static/images/endorsements/230523/WiP_Square_Endorse_512px.jpg\" \n        />\n    </a>\n    "); // "<div class=\"endorsements-gallery\"><a style=\"text-decoration: none\" href=\"/endorsements/\"><img src=\"/static/images/endorsements/230523/GusNewport4_Square_Endorse.jpg\" /><img src=\"/static/images/endorsements/230523/DevinMurphy_Facebook_MadeIntoSquare_512px.jpg\" /><img src=\"/static/images/endorsements/230523/Paola_Laverde_Square_512px.jpg\" /><img src=\"/static/images/endorsements/230523/WiP_Square_Endorse_512px.jpg\" /></a>"
+  OUT.push("\n\n<div class=\"endorsements-gallery\">\n    <a style=\"text-decoration: none\" href=\"/endorsements/\">\n        <img\n            src=\"/static/images/endorsements/230523/GusNewport4_Square_Endorse.jpg\"\n        />\n        <img\n            src=\"/static/images/endorsements/230523/DevinMurphy_Facebook_MadeIntoSquare_512px_2.jpg\"\n        />\n        <img\n            src=\"/static/images/endorsements/230523/Paola_Laverde_Square_512px.jpg\"\n        />\n        <img\n            src=\"/static/images/endorsements/230523/WiP_Square_Endorse_512px.jpg\" \n        />\n    </a>\n    "); // "<div class=\"endorsements-gallery\"><a style=\"text-decoration: none\" href=\"/endorsements/\"><img src=\"/static/images/endorsements/230523/GusNewport4_Square_Endorse.jpg\" /><img src=\"/static/images/endorsements/230523/DevinMurphy_Facebook_MadeIntoSquare_512px_2.jpg\" /><img src=\"/static/images/endorsements/230523/Paola_Laverde_Square_512px.jpg\" /><img src=\"/static/images/endorsements/230523/WiP_Square_Endorse_512px.jpg\" /></a>"
   if (CTX.props.button) { // "if props.button"
   OUT.push("\n        <a class=\"j4s-Btn\" href=\"/endorsements/\">Endorsements <br />&#8640;</a>\n    "); // "<a class=\"j4s-Btn\" href=\"/endorsements/\">Endorsements <br />&#8640;</a>"
   } // "endif"
@@ -1552,9 +1552,9 @@ return function (CTX, G) { var OUT=[];
 
 return OUT.join(""); };
 };
-window.moduloBuild.nameToHash.library_EndorsementsGallery_template = "xx9lj3mn";
+window.moduloBuild.nameToHash.library_EndorsementsGallery_template = "x1e4f3rv";
 
-window.moduloBuild.modules["xxqi2t7n"] = function library_MobileNavBar_template (modulo) {
+window.moduloBuild.modules["x1rrjgvn"] = function library_MobileNavBar_template (modulo) {
 return function (CTX, G) { var OUT=[];
   if (CTX.props.selected === "index.html") { // "if props.selected == \"index.html\""
   OUT.push("\n    <div class=\"top-splash\">\n        <a href=\"#\">\n            <img class=\"background-splash\" src=\"/static/images/seiu_jovanka_1.jpg\">\n\n            <img class=\"right-cutout\" src=\"/static/images/hero/portrait_cut_out_cropped_2.png\">\n\n            <img\n                class=\"left-logo\"\n                src=\"/static/images/logos/logo.png\"\n                alt=\"Delivering Results Together! Jovanka Beckles for State Senate\"\n            />\n        </a>\n    </div>\n"); // "<div class=\"top-splash\"><a href=\"#\"><img class=\"background-splash\" src=\"/static/images/seiu_jovanka_1.jpg\"><img class=\"right-cutout\" src=\"/static/images/hero/portrait_cut_out_cropped_2.png\"><img class=\"left-logo\" src=\"/static/images/logos/logo.png\" alt=\"Delivering Results Together! Jovanka Beckles for State Senate\" /></a></div>"
@@ -1610,13 +1610,13 @@ return function (CTX, G) { var OUT=[];
   } // "endfor"
   OUT.push("\n    </ul>\n</nav>\n<x-AllBanners></x-AllBanners>\n\n"); // "</ul></nav><x-AllBanners></x-AllBanners>"
   if (CTX.props.selected === "index.html") { // "if props.selected == \"index.html\""
-  OUT.push("\n    <iframe\n        width=\"560\"\n        height=\"315\" \n        style=\"width: 100%\"\n        src=\"https://www.youtube-nocookie.com/embed/dqQ8jJDBhj8\"\n        title=\"YouTube video player\"\n        frameborder=\"0\"\n        allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\"\n        allowfullscreen></iframe>\n"); // "<iframe width=\"560\" height=\"315\" style=\"width: 100%\" src=\"https://www.youtube-nocookie.com/embed/dqQ8jJDBhj8\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen></iframe>"
+  OUT.push("\n    <iframe\n        width=\"560\"\n        height=\"315\" \n        style=\"width: 100%\"\n        src=\"https://www.youtube-nocookie.com/embed/dqQ8jJDBhj8\"\n        title=\"YouTube video player\"\n        frameborder=\"0\"\n        allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;\"\n        allowfullscreen></iframe>\n"); // "<iframe width=\"560\" height=\"315\" style=\"width: 100%\" src=\"https://www.youtube-nocookie.com/embed/dqQ8jJDBhj8\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;\" allowfullscreen></iframe>"
   } // "endif"
   OUT.push("\n"); // ""
 
 return OUT.join(""); };
 };
-window.moduloBuild.nameToHash.library_MobileNavBar_template = "xxqi2t7n";
+window.moduloBuild.nameToHash.library_MobileNavBar_template = "x1rrjgvn";
 
 window.moduloBuild.modules["xxb2mijg"] = function library_MobileNavBar_staticdata (modulo) {
 return {"navigation":[{"title":"About","file":"about/"},{"title":"Endorsements","file":"endorsements/"},{"title":"Contact","file":"contact/"}],"linkNav":[{"href":"/find-my-district/","title":"Find my district..."},{"href":"/contact/endorse.html","title":"Endorse Jovanka"}],"smallNav":[{"href":"/contact/volunteer.html","title":"Volunteer"},{"href":"/contact/donate.html","title":"Donate"}]};
@@ -1658,13 +1658,13 @@ return OUT.join(""); };
 };
 window.moduloBuild.nameToHash.library_HeroInset_template = "xxf7lfmq";
 
-window.moduloBuild.modules["x1daat39"] = function library_AllBanners_template (modulo) {
+window.moduloBuild.modules["xxmfkrvv"] = function library_AllBanners_template (modulo) {
 return function (CTX, G) { var OUT=[];
-  OUT.push("<!-- Note: Only one will be shown: The first non-expired one -->\n\n<x-Banner\n    style=\"grid-column: 1 / span 3\"\n    title=\"Join us at the park!\"\n    text=\"Jovanka for State Senate Lit Drop\"\n    date=\"Sun May 28th at Martin Luther King Jr. Park in Berkeley\"\n    url=\"https://www.mobilize.us/jovanka4casenate/event/564948/\"\n    cta=\"Get details & RSVP\"\n    expiry=\"2023-05-29\"\n></x-Banner>\n\n<x-Banner\n    style=\"grid-column: 1 / span 3\"\n    title=\"JOIN OUR HOUSE PARTY!\"\n    text=\"House Party for Jovanka for State Senate\"\n    date=\"June 10th near Downtown Berkeley, CA\"\n    url=\"https://www.mobilize.us/jovanka4casenate/event/564951/\"\n    cta=\"Get details & RSVP\"\n    expiry=\"2023-06-10\"\n></x-Banner>\n\n\n"); // "<!-- Note: Only one will be shown: The first non-expired one --><x-Banner style=\"grid-column: 1 / span 3\" title=\"Join us at the park!\" text=\"Jovanka for State Senate Lit Drop\" date=\"Sun May 28th at Martin Luther King Jr. Park in Berkeley\" url=\"https://www.mobilize.us/jovanka4casenate/event/564948/\" cta=\"Get details & RSVP\" expiry=\"2023-05-29\" ></x-Banner><x-Banner style=\"grid-column: 1 / span 3\" title=\"JOIN OUR HOUSE PARTY!\" text=\"House Party for Jovanka for State Senate\" date=\"June 10th near Downtown Berkeley, CA\" url=\"https://www.mobilize.us/jovanka4casenate/event/564951/\" cta=\"Get details & RSVP\" expiry=\"2023-06-10\" ></x-Banner>"
+  OUT.push("<!-- Note: Only one will be shown: The first non-expired one -->\n\n<!--\n<x-Banner\n    style=\"grid-column: 1 / span 3\"\n    title=\"Join us at the park!\"\n    text=\"Jovanka for State Senate Lit Drop\"\n    date=\"Sun May 28th at Martin Luther King Jr. Park in Berkeley\"\n    url=\"https://www.mobilize.us/jovanka4casenate/event/564948/\"\n    cta=\"Get details & RSVP\"\n    expiry=\"2023-05-29\"\n></x-Banner>\n-->\n\n<x-Banner\n    style=\"grid-column: 1 / span 3\"\n    title=\"JOIN OUR HOUSE PARTY!\"\n    text=\"House Party for Jovanka for State Senate\"\n    date=\"June 10th near Downtown Berkeley, CA\"\n    url=\"https://www.mobilize.us/jovanka4casenate/event/564951/\"\n    cta=\"Get details & RSVP\"\n    expiry=\"2023-06-10\"\n></x-Banner>\n\n\n"); // "<!-- Note: Only one will be shown: The first non-expired one --><!-- <x-Banner style=\"grid-column: 1 / span 3\" title=\"Join us at the park!\" text=\"Jovanka for State Senate Lit Drop\" date=\"Sun May 28th at Martin Luther King Jr. Park in Berkeley\" url=\"https://www.mobilize.us/jovanka4casenate/event/564948/\" cta=\"Get details & RSVP\" expiry=\"2023-05-29\" ></x-Banner> --><x-Banner style=\"grid-column: 1 / span 3\" title=\"JOIN OUR HOUSE PARTY!\" text=\"House Party for Jovanka for State Senate\" date=\"June 10th near Downtown Berkeley, CA\" url=\"https://www.mobilize.us/jovanka4casenate/event/564951/\" cta=\"Get details & RSVP\" expiry=\"2023-06-10\" ></x-Banner>"
 
 return OUT.join(""); };
 };
-window.moduloBuild.nameToHash.library_AllBanners_template = "x1daat39";
+window.moduloBuild.nameToHash.library_AllBanners_template = "xxmfkrvv";
 
 window.moduloBuild.modules["xx2a5ave"] = function library1_ContactForm_template (modulo) {
 return function (CTX, G) { var OUT=[];
@@ -1881,7 +1881,7 @@ library_Page_script: {"Parent":"library_Page","DefName":null,"Type":"Script","li
 
 library_NavBar_props: {"Parent":"library_NavBar","DefName":null,"Content":"","Type":"Props","selected":"","navigation":"","Name":"props","DefinitionName":"library_NavBar_props"}, 
 
-library_NavBar_template: {"Parent":"library_NavBar","DefName":null,"Type":"Template","DefFinalizers":["TemplatePrebuild"],"Name":"template","DefinitionName":"library_NavBar_template","Source":"http://127.0.0.1:6627/static/libraries/layout/NavBar.html","Hash":"Tx186r6pl"}, 
+library_NavBar_template: {"Parent":"library_NavBar","DefName":null,"Type":"Template","DefFinalizers":["TemplatePrebuild"],"Name":"template","DefinitionName":"library_NavBar_template","Source":"http://127.0.0.1:6627/static/libraries/layout/NavBar.html","Hash":"Tx129i8cf"}, 
 
 library_NavBar_state: {"Parent":"library_NavBar","DefName":null,"Content":"","Type":"State","Directives":["bindMount","bindUnmount"],"Store":null,"hide":false,"attop":true,"Name":"state","DefinitionName":"library_NavBar_state"}, 
 
@@ -1893,13 +1893,13 @@ library_NavBar_style: {"Parent":"library_NavBar","DefName":null,"Type":"Style","
 
 library_EndorsementsGallery_props: {"Parent":"library_EndorsementsGallery","DefName":null,"Content":"","Type":"Props","button":"","Name":"props","DefinitionName":"library_EndorsementsGallery_props"}, 
 
-library_EndorsementsGallery_template: {"Parent":"library_EndorsementsGallery","DefName":null,"Type":"Template","DefFinalizers":["TemplatePrebuild"],"Name":"template","DefinitionName":"library_EndorsementsGallery_template","Source":"http://127.0.0.1:6627/static/libraries/layout/EndorsementsGallery.html","Hash":"Txx9lj3mn"}, 
+library_EndorsementsGallery_template: {"Parent":"library_EndorsementsGallery","DefName":null,"Type":"Template","DefFinalizers":["TemplatePrebuild"],"Name":"template","DefinitionName":"library_EndorsementsGallery_template","Source":"http://127.0.0.1:6627/static/libraries/layout/EndorsementsGallery.html","Hash":"Tx1e4f3rv"}, 
 
 library_EndorsementsGallery_style: {"Parent":"library_EndorsementsGallery","DefName":null,"Type":"Style","DefFinalizers":["Content|PrefixCSS"],"Name":"style","DefinitionName":"library_EndorsementsGallery_style","Source":"http://127.0.0.1:6627/static/libraries/layout/EndorsementsGallery.css"}, 
 
 library_MobileNavBar_props: {"Parent":"library_MobileNavBar","DefName":null,"Content":"","Type":"Props","selected":"","navigation":"","Name":"props","DefinitionName":"library_MobileNavBar_props"}, 
 
-library_MobileNavBar_template: {"Parent":"library_MobileNavBar","DefName":null,"Type":"Template","DefFinalizers":["TemplatePrebuild"],"Name":"template","DefinitionName":"library_MobileNavBar_template","Source":"http://127.0.0.1:6627/static/libraries/layout/MobileNavBar.html","Hash":"Txxqi2t7n"}, 
+library_MobileNavBar_template: {"Parent":"library_MobileNavBar","DefName":null,"Type":"Template","DefFinalizers":["TemplatePrebuild"],"Name":"template","DefinitionName":"library_MobileNavBar_template","Source":"http://127.0.0.1:6627/static/libraries/layout/MobileNavBar.html","Hash":"Tx1rrjgvn"}, 
 
 library_MobileNavBar_state: {"Parent":"library_MobileNavBar","DefName":null,"Content":"","Type":"State","Directives":["bindMount","bindUnmount"],"Store":null,"hide":null,"attop":false,"Name":"state","DefinitionName":"library_MobileNavBar_state"}, 
 
@@ -1923,7 +1923,7 @@ library_HeroInset_template: {"Parent":"library_HeroInset","DefName":null,"Type":
 
 library_HeroInset_style: {"Parent":"library_HeroInset","DefName":null,"Type":"Style","DefFinalizers":["Content|PrefixCSS"],"Name":"style","DefinitionName":"library_HeroInset_style","Source":"http://127.0.0.1:6627/static/libraries/layout/HeroInset.css"}, 
 
-library_AllBanners_template: {"Parent":"library_AllBanners","DefName":null,"Type":"Template","DefFinalizers":["TemplatePrebuild"],"Name":"template","DefinitionName":"library_AllBanners_template","Source":"http://127.0.0.1:6627/static/libraries/layout/AllBanners.html","Hash":"Tx1daat39"}, 
+library_AllBanners_template: {"Parent":"library_AllBanners","DefName":null,"Type":"Template","DefFinalizers":["TemplatePrebuild"],"Name":"template","DefinitionName":"library_AllBanners_template","Source":"http://127.0.0.1:6627/static/libraries/layout/AllBanners.html","Hash":"Txxmfkrvv"}, 
 
 library1_ContactForm: {"Parent":"library1","DefName":null,"mode":"regular","rerender":"event","engine":"Reconciler","Contains":"cparts","RenderObj":"component","DefLoaders":["DefTarget","DefinedAs","Src","Content"],"DefBuilders":["CustomElement","Code"],"DefFinalizers":["MainRequire"],"Directives":["slotLoad","eventMount","eventUnmount","dataPropMount","dataPropUnmount"],"Type":"Component","name":"ContactForm","Name":"ContactForm","DefinitionName":"library1_ContactForm","ChildrenNames":["library1_ContactForm_props","library1_ContactForm_template","library1_ContactForm_state","library1_ContactForm_script","library1_ContactForm_style"],"namespace":"x","TagName":"x-contactform"}, 
 
