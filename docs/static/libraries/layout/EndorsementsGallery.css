@@ -12,7 +12,7 @@
     font-size: 2rem;
 }
 
-.endorsements-gallery img {
+.photo {
     width: 200px;
     border: 2px solid white;
     border-radius: 30px;
@@ -25,16 +25,24 @@
     width: 19vw;
 }
 
+
+@media (max-width: 1440px) {
+    .photo {
+        margin: 5px;
+    }
+}
+
 @media (max-width: 992px) {
-    .endorsements-gallery img {
+    .photo {
         width: 46vw;
+        margin: 0.5vw;
     }
 }
 
 /*
     transition: transform 0.3s;
     transform: scale(1.0);
-.endorsements-gallery img:hover {
+.photo:hover {
     transform: scale(1.4);
     z-index: 12;
 }
