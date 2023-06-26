@@ -25,12 +25,14 @@
             </li>
         {% endfor %}
         {% for page in staticdata.linkNav %}
+          {% if not page.skipNav %}
             <li>
                 {% if page.emoji %}<span class="emoji">{{ page.emoji }}</span>{% endif %}
                 <a href="{{ page.href }}" class="right-link-nav-cta
                         {% if page.href == script.s %}nav--selected{% endif %}
                 ">{{ page.title }}</a>
             </li>
+          {% endif %}
         {% endfor %}
         {% for page in staticdata.smallNav %}
             <li>

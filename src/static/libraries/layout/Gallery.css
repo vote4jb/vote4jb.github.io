@@ -1,0 +1,60 @@
+/* masonry layout idea: - 3 classes, that are 1/2 ratio and slot into grid
+    - Have it always "crop resiZE"  (maybe use BG? or figure containers!)
+        - portrait
+        - landscape
+        - square
+*/
+
+.column-gallery {
+    grid-column: 1 / span 3 !important;
+    display: grid;
+    width: 100%;
+    height: auto;
+    grid-template-columns: repeat(12, 1fr);
+    margin: 0;
+    padding: 0;
+}
+
+.column-gallery figure {
+    display: block;
+    position: relative;
+    /*border: 1px solid var(--primary);*/
+    overflow: hidden;
+    margin: 0;
+    opacity: 0.9;
+    transition: opacity 0.1s;
+}
+
+.column-gallery figure:hover {
+    opacity: 1.0;
+}
+
+.column-gallery img {
+    width: calc(100% + 60px);
+    margin: -30px;
+}
+
+
+.column-gallery .square,
+.column-gallery figure {
+    grid-column: span 2;
+    grid-row: span 2;
+}
+
+.column-gallery .portrait {
+    grid-column: span 2;
+    grid-row: span 3;
+}
+.column-gallery .landscape {
+    grid-column: span 3;
+    grid-row: span 2;
+}
+
+@media only screen and (max-width: 992px) {
+    .column-gallery {
+        grid-template-columns: repeat(6, 1fr);
+    }
+    .column-gallery figure {
+        opacity: 1;
+    }
+}

@@ -1,0 +1,45 @@
+
+<Component name="MobilizeAPI" mode="vanish">
+    <Template>
+        {% for event in script.events %}
+            <x-EventCard></x-EventCard>
+            <p>{{ event.title }}</p>
+        {% endfor %}
+    </Template>
+
+    <!-- The "staticdata" version will be baked into the JSON for instant rendering -->
+    <StaticData
+        -src="https://api.mobilize.us/v1/organizations/35735/events?per_page=500"
+    ></StaticData>
+
+    <!-- This one will be "refreshed" after the page has loaded -->
+    <Script>
+        let refreshedEvents = null;
+        let hasAttemptedRefresh = false;
+        function prepareCallback() {
+            let events = staticdata.data;
+            if (refreshedEvents) { // refreshedEvents has come back, use instead
+                events = refreshedEvents;
+            }
+            return { events };
+        }
+
+        function updateCallback() {
+            if (!hasAttemptedRefresh) { // Freshen up data
+                hasAttemptedRefresh = true;
+                fetch("https://api.mobilize.us/v1/organizations/35735/events?per_page=500")
+                    .then(response => response.json())
+                    .then(results => {
+                        refreshedEvents = results.data; // quick hack, store in a global var
+                        if (JSON.stringify(refreshedEvents) !== JSON.stringify(staticdata.data)) {
+                            element.rerender(); // Not the same as bundled, updated since building last, refresh
+                        } else {
+                            console.log('(refreshedEvents is same as cached)');
+                        }
+                    });
+
+            }
+        }
+    </Script>
+</Component>
+
