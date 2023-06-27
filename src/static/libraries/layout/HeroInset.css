@@ -34,6 +34,14 @@ h1 {
     border-bottom-width: 3px;
     padding-left: 40px;
 }
+
+
+
+.platform .platform-plank {
+    display: block;
+    color: white;
+    text-decoration: none;
+}
 /*
 .wide-slogan-with-video {
     top: -100px;

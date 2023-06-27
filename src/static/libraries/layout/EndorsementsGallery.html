@@ -7,6 +7,10 @@
     <br style="clear: both" />
 {% endif %}
 
+{% if props.button %}
+    <a class="j4s-Btn u--desktop" href="/endorsements/">Endorsements <br />&#8640;</a>
+{% endif %}
+
 <div class="endorsements-gallery">
     <a style="text-decoration: none" href="/endorsements/">
         <img
@@ -25,15 +29,28 @@
             class="photo"
             src="/static/images/endorsements/230523/Paola_Laverde_Square_512px.jpg"
         />
-        <!--
         <img
+            class="photo"
             src="/static/images/endorsements/230523/WiP_Square_Endorse_512px.jpg" 
         />
-        -->
+        <img
+            class="photo"
+            src="/static/images/endorsements/2306/GenovevaCalloway_Endorse__Square.jpg"
+        />
+        <img
+            class="photo"
+            src="/static/images/endorsements/2306/CAMERON_SASAI_Square_ENDORSES.jpg"
+        />
+        <img
+            class="photo"
+            src="/static/images/endorsements/2306/our_revolution_east_bay.jpg"
+        />
     </a>
-    {% if props.button %}
-        <a class="j4s-Btn" href="/endorsements/">Endorsements <br />&#8640;</a>
-    {% endif %}
 </div>
+
+
+{% if props.button %}
+    <a class="j4s-Btn u--mobile" href="/endorsements/">Endorsements <br />&#8640;</a>
+{% endif %}
 
 

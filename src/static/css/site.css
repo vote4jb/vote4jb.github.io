@@ -134,6 +134,53 @@ p {
     z-index: 12;
 }
 
+
+.results-box {
+    padding: 20px;
+    width: 450px;
+    margin: 20px;
+    background: var(--highlight2);
+    box-shadow:
+        0     5px 5px                #00000033,
+        0     5px  5px         inset #00000000,
+        0    -100px 70px 10px inset #00000000;
+}
+
+
+.results-box p::before {
+    content: '⸗ ';
+    font-weight: bold;
+    font-size: 1.5rem;
+    line-height: 0.5;
+    color: var(--primary);
+}
+
+.results-box h3,
+.results-box h4 {
+    color: white;
+    margin: 0;
+    padding: 0;
+    float: right;
+    font-family: 'Oswald', sans-serif;
+}
+
+.results-box h4 {
+    float: left;
+    font-size: 2rem;
+    background: var(--primary);
+}
+.results-box h3 {
+    font-size: 1.3rem;
+    background: var(--secondary);
+}
+
+.results-box p {
+    font-family: 'Oswald', sans-serif;
+    margin-top: 5px;
+    clear: both;
+    font-size: 0.9rem;
+}
+
 .hero-image-caption {
     font-family: 'Oswald', sans-serif;
     font-size: 2rem;
@@ -580,6 +627,8 @@ p {
     border: none !important;
     font-weight: 200;
     font-size: 3rem; 
+    font-style: italic;
+    line-height: 1.4;
     padding: 0;
 }
 

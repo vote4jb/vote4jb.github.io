@@ -39,12 +39,12 @@
 
     linkNav: [
         {
-            title: "Contact Us",
+            title: "Contact us...",
             href: "/contact/",
         },
         {
             href: '/find-my-district/',
-            title: 'Find My District',
+            title: 'Find my district...',
             //emoji: 'ⓘ',
         },
         /* { title: "Contact us...",
