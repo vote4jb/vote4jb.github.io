@@ -10,7 +10,7 @@
             file: "about/",
         },
         {
-            title: "Issues",
+            title: "Results",
             file: "issues/",
         },
         {
