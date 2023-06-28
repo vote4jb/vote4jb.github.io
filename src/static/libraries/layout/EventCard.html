@@ -1,0 +1,13 @@
+<figure class="ecard">
+    <img src="{{ props.image }}" />
+    <caption>
+        <h2>{{ props.caption }}</h2>
+        <p><strong>{{ props.locality }}</strong></p>
+        <p>{{ props.venue }}</p>
+        {% if props.href %}
+            <a href="{{ props.href }}">RSVP Now</a>
+        {% endif %}
+    </caption>
+</figure>
+
+

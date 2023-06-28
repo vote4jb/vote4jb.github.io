@@ -1,10 +1,17 @@
 
-<Component name="MobilizeAPI" mode="vanish">
+<Component name="MobilizeAPI">
     <Template>
-        {% for event in script.events %}
-            <x-EventCard></x-EventCard>
-            <p>{{ event.title }}</p>
-        {% endfor %}
+        <div style="display: flex; width: 100vw; flex-wrap: wrap">
+            {% for event in script.events %}
+                <x-EventCard
+                    image="{{ event.featured_image_url }}"
+                    caption="{{ event.title }}"
+                    venue="{{ event.location.venue }}"
+                    locality="{{ event.location.locality }}"
+                ></x-EventCard>
+            {% endfor %}
+            <!--href="{{ event.browser_url }}"-->
+        </div>
     </Template>
 
     <!-- The "staticdata" version will be baked into the JSON for instant rendering -->
@@ -21,6 +28,7 @@
             if (refreshedEvents) { // refreshedEvents has come back, use instead
                 events = refreshedEvents;
             }
+            events = Array.from(events).reverse();
             return { events };
         }
 
@@ -34,7 +42,7 @@
                         if (JSON.stringify(refreshedEvents) !== JSON.stringify(staticdata.data)) {
                             element.rerender(); // Not the same as bundled, updated since building last, refresh
                         } else {
-                            console.log('(refreshedEvents is same as cached)');
+                            console.log('(refreshedEvents is same as cached)', refreshedEvents);
                         }
                     });
 
