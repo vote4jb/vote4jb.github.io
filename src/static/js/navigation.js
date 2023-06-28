@@ -6,12 +6,12 @@
             file: "index.html",
         },*/
         {
-            title: "About",
-            file: "about/",
-        },
-        {
             title: "Results",
             file: "issues/",
+        },
+        {
+            title: "About",
+            file: "about/",
         },
         {
             title: "Community",
