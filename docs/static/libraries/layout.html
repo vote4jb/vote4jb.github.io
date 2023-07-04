@@ -92,11 +92,9 @@
     <Template
         -src="/static/libraries/layout/EndorsementsGallery.html"
     ></Template>
-    <!--
     <StaticData
         -src="/static/js/endorsements.js"
     ></StaticData>
-    -->
     <Style
         -src="/static/libraries/layout/EndorsementsGallery.css"
     ></Style>
@@ -176,6 +174,15 @@
     </Script>
 </Component>
 
+<Component name="Gallery" mode="vanish">
+    <Template
+        -src="/static/libraries/layout/Gallery.html"
+    ></Template>
+    <Style
+        -src="/static/libraries/layout/Gallery.css"
+    ></Style>
+</Component>
+
 <Component name="HeroInset">
     <Template
         -src="/static/libraries/layout/HeroInset.html"
@@ -189,5 +196,22 @@
     <Template
         -src="/static/libraries/layout/AllBanners.html"
     ></Template>
+</Component>
+
+<Component name="EventCard">
+    <Props
+        image
+        caption
+        venue
+        locality
+        href
+    ></Props>
+
+    <Template
+        -src="/static/libraries/layout/EventCard.html"
+    ></Template>
+    <Style
+        -src="/static/libraries/layout/EventCard.css"
+    ></Style>
 </Component>
 

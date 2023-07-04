@@ -6,6 +6,8 @@ li {
     margin: 0; 
     padding: 0; 
 }
+li {
+}
 
 img.logo {
     width: 60vw;
@@ -50,7 +52,7 @@ ul.small-links li a {
 
 ul li {
     display: block;
-    list-style: none;
+    list-style: '⸗';
     margin: 0;
 }
 
@@ -108,6 +110,13 @@ ul.main li a {
     text-transform: uppercase;
 }
 
+ul.main li a::before {
+    content: '⸗';
+    color: var(--primary);
+    position: relative;
+    top: -5px;
+}
+
 ul.main li a:hover,
 ul.main li a:active,
 ul.main li a.mnav--selected {
@@ -117,6 +126,7 @@ ul.main li a.mnav--selected {
         0     -100px 3000px -200px          inset var(--highlight2),
         0    -100px 70px 10px inset #00000009;
 }
+
 ul.main li a.mnav--selected::after {
     opacity: 0;
 }
@@ -126,6 +136,7 @@ ul.main li a::after {
     content: ' \021c0 ';
     line-height: 1.2;
     color: var(--highlight);
+    color: var(--primary);
     padding-left: 10px;
     padding-right: 10px;
     /*background: var(--highlight2);*/

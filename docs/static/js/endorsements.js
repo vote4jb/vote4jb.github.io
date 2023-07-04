@@ -15,6 +15,10 @@
             src: "230523/Paola_Laverde_Square_512px.jpg",
         },
         {
+            skip: true,
+            src: "230523/WiP_Square_Endorse_512px.jpg",
+        },
+        {
             src: "2307/Teamsters_Square_Endorsement.jpg",
         },
         {
@@ -24,11 +28,7 @@
             src: "2306/CAMERON_SASAI_Square_ENDORSES.jpg",
         },
         {
-            skip: true,
             src: "2306/our_revolution_east_bay.jpg",
-        },
-        {
-            src: "230523/WiP_Square_Endorse_512px.jpg",
         },
     ],
 }

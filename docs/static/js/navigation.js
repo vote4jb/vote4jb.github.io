@@ -1,17 +1,33 @@
 {
 
     navigation: [
-        /*{
+        /*
+        {
             title: "Leadership",
             file: "index.html",
-        },*/
+        },
+        {
+            title: "Results",
+            file: "issues/",
+        },
+        */
         {
             title: "About",
             file: "about/",
         },
+        /*
+        {
+            title: "Community",
+            file: "community/",
+        },
+        */
         {
             title: "Endorsements",
             file: "endorsements/",
+        },
+        {
+            title: "Contact",
+            file: "contact/",
         },
         /*
         {
@@ -23,27 +39,21 @@
             file: "platform/",
         },
         */
-        {
-            title: "Contact",
-            file: "contact/",
-        },
     ],
 
     linkNav: [
+        //{
+        //    title: "Contact us...",
+        //    href: "/contact/",
+        //},
         {
             href: '/find-my-district/',
             title: 'Find my district...',
-            //emoji: 'ⓘ',
         },
-        /*
-        {
-            title: "Contact us...",
-            href: "/contact/",
-        },
-        */
         {
             href: '/contact/endorse.html',
             title: 'Endorse Jovanka',
+            //skipNav: true,
         },
     ],
 

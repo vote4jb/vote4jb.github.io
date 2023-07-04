@@ -1,0 +1,53 @@
+
+<Component name="MobilizeAPI">
+    <Template>
+        <div style="display: flex; width: 100vw; flex-wrap: wrap">
+            {% for event in script.events %}
+                <x-EventCard
+                    image="{{ event.featured_image_url }}"
+                    caption="{{ event.title }}"
+                    venue="{{ event.location.venue }}"
+                    locality="{{ event.location.locality }}"
+                ></x-EventCard>
+            {% endfor %}
+            <!--href="{{ event.browser_url }}"-->
+        </div>
+    </Template>
+
+    <!-- The "staticdata" version will be baked into the JSON for instant rendering -->
+    <StaticData
+        -src="https://api.mobilize.us/v1/organizations/35735/events?per_page=500"
+    ></StaticData>
+
+    <!-- This one will be "refreshed" after the page has loaded -->
+    <Script>
+        let refreshedEvents = null;
+        let hasAttemptedRefresh = false;
+        function prepareCallback() {
+            let events = staticdata.data;
+            if (refreshedEvents) { // refreshedEvents has come back, use instead
+                events = refreshedEvents;
+            }
+            events = Array.from(events).reverse();
+            return { events };
+        }
+
+        function updateCallback() {
+            if (!hasAttemptedRefresh) { // Freshen up data
+                hasAttemptedRefresh = true;
+                fetch("https://api.mobilize.us/v1/organizations/35735/events?per_page=500")
+                    .then(response => response.json())
+                    .then(results => {
+                        refreshedEvents = results.data; // quick hack, store in a global var
+                        if (JSON.stringify(refreshedEvents) !== JSON.stringify(staticdata.data)) {
+                            element.rerender(); // Not the same as bundled, updated since building last, refresh
+                        } else {
+                            console.log('(refreshedEvents is same as cached)', refreshedEvents);
+                        }
+                    });
+
+            }
+        }
+    </Script>
+</Component>
+

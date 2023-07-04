@@ -1,0 +1,32 @@
+.ecard {
+    border: 2px solid var(--primary);
+    padding: 0;
+    width: 250px;
+    height: 250px;
+    overflow: hidden;
+    border: 3px solid var(--primary);
+    border-radius: 10px;
+    background: WhiteSmoke;
+    box-shadow: 0 5px 5px #00000033;
+    margin-right: 5px;
+    margin-top: 5px;
+    text-align: center;
+}
+
+.ecard img {
+    width: 300px;
+}
+
+.ecard h2,
+.ecard p {
+    font-size: 0.7rem;
+    margin: 0;
+    padding: 0;
+}
+
+.ecard a {
+    display: block;
+    background: var(--secondary);
+    color: white;
+}
+
