@@ -408,8 +408,9 @@ li .emoji {
     /*$background: url("/static/images/hero/jovanka_splash_photo_rasterized.jpg");*/
     background: url("/static/images/images-landing/HLA6968_cropped.jpg");
     background-size: 100% auto;
+    background-position: 0 -140px; /* Adjusted to be more center */
     /* Aspect ratio: 1920x866 = 0.4510416 */
-    height: calc(100vw * 0.45);
+    height: calc(100vw * 0.35);
     width: 100%;
     margin: 0;
     margin-bottom: -6px;
@@ -417,7 +418,7 @@ li .emoji {
 
 .hero-splash-video-holder {
     position: relative;
-    top: -450px;
+    top: -400px;
     left: 5vw;
     /*margin-bottom: calc(0 - 100vw * 0.45);*/
     height: 315px;
@@ -426,7 +427,7 @@ li .emoji {
 
 @media (max-width: 1440px) {
     .hero-splash-video-holder {
-        top: -400px;
+        top: -300px;
         left: 10px;
     }
 }

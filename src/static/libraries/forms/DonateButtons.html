@@ -1,0 +1,23 @@
+<ul class="submenu">
+    {% for num in staticdata %}
+        <li>
+            <a href="https://secure.actblue.com/donate/jovankaforcastatesenate?refcode=donate&amount={{ num }}">
+                DONATE ${{ num }}
+            </a>
+        </li>
+    {% endfor %}
+    <li>
+        <a href="https://secure.actblue.com/donate/jovankaforcastatesenate?refcode=donate">
+            OTHER AMOUNT...
+        </a>
+    </li>
+</ul>
+
+
+<p>
+  Secured by
+  <img 
+  alt="ActBlue"
+  height="20px"
+  src="https://secure.actblue.com/assets/layout/actblue-511088c1dd12a3bab3ea3a86a243f41939d1ab0bca208367a9635ee494ddd7eb.png">
+</p>

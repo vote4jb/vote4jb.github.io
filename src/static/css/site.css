@@ -623,6 +623,7 @@ p {
     font-weight: 400;
     grid-column: 1 / span 3;
     text-align: left;
+    color: var(--highlight);
 }
 
 
