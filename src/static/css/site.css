@@ -110,8 +110,8 @@ p {
     box-shadow:
         0     5px 5px                #00000033,
         0     5px  5px         inset #00000011,
-        0     100px 3000px -200px          inset var(--highlight2),
         0    -100px 70px 10px inset #00000022;
+        /*0     100px 3000px -200px          inset var(--highlight2),*/
 }
 
 
