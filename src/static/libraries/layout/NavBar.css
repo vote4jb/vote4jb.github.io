@@ -1,14 +1,6 @@
 :host {
     --nav-height: 80px;
 }
-
-.nav-logo {
-    height: calc(var(--nav-height) + 43px);
-    background: url("/static/images/logos/logo.png");
-    width: 160px;
-    margin-bottom: -43px;
-}
-
 .Page-nav {
     position: sticky;
     top: 0;
@@ -77,11 +69,11 @@
 
 /* FHD */
 .nav-logo {
-    width: 160px;
-    transition: width 0.1s;
+    height: 300px;
     background: white;
     border-top: 2px solid var(--secondary);
     margin-top: -2px;
+    margin-bottom: -250px;
     z-index: 5;
     background: var(--white);
     border-radius: 0 0 2px 2px;
@@ -91,21 +83,24 @@
         0 10px 20px #00000011;
 }
 
-
-
-
-.nav-logo--forcibly-normal { width: 150px; }
-@media (max-width: 576px) { .nav-logo--forcibly-normal { width: 200px; } } /* Phone */
-
-
-
-/* Nav logo hero wrapper dimensions */
-.logo-wrapper {
-    width: 600px;
+@media (max-width: 1440px) {
+    .nav-logo {
+        height: 200px;
+        margin-bottom: -150px;
+    }
 }
-@media (max-width: 1440px) { .logo-wrapper { width: 450px; } }
-@media (max-width: 992px) {  .logo-wrapper { width: 270px;  } }
-@media (max-width: 576px) {  .logo-wrapper { width: 100%;  } } /* sm phone */
+
+
+@media (max-width: 1080px) {
+    .nav-logo {
+        height: 150px;
+        margin-bottom: -100px;
+    }
+}
+
+
+
+
 
 
 .Page-nav li a {
@@ -412,7 +407,8 @@ li .emoji {
 }
 
 .hero-composite-splash {
-    background: url("/static/images/hero/jovanka_splash_photo_rasterized.jpg");
+    /*$background: url("/static/images/hero/jovanka_splash_photo_rasterized.jpg");*/
+    background: url("/static/images/images-landing/_HLA6968.jpg");
     background-size: 100% auto;
     /* Aspect ratio: 1920x866 = 0.4510416 */
     height: calc(100vw * 0.45);
@@ -423,12 +419,18 @@ li .emoji {
 
 .hero-splash-video-holder {
     position: relative;
-    top: -100px;
-    left: 40vw;
+    top: -450px;
+    left: 5vw;
     /*margin-bottom: calc(0 - 100vw * 0.45);*/
     height: 315px;
     margin-bottom: -315px;
- 
+}
+
+@media (max-width: 1440px) {
+    .hero-splash-video-holder {
+        top: -400px;
+        left: 10px;
+    }
 }
 
 .hero-splash-video-holder iframe {

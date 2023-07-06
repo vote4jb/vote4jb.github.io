@@ -58,7 +58,8 @@ ul li {
 
 ul.main li a,
 ul.volunteer li a {
-    border: var(--primary) 2px solid;
+    /*border: var(--primary) 2px solid;*/
+    border: var(--highlight) 2px solid;
     border-top-width: 1px;
     border-bottom-width: 3px;
     border-radius: 10px;
@@ -120,7 +121,9 @@ ul.main li a::before {
 ul.main li a:hover,
 ul.main li a:active,
 ul.main li a.mnav--selected {
-    background-color: var(--primary);
+    /*background-color: var(--primary);*/
+    background-color: var(--highlight);
+    color: white;
     box-shadow:
         0     -5px  5px         inset #00000007,
         0     -100px 3000px -200px          inset var(--highlight2),
@@ -136,7 +139,7 @@ ul.main li a::after {
     content: ' \021c0 ';
     line-height: 1.2;
     color: var(--highlight);
-    color: var(--primary);
+    /*color: var(--primary);*/
     padding-left: 10px;
     padding-right: 10px;
     /*background: var(--highlight2);*/
@@ -252,5 +255,16 @@ img.right-logo {
     ul.volunteer {
         display: block;
     }
+}
+
+
+.hero-composite-splash {
+    /*$background: url("/static/images/hero/jovanka_splash_photo_rasterized.jpg");*/
+    background: url("/static/images/images-landing/_HLA6968.jpg");
+    background-size: 100% auto;
+    height: calc(100vw * 0.45);
+    width: 100%;
+    margin: 0;
+    margin-bottom: -6px;
 }
 

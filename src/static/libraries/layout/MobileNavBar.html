@@ -1,4 +1,5 @@
 {% if props.selected == "index.html" %}
+    {% comment %}
     <div class="top-splash">
         <a href="#">
             <img class="background-splash" src="/static/images/seiu_jovanka_1.jpg">
@@ -12,6 +13,12 @@
             />
         </a>
     </div>
+    {% endcomment %}
+    <div 
+        class="hero-composite-splash"
+        role="img"
+        aria-label="Jovanka speaking at a rally"
+    ></div>
 {% else %}
     <div class="menu-holder"  @click:=script.toggle>
         <a>☰</a>
