@@ -18,19 +18,23 @@
     width: 100vw;
     padding-right: 10px;
     padding-left: 10px;
-    border-top: 2px solid var(--secondary);
     z-index: 5;
     height: var(--nav-height);
+    background: var(--highlight);
+    border-bottom: 1px solid #00000022;
+    transition: background 0.2s, color 0.2s;
+    box-shadow: 
+        0 5px 10px inset #00000015,
+        0 10px 20px #00000011;
+    color: var(--white);
+}
+
+.Page-nav--light {
     background: var(--white);
+    border-top: 2px solid var(--secondary);
     box-shadow: 
         0 5px 10px inset var(--lightgray),
         0 10px 20px #00000011;
-    border-bottom: 1px solid #00000022;
-    transition: background 0.2s, color 0.2s;
-    /*border-bottom: 2px solid var(--primary);*/
-    /*justify-items: center;*/
-    /* background: whiteSmoke; */
-    /*border-top: 2px solid var(--althighlight);*/
 }
 
 
@@ -164,32 +168,25 @@ li .emoji {
 }
 
 .right-link-nav-cta {
-    color: var(--highlight);
     padding: 4px;
     border-radius: 3px;
     font-weight: 200;
     text-decoration: underline;
     transition: background 0.2s, color 0.2s;
-    color: var(--highlight);
-    /*
-    background: #ffffff99;
-    border: 1px solid var(--highlight);
-    border-bottom-width: 2px;*/
     text-align: center;
     display: inline-block;
     height: auto;
     font-size: 0.9rem;
+    color: var(--white);
 }
-/*
-.right-link-nav-cta:hover,
-.right-link-nav-cta.nav--selected {
-    background: var(--highlight);
-}
-*/
+
 .right-link-nav-cta.nav--selected {
     border: 1px solid var(--highlight);
 }
 
+.Page-nav--light .right-link-nav-cta {
+    color: var(--highlight);
+}
 
 .light-button {
     margin-top: 10px;
@@ -206,18 +203,24 @@ li .emoji {
 }
 
 .right-cta {
-    color: white;
     text-decoration: none;
-    border: 3px solid var(--highlight);
-    background: var(--highlight);
-    border-bottom-width: 4px;
-    border-top-width: 2px;
     padding: 8px;
     display: inline-block;
     border-radius: 3px;
     transition: background 0.2s, color 0.2s;
     box-shadow: 0 0 10px #ffffff00;
     transition: box-shadow 0.2s;
+    border-bottom-width: 4px;
+    border-top-width: 2px;
+    color: var(--highlight);
+    border: 3px solid var(--white);
+    background: var(--white);
+}
+
+.Page-nav--light .right-cta {
+    color: white;
+    border: 3px solid var(--highlight);
+    background: var(--highlight);
 }
 
 .Page-nav div input {
@@ -279,7 +282,7 @@ li .emoji {
 }
 
 .Page-navLink {
-    color: var(--highlight);
+    color: var(--white);
     font-weight: 300;
     letter-spacing: 0.075em; /* tracking wider */
     font-size: 1.5rem;
@@ -297,6 +300,10 @@ li .emoji {
     /*text-shadow: 1px 2px var(--primary);*/
     /*border-bottom: 1px solid var(--primary);*/
     /*border-bottom: 1px solid var(--darkgray);*/
+}
+
+.Page-nav--light .Page-navLink {
+    color: var(--highlight);
 }
 
 
