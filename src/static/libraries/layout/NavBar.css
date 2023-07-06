@@ -83,20 +83,18 @@
         0 10px 20px #00000011;
 }
 
-@media (max-width: 1440px) {
+@media (max-width: 1770px) {
     .nav-logo {
-        height: 200px;
-        margin-bottom: -150px;
-    }
-}
-
-
-@media (max-width: 1080px) {
-    .nav-logo {
-        height: 150px;
+        height: 174px;
         margin-bottom: -100px;
     }
 }
+/*.nav-logo {
+    height: 200px;
+    margin-bottom: -150px;
+}*/
+
+/*@media (max-width: 1080px) { }*/
 
 
 

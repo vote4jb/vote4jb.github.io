@@ -260,11 +260,44 @@ img.right-logo {
 
 .hero-composite-splash {
     /*$background: url("/static/images/hero/jovanka_splash_photo_rasterized.jpg");*/
-    background: url("/static/images/images-landing/_HLA6968.jpg");
+    background: url("/static/images/images-landing/mobile_HLA6968_combined.jpg");
     background-size: 100% auto;
-    height: calc(100vw * 0.45);
+    height: 600px;
     width: 100%;
     margin: 0;
     margin-bottom: -6px;
 }
 
+
+@media (max-width: 776px) {
+    .hero-composite-splash {
+        height: 450px;
+    }
+}
+
+
+@media (max-width: 576px) {
+    .hero-composite-splash {
+        height: 400px;
+    }
+}
+
+
+@media (max-width: 512px) {
+    .hero-composite-splash {
+        height: 300px;
+    }
+}
+
+@media (max-width: 400px) {
+    .hero-composite-splash {
+        height: 290px;
+    }
+}
+
+
+@media (max-width: 360px) {
+    .hero-composite-splash {
+        height: 200px;
+    }
+}

@@ -622,7 +622,7 @@ p {
     width: 100vw;
     font-weight: 400;
     grid-column: 1 / span 3;
-    text-align: center;
+    text-align: left;
 }
 
 
