@@ -1,14 +1,6 @@
 :host {
     --nav-height: 80px;
 }
-
-.nav-logo {
-    height: calc(var(--nav-height) + 43px);
-    background: url("/static/images/logos/logo.png");
-    width: 160px;
-    margin-bottom: -43px;
-}
-
 .Page-nav {
     position: sticky;
     top: 0;
@@ -18,19 +10,23 @@
     width: 100vw;
     padding-right: 10px;
     padding-left: 10px;
-    border-top: 2px solid var(--secondary);
     z-index: 5;
     height: var(--nav-height);
+    background: var(--highlight);
+    border-bottom: 1px solid #00000022;
+    transition: background 0.2s, color 0.2s;
+    box-shadow: 
+        0 5px 10px inset #00000015,
+        0 10px 20px #00000011;
+    color: var(--white);
+}
+
+.Page-nav--light {
     background: var(--white);
+    border-top: 2px solid var(--secondary);
     box-shadow: 
         0 5px 10px inset var(--lightgray),
         0 10px 20px #00000011;
-    border-bottom: 1px solid #00000022;
-    transition: background 0.2s, color 0.2s;
-    /*border-bottom: 2px solid var(--primary);*/
-    /*justify-items: center;*/
-    /* background: whiteSmoke; */
-    /*border-top: 2px solid var(--althighlight);*/
 }
 
 
@@ -73,11 +69,11 @@
 
 /* FHD */
 .nav-logo {
-    width: 160px;
-    transition: width 0.1s;
+    height: 300px;
     background: white;
     border-top: 2px solid var(--secondary);
     margin-top: -2px;
+    margin-bottom: -250px;
     z-index: 5;
     background: var(--white);
     border-radius: 0 0 2px 2px;
@@ -87,21 +83,22 @@
         0 10px 20px #00000011;
 }
 
-
-
-
-.nav-logo--forcibly-normal { width: 150px; }
-@media (max-width: 576px) { .nav-logo--forcibly-normal { width: 200px; } } /* Phone */
-
-
-
-/* Nav logo hero wrapper dimensions */
-.logo-wrapper {
-    width: 600px;
+@media (max-width: 1770px) {
+    .nav-logo {
+        height: 174px;
+        margin-bottom: -100px;
+    }
 }
-@media (max-width: 1440px) { .logo-wrapper { width: 450px; } }
-@media (max-width: 992px) {  .logo-wrapper { width: 270px;  } }
-@media (max-width: 576px) {  .logo-wrapper { width: 100%;  } } /* sm phone */
+/*.nav-logo {
+    height: 200px;
+    margin-bottom: -150px;
+}*/
+
+/*@media (max-width: 1080px) { }*/
+
+
+
+
 
 
 .Page-nav li a {
@@ -164,32 +161,25 @@ li .emoji {
 }
 
 .right-link-nav-cta {
-    color: var(--highlight);
     padding: 4px;
     border-radius: 3px;
     font-weight: 200;
     text-decoration: underline;
     transition: background 0.2s, color 0.2s;
-    color: var(--highlight);
-    /*
-    background: #ffffff99;
-    border: 1px solid var(--highlight);
-    border-bottom-width: 2px;*/
     text-align: center;
     display: inline-block;
     height: auto;
     font-size: 0.9rem;
+    color: var(--white);
 }
-/*
-.right-link-nav-cta:hover,
-.right-link-nav-cta.nav--selected {
-    background: var(--highlight);
-}
-*/
+
 .right-link-nav-cta.nav--selected {
     border: 1px solid var(--highlight);
 }
 
+.Page-nav--light .right-link-nav-cta {
+    color: var(--highlight);
+}
 
 .light-button {
     margin-top: 10px;
@@ -206,18 +196,24 @@ li .emoji {
 }
 
 .right-cta {
-    color: white;
     text-decoration: none;
-    border: 3px solid var(--highlight);
-    background: var(--highlight);
-    border-bottom-width: 4px;
-    border-top-width: 2px;
     padding: 8px;
     display: inline-block;
     border-radius: 3px;
     transition: background 0.2s, color 0.2s;
     box-shadow: 0 0 10px #ffffff00;
     transition: box-shadow 0.2s;
+    border-bottom-width: 4px;
+    border-top-width: 2px;
+    color: var(--highlight);
+    border: 3px solid var(--white);
+    background: var(--white);
+}
+
+.Page-nav--light .right-cta {
+    color: white;
+    border: 3px solid var(--highlight);
+    background: var(--highlight);
 }
 
 .Page-nav div input {
@@ -279,7 +275,7 @@ li .emoji {
 }
 
 .Page-navLink {
-    color: var(--highlight);
+    color: var(--white);
     font-weight: 300;
     letter-spacing: 0.075em; /* tracking wider */
     font-size: 1.5rem;
@@ -297,6 +293,10 @@ li .emoji {
     /*text-shadow: 1px 2px var(--primary);*/
     /*border-bottom: 1px solid var(--primary);*/
     /*border-bottom: 1px solid var(--darkgray);*/
+}
+
+.Page-nav--light .Page-navLink {
+    color: var(--highlight);
 }
 
 
@@ -405,7 +405,8 @@ li .emoji {
 }
 
 .hero-composite-splash {
-    background: url("/static/images/hero/jovanka_splash_photo_rasterized.jpg");
+    /*$background: url("/static/images/hero/jovanka_splash_photo_rasterized.jpg");*/
+    background: url("/static/images/images-landing/_HLA6968.jpg");
     background-size: 100% auto;
     /* Aspect ratio: 1920x866 = 0.4510416 */
     height: calc(100vw * 0.45);
@@ -416,12 +417,18 @@ li .emoji {
 
 .hero-splash-video-holder {
     position: relative;
-    top: -100px;
-    left: 40vw;
+    top: -450px;
+    left: 5vw;
     /*margin-bottom: calc(0 - 100vw * 0.45);*/
     height: 315px;
     margin-bottom: -315px;
- 
+}
+
+@media (max-width: 1440px) {
+    .hero-splash-video-holder {
+        top: -400px;
+        left: 10px;
+    }
 }
 
 .hero-splash-video-holder iframe {
