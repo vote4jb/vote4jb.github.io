@@ -4,7 +4,9 @@
 <script Configuration>
     window.dataLayer = window.dataLayer || [];
     function gtag() { window.dataLayer.push(arguments); }
-    if (window.location.host.startsWith('localhost')) {
+
+    // Check common things we skip
+    if (window.location.host.startsWith('localhost') && false) {
         return;
     }
     if (window.location.host.includes('.local')) {
@@ -19,12 +21,21 @@
     if (window.location.host.startsWith('dev--')) {
         return;
     }
+
     gtag('js', new Date());
     gtag('config', 'G-6ZT8F1MF6V'); // TODO: Swap with correct
+    const scriptId = 'gascript';
+    const scriptSrc = "https://www.googletagmanager.com/gtag/js?id=G-6ZT8F1MF6V"; // TODO: Swap with correct
+    setTimeout(() => {
+        if(!document.getElementById(scriptId)) {
+            var script = document.createElement('script');
+            script.id = scriptId;
+            script.src = scriptSrc;
+            document.head.appendChild(script);
+            console.log('appended', script);
+        }
+    }, 10);
 </script>
-
-<!-- Run analytics script (TODO Swap with correct script ) -->
-<script Configuration -src="https://www.googletagmanager.com/gtag/js?id=G-6ZT8F1MF6V"></script>
 
 <Library namespace="x" -src="/static/libraries/layout.html"></Library>
 <Library namespace="x" -src="/static/libraries/forms.html"></Library>

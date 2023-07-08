@@ -41,10 +41,34 @@
 </Component>
 
 
-<Component name="ActionNetworkForm">
-    <Template
-        -src="/static/libraries/forms/ActionNetworkForm.html"
-    ></Template>
+<Component name="ActionNetworkForm" rerender="manual">
+    <Template>
+        <div class="form-container">
+            <h2>Volunteer</h2>
+            <div id='can-form-area-jovanka-beckles-for-state-senate' style='width: 100%'>
+                <!-- this div is the target for our HTML insertion -->
+            </div>
+        </div>
+    </Template>
+    <Script>
+        const scriptId = 'anv5embedscript';
+        const linkId = 'anv5embedlink';
+        function updateCallback() {
+            if(!document.getElementById(scriptId)) {
+                var script = document.createElement('script');
+                script.id = scriptId;
+                script.src = 'https://actionnetwork.org/widgets/v5/form/jovanka-beckles-for-state-senate?format=js&source=widget';
+                document.head.appendChild(script);
+            }
+            if(!document.getElementById(linkId)) {
+                var link = document.createElement('link');
+                link.id = linkId;
+                link.rel = 'stylesheet';
+                link.href = 'https://actionnetwork.org/css/style-embed-v3.css';
+                document.head.appendChild(link);
+            }
+        }
+    </Script>
     <Style
         -src="/static/libraries/forms/ContactForm.css"
     ></Style>
