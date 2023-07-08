@@ -1,4 +1,6 @@
+
 <!-- Set up configuration, etc -->
+<!--
 <script Configuration -src="https://unpkg.com/showdown/dist/showdown.min.js">
     function doMarkdown(source) {
         // Unescape
@@ -9,6 +11,7 @@
     }
     modulo.register('util', doMarkdown);
 </script>
+-->
 
 <Component name="Page" mode="vanish-into-document">
     <Props
@@ -39,6 +42,7 @@
             let markdown = null;
             let hideJoin = false;
             if (props.markdown) {
+                console.log("error: no markdown support");
                 markdown = modulo.registry.utils.doMarkdown(element.originalHTML);
             }
             if (props.navselected.includes('contact')) {

@@ -1,33 +1,15 @@
 <!DOCTYPE html>
-
 <script Modulo
     src="/static/js/Modulo.js"
     -src="/static/libraries/" 
 ></script>
-
 
 <x-Page
     title="Contact / Volunteer"
     navselected="contact/volunteer.html"
     toptitle="Volunteer"
 >
-
-    <!--
-    <h2>Come to our next event</h2>
-    <x-MobilizeAPI></x-MobilizeAPI>
-    -->
-
-    <h2>Contact us</h2>
-
-    <p>You don't need any particular skills or even more than a few hours to be
-    a huge help to our movement. Power flows from the people, so contact us to
-    get involved today!</p>
-    <form name="volunteer_form" method="POST" netlify>
-        <x-ContactForm
-            volunteerform=true
-        ></x-ContactForm>
-    </form>
-
+    <!-- Embeds the ACtion Network form -->
+    <x-ActionNetworkForm></x-ActionNetworkForm>
 </x-Page>
-
 

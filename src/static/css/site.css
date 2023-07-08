@@ -2,7 +2,8 @@
 /* Set up color scheme */
   --primary: #edcd1f;
   --secondary: #309d00;
-  --highlight: #390bac;
+  /*--highlight: #390bac;*/ /* Old purple color */
+   --highlight: #1c5799;    /* New teal color */
   --althighlight: #ac0b0b;
   --lightgray: WhiteSmoke;
   /*--mediumgray: Gray;*/ /*TODO*/
@@ -89,7 +90,7 @@ p {
     padding: 2px;
 }
 .platform h3 {
-    color: var(--primary);
+    /*color: var(--primary);*/
     font-size: 1.1rem;
 }
 .platform p {
@@ -108,8 +109,8 @@ p {
     box-shadow:
         0     5px 5px                #00000033,
         0     5px  5px         inset #00000011,
-        0     100px 3000px -200px          inset var(--highlight2),
         0    -100px 70px 10px inset #00000022;
+        /*0     100px 3000px -200px          inset var(--highlight2),*/
 }
 
 
@@ -126,10 +127,10 @@ p {
     padding: 1px;
 }
 .platform-plank:hover {
-    box-shadow:
+    /*box-shadow:
         0     5px 5px                #00000033,
         0     5px  5px         inset #00000000,
-        0    -100px 70px 10px inset #00000000;
+        0    -100px 70px 10px inset #00000000;*/
     transform: scale(1.1);
     z-index: 12;
 }
@@ -614,12 +615,14 @@ p {
 .Page-container .hero-text-bottom {
     padding-top: 5px;
     margin: 0;
-    border-bottom: 3px solid var(--primary);
+    border-bottom: 3px solid var(--highlight);
     text-align: left;
     font-size: 3rem; 
     width: 100vw;
     font-weight: 400;
     grid-column: 1 / span 3;
+    text-align: left;
+    color: var(--highlight);
 }
 
 

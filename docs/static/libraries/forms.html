@@ -40,3 +40,97 @@
     ></Style>
 </Component>
 
+<!--
+( from volunteer )
+    <h2>Come to our next event</h2>
+    <p>Often the best way to start helping is showing up to an event! We host</p>
+    <x-MobilizeAPI></x-MobilizeAPI>
+
+<h2>Contact us</h2>
+
+<p>You don't need any particular skills or even more than a few hours to be
+a huge help to our movement. Power flows from the people, so contact us to
+get involved today!</p>
+
+<p><strong>Email:</strong> <tt>info@jovanka4casenate.com</tt></p>
+
+<form name="volunteer_form" method="POST" netlify>
+    <x-ContactForm
+        volunteerform=true
+    ></x-ContactForm>
+</form>
+-->
+
+
+
+
+<Component name="ActionNetworkForm" rerender="manual">
+    <Template>
+        <div class="form-container">
+            <h2>Volunteer</h2>
+            <div id='can-form-area-jovanka-beckles-for-state-senate' style='width: 100%'>
+                <!-- this div is the target for our HTML insertion -->
+            </div>
+        </div>
+    </Template>
+    <Script>
+        const scriptId = 'anv5embedscript';
+        const linkId = 'anv5embedlink';
+        function updateCallback() {
+            // XXX FRAGILE way to skip during automated build
+            const host = String(location.host);
+            if (host === '127.0.0.1:6627') { // skip during build
+                return;
+            }
+            if(!document.getElementById(scriptId)) {
+                const script = document.createElement('script');
+                script.id = scriptId;
+                script.src = 'https://actionnetwork.org/widgets/v5/form/jovanka-beckles-for-state-senate?format=js&source=widget';
+                document.head.appendChild(script);
+            }
+            if(!document.getElementById(linkId)) {
+                const link = document.createElement('link');
+                link.id = linkId;
+                link.rel = 'stylesheet';
+                link.href = 'https://actionnetwork.org/css/style-embed-v3.css';
+                document.head.appendChild(link);
+            }
+        }
+    </Script>
+    <Style
+        -src="/static/libraries/forms/ContactForm.css"
+    ></Style>
+    <Style>
+        :host {
+            min-height: 800px;
+        }
+
+        #can_embed_form.can_float #form_col1 {
+            float: none !important;
+            width: 100% !important;
+        }
+        #can_embed_form.can_float #form_col2 {
+            float: none !important;
+            width: 100% !important;
+        }
+
+        #can_embed_form_inner > h2,
+        #can_embed_form_inner > h4 {
+            display: none;
+        }
+    </Style>
+</Component>
+
+
+<Component name="DonateButtons">
+    <StaticData -data-type="js">
+        [ 22, 50, 100, 250, 500, 2500, 5500 ]
+    </StaticData>
+    <Template
+        -src="/static/libraries/forms/DonateButtons.html"
+    ></Template>
+    <Style
+        -src="/static/libraries/forms/DonateButtons.css"
+    ></Style>
+</Component>
+

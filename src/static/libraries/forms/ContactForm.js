@@ -157,6 +157,14 @@ function handleSubmit(ev) {
         FORM_USED: ev.target.getAttribute('name'),
     });
     state.submitted = true;
+    handleGSheetsSubmit(formData);
+    handleNetlifySubmit(formData);
+}
+
+function handleGSheetsSubmit(formData) {
+}
+
+function handleNetlifySubmit(formData) {
     fetch("/", {
           method: "POST",
           headers: { "Content-Type": "application/x-www-form-urlencoded" },

@@ -3,12 +3,8 @@
     navigation: [
         /*
         {
-            title: "Leadership",
-            file: "index.html",
-        },
-        {
             title: "Results",
-            file: "issues/",
+            file: "results/",
         },
         */
         {
