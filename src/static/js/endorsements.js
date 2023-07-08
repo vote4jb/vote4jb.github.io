@@ -18,6 +18,9 @@
             src: "2307/Teamsters_Square_Endorsement.jpg",
         },
         {
+            src: "2307/Teamsters_Local856_Square_Endorsement.jpg",
+        },
+        {
             src: "2306/GenovevaCalloway_Endorse__Square.jpg",
         },
         {
@@ -28,6 +31,7 @@
             src: "2306/our_revolution_east_bay.jpg",
         },
         {
+            skip: true,
             src: "230523/WiP_Square_Endorse_512px.jpg",
         },
     ],

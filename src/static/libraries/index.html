@@ -6,7 +6,7 @@
     function gtag() { window.dataLayer.push(arguments); }
 
     // Check common things we skip
-    if (window.location.host.startsWith('localhost') && false) {
+    if (window.location.host.startsWith('localhost')) {
         return;
     }
     if (window.location.host.includes('.local')) {
@@ -32,7 +32,6 @@
             script.id = scriptId;
             script.src = scriptSrc;
             document.head.appendChild(script);
-            console.log('appended', script);
         }
     }, 10);
 </script>
