@@ -5,6 +5,8 @@
     -src="/static/libraries/" 
 ></script>
 
+<link href='https://actionnetwork.org/css/style-embed-v3.css' rel='stylesheet' type='text/css' />
+<script src='https://actionnetwork.org/widgets/v5/form/jovanka-beckles-for-state-senate?format=js&source=widget'></script>
 
 <x-Page
     title="Contact / Volunteer"
@@ -15,7 +17,6 @@
         <h2>Come to our next event</h2>
         <p>Often the best way to start helping is showing up to an event! We host</p>
         <x-MobilizeAPI></x-MobilizeAPI>
-    -->
 
     <h2>Contact us</h2>
 
@@ -30,7 +31,10 @@
             volunteerform=true
         ></x-ContactForm>
     </form>
+    -->
 
+    <!-- this div is the target for our HTML insertion --></div>
+    <x-ActionNetworkForm></x-ActionNetworkForm>
 </x-Page>
 
 

@@ -41,6 +41,35 @@
 </Component>
 
 
+<Component name="ActionNetworkForm">
+    <Template
+        -src="/static/libraries/forms/ActionNetworkForm.html"
+    ></Template>
+    <Style
+        -src="/static/libraries/forms/ContactForm.css"
+    ></Style>
+    <Style>
+        :host {
+            min-height: 800px;
+        }
+
+        #can_embed_form.can_float #form_col1 {
+            float: none !important;
+            width: 100% !important;
+        }
+        #can_embed_form.can_float #form_col2 {
+            float: none !important;
+            width: 100% !important;
+        }
+
+        #can_embed_form_inner > h2,
+        #can_embed_form_inner > h4 {
+            display: none;
+        }
+    </Style>
+</Component>
+
+
 <Component name="DonateButtons">
     <StaticData -data-type="js">
         [ 22, 50, 100, 250, 500, 2500, 5500 ]
