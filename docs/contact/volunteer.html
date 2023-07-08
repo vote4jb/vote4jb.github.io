@@ -1,7 +1,6 @@
 <!DOCTYPE html><html><head>
 
-
-<title>Contact / Volunteer - Jovanka for California State Senate</title><meta name="title" content="Contact / Volunteer | Jovanka for California State Senate"><meta name="description" content="Jovanka is running for District 7, which covers Oakland, Berkeley, Richmond, and more. She fights for healthcare, good jobs, and progressive values for the East Bay. Learn more and join an event!"><meta name="keywords" content="Jovanka,Beckles,Oakland, Berkeley, Richmond, Alameda, San Pablo,Hercules,El Cerrito,Albany,Pinole,Emeryville,Piedmont,El Sobrante,Rodeo,North Richmond,East Richmond Heights,Kensington,San Leandro,california,senate,vote,2024,State Senate District 7 info "><meta name="robots" content="index, follow"><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="language" content="English"><meta name="revisit-after" content="30 days"><link rel="stylesheet" href="/_modulo/modulo-build-xxkim2tn.css">
+<title>Contact / Volunteer - Jovanka for California State Senate</title><meta name="title" content="Contact / Volunteer | Jovanka for California State Senate"><meta name="description" content="Jovanka is running for District 7, which covers Oakland, Berkeley, Richmond, and more. She fights for healthcare, good jobs, and progressive values for the East Bay. Learn more and join an event!"><meta name="keywords" content="Jovanka,Beckles,Oakland, Berkeley, Richmond, Alameda, San Pablo,Hercules,El Cerrito,Albany,Pinole,Emeryville,Piedmont,El Sobrante,Rodeo,North Richmond,East Richmond Heights,Kensington,San Leandro,california,senate,vote,2024,State Senate District 7 info "><meta name="robots" content="index, follow"><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="language" content="English"><meta name="revisit-after" content="30 days"><link rel="stylesheet" href="/_modulo/modulo-build-xx1t1fa4.css">
 </head><body>
     
 
@@ -16,8 +15,16 @@
     
     
     
+
+    <!-- Action network
+    <link href='https://actionnetwork.org/css/style-embed-v3.css' rel='stylesheet' type='text/css' />
+    <script src='https://actionnetwork.org/widgets/v5/form/jovanka-beckles-for-state-senate?format=js&source=widget'></script>
+    -->
+
     
     
+
+
 
 
 
@@ -225,199 +232,15 @@
 
 
     <slot class="Page-container layout-container" style="">
-
-  <!--
-    <h2>Come to our next event</h2>
-    <x-MobilizeAPI></x-MobilizeAPI>
-  -->
-
-    <h2>Contact us</h2>
-
-    <p>You don't need any particular skills or even more than a few hours to be
-    a huge help to our movement. Power flows from the people, so contact us to
-    get involved today!</p>
-    <form name="volunteer_form" method="POST" netlify="">
-        <x-contactform volunteerform="true" modulo-original-html="">
-<div class="form-container">
-    <h2>Volunteer</h2>
-    
-        
-            <div class="field-pair ">
-                <label for="firstname_28">
-                    First Name
-                </label>
-                <input [state.bind]="" name="firstname" type="text" id="firstname_28">
+    <!-- Embeds the ACtion Network form -->
+    <x-actionnetworkform modulo-original-html="">
+        <div class="form-container">
+            <h2>Volunteer</h2>
+            <div id="can-form-area-jovanka-beckles-for-state-senate" style="width: 100%">
+                <!-- this div is the target for our HTML insertion -->
             </div>
-        
-    
-        
-            <div class="field-pair ">
-                <label for="lastname_28">
-                    Last Name
-                </label>
-                <input [state.bind]="" name="lastname" type="text" id="lastname_28">
-            </div>
-        
-    
-        
-            <div class="field-pair ">
-                <label for="email_28">
-                    Email
-                </label>
-                <input [state.bind]="" name="email" type="text" id="email_28">
-            </div>
-        
-    
-        
-            <div class="field-pair field-pair--half">
-                <label for="zip_28">
-                    Zip Code
-                </label>
-                <input [state.bind]="" name="zip" type="text" id="zip_28">
-            </div>
-        
-    
-        
-            <div class="field-pair field-pair--half">
-                <label for="phone_28">
-                    Phone
-                </label>
-                <input [state.bind]="" name="phone" type="text" id="phone_28">
-            </div>
-        
-    
-        
-            <div class="field-pair  field-pair--check">
-                
-                    <div>
-                        <input type="hidden" name="volunteer" value="yes_form" id="volunteer_28">
-                    </div>
-                
-                <div style="width: 100%">
-                    <label for="volunteer_28">
-                        
-                        
-                    </label>
-                    
-                    
-                </div>
-            </div>
-        
-    
-        
-            <div class="field-pair  field-pair--check">
-                
-                    <input [state.bind]="" type="checkbox" name="has_message" id="has_message_28">
-                
-                <div style="width: 100%">
-                    <label for="has_message_28">
-                        
-                            Include message
-                        
-                    </label>
-                    
-                    
-                        <ul class="submenu submenu--simple ">
-                            <li>
-                                <textarea [state.bind]="" name="has_message_value" class="message-value-text"></textarea>
-                            </li>
-                        </ul>
-                    
-                </div>
-            </div>
-        
-    
-        
-            <div class="field-pair  field-pair--check">
-                
-                    <input [state.bind]="" type="checkbox" name="donate" id="donate_28">
-                
-                <div style="width: 100%">
-                    <label for="donate_28">
-                        
-                            Yes, I want to donate
-                        
-                    </label>
-                    
-                        <ul class="submenu ">
-                            <li style="display:none"> <!-- Hack to add a label to email / CSV -->
-                                <label>
-                                    Donation Value Entered (If Any):
-                                    <input type="checkbox" name="donate_value" value="">
-                                </label>
-                            </li>
-                            
-                                <li>
-                                    <input [state.bind]="" type="radio" name="donate_value" value="2" id="donate_28_2">
-                                    <label for="donate_28_2" @click:="script.setDonation" payload="#donate_28_2">
-                                        DONATE $2
-                                    </label>
-                                </li>
-                            
-                                <li>
-                                    <input [state.bind]="" type="radio" name="donate_value" value="9" id="donate_28_9">
-                                    <label for="donate_28_9" @click:="script.setDonation" payload="#donate_28_9">
-                                        DONATE $9
-                                    </label>
-                                </li>
-                            
-                                <li>
-                                    <input [state.bind]="" type="radio" name="donate_value" value="27" id="donate_28_27">
-                                    <label for="donate_28_27" @click:="script.setDonation" payload="#donate_28_27">
-                                        DONATE $27
-                                    </label>
-                                </li>
-                            
-                                <li>
-                                    <input [state.bind]="" type="radio" name="donate_value" value="50" id="donate_28_50">
-                                    <label for="donate_28_50" @click:="script.setDonation" payload="#donate_28_50">
-                                        DONATE $50
-                                    </label>
-                                </li>
-                            
-                                <li>
-                                    <input [state.bind]="" type="radio" name="donate_value" value="200" id="donate_28_200">
-                                    <label for="donate_28_200" @click:="script.setDonation" payload="#donate_28_200">
-                                        DONATE $200
-                                    </label>
-                                </li>
-                            
-                                <li>
-                                    <input [state.bind]="" type="radio" name="donate_value" value="1000" id="donate_28_1000">
-                                    <label for="donate_28_1000" @click:="script.setDonation" payload="#donate_28_1000">
-                                        DONATE $1000
-                                    </label>
-                                </li>
-                            
-                            <li>
-                                <input [state.bind]="" type="radio" name="donate_value" value="other" id="donate_28_other">
-                                <label for="donate_28_other">
-                                    DONATE $_
-                                    <input [state.bind]="" name="donate_other_value" class="other-amount" type="text" placeholder="Enter amount..." id="donate_28_other_value">
-                                </label>
-                            </li>
-                        </ul>
-                    
-                    
-                </div>
-            </div>
-        
-    
-
-    <div style="text-align: center">
-        <button>Volunteer</button>
-    </div>
-</div>
-
-<div class="form-modal-wrapper">
-    
-    
-<div>
-
-
-</div></div></x-contactform>
-    </form>
-
+        </div>
+    </x-actionnetworkform>
 </slot>
 
 
@@ -525,5 +348,5 @@
 
 </footer>
 
-<script async="" src="/_modulo/modulo-build-xxsqdf7g.js"></script>
+<script async="" src="/_modulo/modulo-build-xxk260dh.js"></script>
 </body></html>

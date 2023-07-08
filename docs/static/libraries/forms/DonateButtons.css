@@ -1,0 +1,38 @@
+
+
+.submenu a,
+button,
+.form-modal-button {
+    color: white;
+    margin-right: 10px;
+    text-decoration: none;
+    border: 3px solid var(--highlight);
+    background: var(--highlight);
+    border-bottom-width: 4px;
+    border-top-width: 2px;
+    padding: 8px;
+    display: inline-block;
+    border-radius: 3px;
+    transition: background 0.2s, color 0.2s;
+    box-shadow: 0 0 10px #ffffff00;
+    transition: box-shadow 0.2s;
+    font-family: 'Oswald', sans-serif;
+}
+.submenu input[type=radio] {
+    display: none;
+}
+.submenu  li {
+    list-style: none;
+    margin-top: 2px;
+    margin: 0;
+    padding: 0;
+}
+
+.submenu a {
+  margin-top: 10px;
+}
+
+
+.submenu a:hover {
+  color: var(--primary);
+}

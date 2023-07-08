@@ -3,8 +3,7 @@
   --primary: #edcd1f;
   --secondary: #309d00;
   /*--highlight: #390bac;*/ /* Old purple color */
-   /* New purple color */
-   --highlight: #1c5799;
+   --highlight: #1c5799;    /* New teal color */
   --althighlight: #ac0b0b;
   --lightgray: WhiteSmoke;
   /*--mediumgray: Gray;*/ /*TODO*/
@@ -110,8 +109,8 @@ p {
     box-shadow:
         0     5px 5px                #00000033,
         0     5px  5px         inset #00000011,
-        0     100px 3000px -200px          inset var(--highlight2),
         0    -100px 70px 10px inset #00000022;
+        /*0     100px 3000px -200px          inset var(--highlight2),*/
 }
 
 
@@ -623,6 +622,7 @@ p {
     font-weight: 400;
     grid-column: 1 / span 3;
     text-align: left;
+    color: var(--highlight);
 }
 
 
